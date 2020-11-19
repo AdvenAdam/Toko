@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-3">
                                                     <input type="text" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('stok'); ?>
@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="jenis_pendingin" class="col-sm-2 col-form-label">Jenis Pendingin</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-5">
                                                     <input type="text" class="form-control <?= ($validation->hasError('jenis_pendingin')) ? 'is-invalid' : ''; ?>" require id="jenis_pendingin" name="jenis_pendingin" value="<?= old('jenis_pendingin'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('jenis_pendingin'); ?>

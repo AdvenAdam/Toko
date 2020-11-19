@@ -45,9 +45,10 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- INPUT TYPE SELEXT -->
                                             <div class="form-group row showcase_row_area">
                                                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-3">
                                                     <input type="text" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('stok'); ?>
@@ -77,12 +78,13 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="mb_power" class="col-sm-2 col-form-label">Psu Power</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-4">
                                                     <input type="text" class="form-control <?= ($validation->hasError('mb_power')) ? 'is-invalid' : ''; ?>" require id="mb_power" name="mb_power" value="<?= old('mb_power'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('mb_power'); ?>
                                                     </div>
                                                 </div>
+                                                <label class="col-sm-1 col-form-label">Watt</label>
                                             </div>
                                             <div class="grid-header">
                                                 <h7 class="my-10"><?= "Rincian Produk"; ?></h7>

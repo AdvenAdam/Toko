@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="ukuran_memori" class="col-sm-2 col-form-label">Ukuran Memory</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-5">
                                                     <input type="text" class="form-control <?= ($validation->hasError('ukuran_memori')) ? 'is-invalid' : ''; ?>" require id="ukuran_memori" name="ukuran_memori" value="<?= old('ukuran_memori'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('ukuran_memori'); ?>
@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="jenis_memori" class="col-sm-2 col-form-label">Jenis Memory</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-5">
                                                     <input type="text" class="form-control <?= ($validation->hasError('jenis_memori')) ? 'is-invalid' : ''; ?>" require id="jenis_memori" name="jenis_memori" value="<?= old('jenis_memori'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('jenis_memori'); ?>
