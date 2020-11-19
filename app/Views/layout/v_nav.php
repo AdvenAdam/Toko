@@ -1,121 +1,145 @@
- <!-- Navbar -->
- <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-     <!-- Left navbar links -->
-     <ul class="navbar-nav">
-         <li class="nav-item">
-             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-         </li>
-         <li class="nav-item d-none d-sm-inline-block">
-             <a href="index3.html" class="nav-link">Home</a>
-         </li>
-         <li class="nav-item d-none d-sm-inline-block">
-             <a href="#" class="nav-link">Contact</a>
-         </li>
-     </ul>
-
-     <!-- SEARCH FORM -->
-     <form class="form-inline ml-3">
-         <div class="input-group input-group-sm">
-             <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-             <div class="input-group-append">
-                 <button class="btn btn-navbar" type="submit">
-                     <i class="fas fa-search"></i>
-                 </button>
-             </div>
-         </div>
-     </form>
-
-     <!-- Right navbar links -->
-     <ul class="navbar-nav ml-auto">
-         <!-- Messages Dropdown Menu -->
-         <li class="nav-item dropdown">
-             <a class="nav-link" data-toggle="dropdown" href="#">
-                 <i class="far fa-comments"></i>
-                 <span class="badge badge-danger navbar-badge">3</span>
-             </a>
-             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                 <a href="#" class="dropdown-item">
-                     <!-- Message Start -->
-                     <div class="media">
-                         <img src="/template/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                         <div class="media-body">
-                             <h3 class="dropdown-item-title">
-                                 Brad Diesel
-                                 <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                             </h3>
-                             <p class="text-sm">Call me whenever you can...</p>
-                             <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                         </div>
-                     </div>
-                     <!-- Message End -->
-                 </a>
-                 <div class="dropdown-divider"></div>
-                 <a href="#" class="dropdown-item">
-                     <!-- Message Start -->
-                     <div class="media">
-                         <img src="/template/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                         <div class="media-body">
-                             <h3 class="dropdown-item-title">
-                                 John Pierce
-                                 <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                             </h3>
-                             <p class="text-sm">I got your message bro</p>
-                             <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                         </div>
-                     </div>
-                     <!-- Message End -->
-                 </a>
-                 <div class="dropdown-divider"></div>
-                 <a href="#" class="dropdown-item">
-                     <!-- Message Start -->
-                     <div class="media">
-                         <img src="/template/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                         <div class="media-body">
-                             <h3 class="dropdown-item-title">
-                                 Nora Silvester
-                                 <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                             </h3>
-                             <p class="text-sm">The subject goes here</p>
-                             <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                         </div>
-                     </div>
-                     <!-- Message End -->
-                 </a>
-                 <div class="dropdown-divider"></div>
-                 <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-             </div>
-         </li>
-         <!-- Notifications Dropdown Menu -->
-         <li class="nav-item dropdown">
-             <a class="nav-link" data-toggle="dropdown" href="#">
-                 <i class="far fa-bell"></i>
-                 <span class="badge badge-warning navbar-badge">15</span>
-             </a>
-             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                 <span class="dropdown-item dropdown-header">15 Notifications</span>
-                 <div class="dropdown-divider"></div>
-                 <a href="#" class="dropdown-item">
-                     <i class="fas fa-envelope mr-2"></i> 4 new messages
-                     <span class="float-right text-muted text-sm">3 mins</span>
-                 </a>
-                 <div class="dropdown-divider"></div>
-                 <a href="#" class="dropdown-item">
-                     <i class="fas fa-users mr-2"></i> 8 friend requests
-                     <span class="float-right text-muted text-sm">12 hours</span>
-                 </a>
-                 <div class="dropdown-divider"></div>
-                 <a href="#" class="dropdown-item">
-                     <i class="fas fa-file mr-2"></i> 3 new reports
-                     <span class="float-right text-muted text-sm">2 days</span>
-                 </a>
-                 <div class="dropdown-divider"></div>
-                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-             </div>
-         </li>
-         <li class="nav-item">
-             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                 <i class="fas fa-th-large"></i>
-             </a>
-         </li>
-     </ul>
- </nav>
+<nav class="t-header navbar-light navbar-expand ">
+    <div class="t-header-brand-wrapper">
+        <a href="index.html">
+            <img class="logo" src="/zz/src/assets/images/logo.svg" alt="">
+            <img class="logo-mini" src="/zz/src/assets/images/logo_mini.svg" alt="">
+        </a>
+    </div>
+    <div class="t-header-content-wrapper">
+        <div class="t-header-content">
+            <button class="t-header-toggler t-header-mobile-toggler d-block d-lg-none">
+                <i class="mdi mdi-menu"></i>
+            </button>
+            <form action="#" class="t-header-search-box">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off">
+                    <button class="btn btn-primary" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
+                </div>
+            </form>
+            <ul class="nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="notificationDropdown" data-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-bell-outline mdi-1x"></i>
+                    </a>
+                    <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="notificationDropdown">
+                        <div class="dropdown-header">
+                            <h6 class="dropdown-title">Notifications</h6>
+                            <p class="dropdown-title-text">You have 4 unread notification</p>
+                        </div>
+                        <div class="dropdown-body">
+                            <div class="dropdown-list">
+                                <div class="icon-wrapper rounded-circle bg-inverse-primary text-primary">
+                                    <i class="mdi mdi-alert"></i>
+                                </div>
+                                <div class="content-wrapper">
+                                    <small class="name">Storage Full</small>
+                                    <small class="content-text">Server storage almost full</small>
+                                </div>
+                            </div>
+                            <div class="dropdown-list">
+                                <div class="icon-wrapper rounded-circle bg-inverse-success text-success">
+                                    <i class="mdi mdi-cloud-upload"></i>
+                                </div>
+                                <div class="content-wrapper">
+                                    <small class="name">Upload Completed</small>
+                                    <small class="content-text">3 Files uploded successfully</small>
+                                </div>
+                            </div>
+                            <div class="dropdown-list">
+                                <div class="icon-wrapper rounded-circle bg-inverse-warning text-warning">
+                                    <i class="mdi mdi-security"></i>
+                                </div>
+                                <div class="content-wrapper">
+                                    <small class="name">Authentication Required</small>
+                                    <small class="content-text">Please verify your password to continue using cloud services</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">View All</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="messageDropdown" data-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-message-outline mdi-1x"></i>
+                        <span class="notification-indicator notification-indicator-primary notification-indicator-ripple"></span>
+                    </a>
+                    <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="messageDropdown">
+                        <div class="dropdown-header">
+                            <h6 class="dropdown-title">Messages</h6>
+                            <p class="dropdown-title-text">You have 4 unread messages</p>
+                        </div>
+                        <div class="dropdown-body">
+                            <div class="dropdown-list">
+                                <div class="image-wrapper">
+                                    <img class="profile-img" src="/zz/src/assets/images/profile/male/image_1.png" alt="profile image">
+                                    <div class="status-indicator rounded-indicator bg-success"></div>
+                                </div>
+                                <div class="content-wrapper">
+                                    <small class="name">Clifford Gordon</small>
+                                    <small class="content-text">Lorem ipsum dolor sit amet.</small>
+                                </div>
+                            </div>
+                            <div class="dropdown-list">
+                                <div class="image-wrapper">
+                                    <img class="profile-img" src="/zz/src/assets/images/profile/female/image_2.png" alt="profile image">
+                                    <div class="status-indicator rounded-indicator bg-success"></div>
+                                </div>
+                                <div class="content-wrapper">
+                                    <small class="name">Rachel Doyle</small>
+                                    <small class="content-text">Lorem ipsum dolor sit amet.</small>
+                                </div>
+                            </div>
+                            <div class="dropdown-list">
+                                <div class="image-wrapper">
+                                    <img class="profile-img" src="zz/src/assets/images/profile/male/image_3.png" alt="profile image">
+                                    <div class="status-indicator rounded-indicator bg-warning"></div>
+                                </div>
+                                <div class="content-wrapper">
+                                    <small class="name">Lewis Guzman</small>
+                                    <small class="content-text">Lorem ipsum dolor sit amet.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">View All</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="appsDropdown" data-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-apps mdi-1x"></i>
+                    </a>
+                    <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown">
+                        <div class="dropdown-header">
+                            <h6 class="dropdown-title">Apps</h6>
+                            <p class="dropdown-title-text mt-2">Authentication required for 3 apps</p>
+                        </div>
+                        <div class="dropdown-body border-top pt-0">
+                            <a class="dropdown-grid">
+                                <i class="grid-icon mdi mdi-jira mdi-2x"></i>
+                                <span class="grid-tittle">Jira</span>
+                            </a>
+                            <a class="dropdown-grid">
+                                <i class="grid-icon mdi mdi-trello mdi-2x"></i>
+                                <span class="grid-tittle">Trello</span>
+                            </a>
+                            <a class="dropdown-grid">
+                                <i class="grid-icon mdi mdi-artstation mdi-2x"></i>
+                                <span class="grid-tittle">Artstation</span>
+                            </a>
+                            <a class="dropdown-grid">
+                                <i class="grid-icon mdi mdi-bitbucket mdi-2x"></i>
+                                <span class="grid-tittle">Bitbucket</span>
+                            </a>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">View All</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
