@@ -60,9 +60,29 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="faktor_bentuk" class="col-sm-2 col-form-label">Faktor Bentuk</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('faktor_bentuk')) ? 'is-invalid' : ''; ?>" require id="faktor_bentuk" name="faktor_bentuk" value="<?= old('faktor_bentuk'); ?>">
-                                                    <div class="invalid-feedback">
-                                                        <?= $validation->getError('faktor_bentuk'); ?>
+                                                    <div class="form-grup">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="Mini-ITX"> Mini-ITX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="Micro-ATX"> Micro-ATX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-inline">
+                                                        <div class="checkbox mb-3">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="ATX"> ATX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox mb-3">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="E-ATX"> E-ATX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -59,9 +59,10 @@ class Casing  extends BaseController
                 ]
             ],
             'stok' => [
-                'rules' => 'required',
+                'rules' => 'required|numeric',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => '{field} harus diisi',
+                    'numeric' => 'Pastikan {field} diisi dengan angka saja'
                 ]
             ],
             'faktor_bentuk' => [
@@ -101,7 +102,7 @@ class Casing  extends BaseController
             // $namaSampul = $fileSampul->getName();
 
         }
-
+        $faktorbentuk = $this->request->getVar('faktor_bentuk');
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->casingModel->save([
             'merk' => $this->request->getVar('merk'),
@@ -109,7 +110,7 @@ class Casing  extends BaseController
             'slug' => $slug,
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
-            'faktor_bentuk' => $this->request->getVar('faktor_bentuk'),
+            'faktor_bentuk' => implode(",", $faktorbentuk),
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);
