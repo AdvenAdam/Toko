@@ -7,7 +7,16 @@
                 <div class="col-12 py-5">
                     <div class="grid">
                         <div class="grid-header">
-                            <h2 class="my-3"><?= $title; ?></h2>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="my-3"><?= $title; ?></h3>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/casing" class="btn btn-rounded social-icon-btn btn-primary">
+                                        <i class=" mdi mdi-arrow-left "></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid-body">
                             <div class="item-wrapper">
@@ -47,8 +56,8 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
+                                                <div class="col-sm-3">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('stok'); ?>
                                                     </div>
@@ -75,7 +84,7 @@
                                                     <div class="form-inline">
                                                         <div class="checkbox mb-3">
                                                             <label>
-                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="ATX"> ATX <i class="input-frame"></i>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="Standard-ATX"> Standard-ATX <i class="input-frame"></i>
                                                             </label>
                                                         </div>
                                                         <div class="checkbox mb-3">
@@ -83,6 +92,9 @@
                                                                 <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="E-ATX"> E-ATX <i class="input-frame"></i>
                                                             </label>
                                                         </div>
+                                                    </div>
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('faktor_bentuk'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,9 +105,7 @@
                                                 <label for="rincian" class="col-sm-2 col-form-label">Rincian</label>
                                                 <div class="col-sm-10">
                                                     <textarea class="form-control" cols="12" rows="5" id="rincian" name="rincian"> <?= old('rincian'); ?></textarea>
-                                                    <div class="invalid-feedback">
-                                                        <?= $validation->getError('rincian'); ?>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">

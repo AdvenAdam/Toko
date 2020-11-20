@@ -29,13 +29,13 @@
                                 <div class="d-flex justify-content-between mb-3">
                                     <img src="/img/motherboard/<?= $value['gambar']; ?>" width="200px" height="150px">
                                 </div>
-                                <?= $value['stok']; ?><br>
+                                <?= "Stok :" . $value['stok']; ?><br>
                                 <div class="slidecontainer">
                                     <input type="range" min="1" max="50" value="25" class="slider" name="stok" id="myRange<?= $x++; ?>">
-                                    <p>Value: <span id="val<?= $i++; ?>"></span></p>
+                                    <p>Nilai: <span id="val<?= $i++; ?>"></span></p>
                                 </div>
                                 <center>
-                                    <button type="submit" class="btn btn-success">Add</button>
+                                    <button type="submit" class="btn btn-success btn-sm"><i class="mdi mdi-content-paste "></i>Tambah</button>
                                 </center>
                             </div>
                         </div>
