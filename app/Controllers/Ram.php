@@ -121,8 +121,8 @@ class Ram extends BaseController
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
-            'ukuran_ram' => $this->request->getVar('ukuran_ram'),
-            'frekuensi' => $this->request->getVar('frekuensi'),
+            'ukuran_ram' => $this->request->getVar('ukuran_ram') . "GB",
+            'frekuensi' => $this->request->getVar('frekuensi') . "MHz",
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);
@@ -263,8 +263,8 @@ class Ram extends BaseController
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
-            'ukuran_ram' => $this->request->getVar('ukuran_ram'),
-            'frekuensi' => $this->request->getVar('frekuensi'),
+            'ukuran_ram' => $this->request->getVar('ukuran_ram') . "GB",
+            'frekuensi' => $this->request->getVar('frekuensi') . "MHz",
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);

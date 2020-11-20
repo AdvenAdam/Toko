@@ -23,7 +23,6 @@
                                 <div class="row mb-3">
                                     <div class="col-md-8 mx-auto">
                                         <?php
-
                                         $d = $casing['faktor_bentuk'];
                                         $checked = explode(',', $d);
                                         ?>
@@ -56,7 +55,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= (old('harga')) ? (old('harga')) : $casing['harga']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= (old('harga')) ? (old('harga')) : $casing['harga']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('harga'); ?>
                                                     </div>
@@ -77,7 +76,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="faktor_bentuk" class="col-sm-2 col-form-label">Faktor Bentuk</label>
                                                 <div class="col-sm-10">
-                                                    <div class="form-grup-control  <?= ($validation->hasError('faktor_bentuk')) ? 'is-invalid' : ''; ?>">
+                                                    <div class="form-grup">
                                                         <div class="checkbox">
                                                             <label>
                                                                 <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="Mini-ITX" <?= in_array("Mini-ITX", $checked) ? 'checked=""' : ''; ?>> Mini-ITX <i class="input-frame"></i>

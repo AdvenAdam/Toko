@@ -7,12 +7,25 @@
                 <div class="col-12 py-5">
                     <div class="grid">
                         <div class="grid-header">
-                            <h2 class="my-3"><?= $title; ?></h2>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="my-3"><?= $title; ?></h3>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/motherboard" class="btn btn-rounded social-icon-btn btn-primary">
+                                        <i class=" mdi mdi-arrow-left "></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid-body">
                             <div class="item-wrapper">
                                 <div class="row mb-3">
                                     <div class="col-md-10 mx-auto">
+                                        <?php
+                                        $d = $motherboard['faktor_bentuk'];
+                                        $checked = explode(',', $d);
+                                        ?>
                                         <form action="/motherboard/update/<?= $motherboard['id']; ?>" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="slug" value="<?= $motherboard['slug']; ?>">
@@ -42,7 +55,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= (old('harga')) ? (old('harga')) : $motherboard['harga']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= (old('harga')) ? (old('harga')) : $motherboard['harga']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('harga'); ?>
                                                     </div>
@@ -50,8 +63,8 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= (old('stok')) ? (old('stok')) : $motherboard['stok']; ?>">
+                                                <div class="col-sm-3">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= (old('stok')) ? (old('stok')) : $motherboard['stok']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('stok'); ?>
                                                     </div>
@@ -81,20 +94,41 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="faktor_bentuk" class="col-sm-2 col-form-label">Faktor Bentuk</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('faktor_bentuk')) ? 'is-invalid' : ''; ?>" require id="faktor_bentuk" name="faktor_bentuk" value="<?= (old('faktor_bentuk')) ? (old('faktor_bentuk')) : $motherboard['faktor_bentuk']; ?>">
-                                                    <div class="invalid-feedback">
-                                                        <?= $validation->getError('faktor_bentuk'); ?>
+                                                    <div class="form-grup">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="Mini-ITX" <?= in_array("Mini-ITX", $checked) ? 'checked=""' : ''; ?>> Mini-ITX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="Micro-ATX" <?= in_array("Micro-ATX", $checked) ? 'checked=""' : ''; ?>> Micro-ATX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-inline">
+                                                        <div class="checkbox mb-3">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="Standard-ATX" <?= in_array("Standard-ATX", $checked) ? 'checked=""' : ''; ?>> Standard-ATX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox mb-3">
+                                                            <label>
+                                                                <input type="checkbox" name="faktor_bentuk[]" class="form-check-input" value="E-ATX" <?= in_array("E-ATX", $checked) ? 'checked=""' : ''; ?>> E-ATX <i class="input-frame"></i>
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="kekuatan_cpu" class="col-sm-2 col-form-label">Power Cpu</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-4">
                                                     <input type="text" class="form-control <?= ($validation->hasError('kekuatan_cpu')) ? 'is-invalid' : ''; ?>" require id="kekuatan_cpu" name="kekuatan_cpu" value="<?= (old('kekuatan_cpu')) ? (old('kekuatan_cpu')) : $motherboard['kekuatan_cpu']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('kekuatan_cpu'); ?>
                                                     </div>
                                                 </div>
+                                                <label class="col-sm-1 col-form-label">pin</label>
                                             </div>
                                             <div class="grid-header">
                                                 <h7 class="my-10"><?= "Informasi Spesifik RAM"; ?></h7>
@@ -102,7 +136,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="jml_slot_ram" class="col-sm-2 col-form-label">Jumlah Slot RAM</label>
                                                 <div class="col-sm-1">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('jml_slot_ram')) ? 'is-invalid' : ''; ?>" require id="jml_slot_ram" name="jml_slot_ram" value="<?= (old('jml_slot_ram')) ? (old('jml_slot_ram')) : $motherboard['jml_slot_ram']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('jml_slot_ram')) ? 'is-invalid' : ''; ?>" require id="jml_slot_ram" name="jml_slot_ram" value="<?= (old('jml_slot_ram')) ? (old('jml_slot_ram')) : $motherboard['jml_slot_ram']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('jml_slot_ram'); ?>
                                                     </div>
@@ -119,7 +153,7 @@
 
                                                 <label for="ukuran_ram_maks" class="col-sm-2 col-form-label">Ukuran RAM Max</label>
                                                 <div class="col-sm-1">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('ukuran_ram_maks')) ? 'is-invalid' : ''; ?>" require id="ukuran_ram_maks" name="ukuran_ram_maks" value="<?= (old('ukuran_ram_maks')) ? (old('ukuran_ram_maks')) : $motherboard['ukuran_ram_maks']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('ukuran_ram_maks')) ? 'is-invalid' : ''; ?>" require id="ukuran_ram_maks" name="ukuran_ram_maks" value="<?= (old('ukuran_ram_maks')) ? (old('ukuran_ram_maks')) : $motherboard['ukuran_ram_maks']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('ukuran_ram_maks'); ?>
                                                     </div>
@@ -129,11 +163,12 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="frekuensi_maks_ram" class="col-sm-2 col-form-label">Frekuensi RAM</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('frekuensi_maks_ram')) ? 'is-invalid' : ''; ?>" require id="frekuensi_maks_ram" name="frekuensi_maks_ram" value="<?= (old('frekuensi_maks_ram')) ? (old('frekuensi_maks_ram')) : $motherboard['frekuensi_maks_ram']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('frekuensi_maks_ram')) ? 'is-invalid' : ''; ?>" require id="frekuensi_maks_ram" name="frekuensi_maks_ram" value="<?= (old('frekuensi_maks_ram')) ? (old('frekuensi_maks_ram')) : $motherboard['frekuensi_maks_ram']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('frekuensi_maks_ram'); ?>
                                                     </div>
                                                 </div>
+                                                <label class="col-sm-1 col-form-label">MHz</label>
                                             </div>
                                             <div class="grid-header">
                                                 <h7 class="my-10"><?= "Informasi Slot"; ?></h7>
@@ -141,7 +176,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="jml_slot_pcie" class="col-sm-2 col-form-label">Jumlah Slot PCIE</label>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('jml_slot_pcie')) ? 'is-invalid' : ''; ?>" require id="jml_slot_pcie" name="jml_slot_pcie" value="<?= (old('jml_slot_pcie')) ? (old('jml_slot_pcie')) : $motherboard['jml_slot_pcie']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('jml_slot_pcie')) ? 'is-invalid' : ''; ?>" require id="jml_slot_pcie" name="jml_slot_pcie" value="<?= (old('jml_slot_pcie')) ? (old('jml_slot_pcie')) : $motherboard['jml_slot_pcie']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('jml_slot_pcie'); ?>
                                                     </div>
@@ -149,7 +184,7 @@
 
                                                 <label for="jml_slot_sata" class="col-sm-2 col-form-label">Jumlah Slot Sata</label>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('jml_slot_sata')) ? 'is-invalid' : ''; ?>" require id="jml_slot_sata" name="jml_slot_sata" value="<?= (old('jml_slot_sata')) ? (old('jml_slot_sata')) : $motherboard['jml_slot_sata']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('jml_slot_sata')) ? 'is-invalid' : ''; ?>" require id="jml_slot_sata" name="jml_slot_sata" value="<?= (old('jml_slot_sata')) ? (old('jml_slot_sata')) : $motherboard['jml_slot_sata']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('jml_slot_sata'); ?>
                                                     </div>
@@ -157,7 +192,7 @@
 
                                                 <label for="jml_slot_m2" class="col-sm-2 col-form-label">Jumlah Slot M.2</label>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('jml_slot_m2')) ? 'is-invalid' : ''; ?>" require id="jml_slot_m2" name="jml_slot_m2" value="<?= (old('jml_slot_m2')) ? (old('jml_slot_m2')) : $motherboard['jml_slot_m2']; ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('jml_slot_m2')) ? 'is-invalid' : ''; ?>" require id="jml_slot_m2" name="jml_slot_m2" value="<?= (old('jml_slot_m2')) ? (old('jml_slot_m2')) : $motherboard['jml_slot_m2']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('jml_slot_m2'); ?>
                                                     </div>

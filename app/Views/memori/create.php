@@ -7,9 +7,19 @@
                 <div class="col-12 py-5">
                     <div class="grid">
                         <div class="grid-header">
-                            <h2 class="my-3"><?= $title; ?></h2>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="my-3"><?= $title; ?></h3>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/memori" class="btn btn-rounded social-icon-btn btn-primary">
+                                        <i class=" mdi mdi-arrow-left "></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid-body">
+
                             <div class="item-wrapper">
                                 <div class="row mb-3">
                                     <div class="col-md-8 mx-auto">
@@ -30,7 +40,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" require id="nama" name="nama" value="<?= old('nama'); ?>">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" value="<?= old('nama'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('nama'); ?>
                                                     </div>
@@ -39,7 +49,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= old('harga'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" id="harga" name="harga" value="<?= old('harga'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('harga'); ?>
                                                     </div>
@@ -47,8 +57,8 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
+                                                <div class="col-sm-3">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" id="stok" name="stok" value="<?= old('stok'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('stok'); ?>
                                                     </div>
@@ -59,8 +69,8 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="ukuran_memori" class="col-sm-2 col-form-label">Ukuran Memory</label>
-                                                <div class="col-sm-5">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('ukuran_memori')) ? 'is-invalid' : ''; ?>" require id="ukuran_memori" name="ukuran_memori" value="<?= old('ukuran_memori'); ?>">
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('ukuran_memori')) ? 'is-invalid' : ''; ?>" id="ukuran_memori" name="ukuran_memori" value="<?= old('ukuran_memori'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('ukuran_memori'); ?>
                                                     </div>
@@ -68,10 +78,20 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="jenis_memori" class="col-sm-2 col-form-label">Jenis Memory</label>
-                                                <div class="col-sm-5">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('jenis_memori')) ? 'is-invalid' : ''; ?>" require id="jenis_memori" name="jenis_memori" value="<?= old('jenis_memori'); ?>">
+                                                <div class="col-sm-10">
+                                                    <select class="custom-select form-control <?= ($validation->hasError('jenis_memori')) ? 'is-invalid' : ''; ?>" id="jenis_memori" name="jenis_memori" value="">
+                                                        <option value="<?= (old('jenis_memori')) ? (old('jenis_memori')) : "" ?>" selected><?= (old('jenis_memori')) ? (old('jenis_memori')) : "Pilih Jenis Memory" ?></option>
+                                                        <option value="SSD SATA">SSD SATA</option>
+                                                        <option value="HARDISK">HARDISK</option>
+                                                        <option value="SSD M.2">SSD M.2</option>
+                                                        <option value="SSD M.2 NVMe">SSD M.2 NVMe</option>
+                                                    </select>
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('jenis_memori'); ?>
+                                                        <?php
+                                                        if ($validation->hasError('jenis_memori')) {
+                                                            echo $validation->getError('jenis_memori');
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>

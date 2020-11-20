@@ -122,7 +122,7 @@ class Psu  extends BaseController
             'stok' => $this->request->getVar('stok'),
             'sertifikat' => $this->request->getVar('sertifikat'),
             'jenis_kabel' => $this->request->getVar('jenis_kabel'),
-            'mb_power' => $this->request->getVar('mb_power'),
+            'mb_power' => $this->request->getVar('mb_power') . "Watt",
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);
@@ -265,7 +265,7 @@ class Psu  extends BaseController
             'stok' => $this->request->getVar('stok'),
             'sertifikat' => $this->request->getVar('sertifikat'),
             'jenis_kabel' => $this->request->getVar('jenis_kabel'),
-            'mb_power' => $this->request->getVar('mb_power'),
+            'mb_power' => $this->request->getVar('mb_power') . "Watt",
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);

@@ -44,12 +44,12 @@
                                             <td><?= $val['ukuran_memori']; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
-                                            <td><a href="/memori/<?= $val['slug']; ?>" class="btn btn-info"><i class="mdi mdi-magnify"></i></a>
-                                                <a href="/memori/edit/<?= $val['slug']; ?>" class="btn btn-light"><i class="mdi mdi-pencil-box-outline"></i></a>
+                                            <td><a href="/memori/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>
+                                                <a href="/memori/edit/<?= $val['slug']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>
                                                 <form action="/memori/<?= $val['id']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-dark" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
+                                                    <button type="submit" class="btn btn-dark btn-sm" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

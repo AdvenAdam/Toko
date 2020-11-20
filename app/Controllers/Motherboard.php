@@ -160,7 +160,7 @@ class Motherboard  extends BaseController
             // $namaSampul = $fileSampul->getName();
 
         }
-
+        $faktorbentuk = $this->request->getVar('faktor_bentuk');
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->motherboardModel->save([
             'merk' => $this->request->getVar('merk'),
@@ -169,7 +169,7 @@ class Motherboard  extends BaseController
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
             'socket' => $this->request->getVar('socket'),
-            'faktor_bentuk' => $this->request->getVar('faktor_bentuk'),
+            'faktor_bentuk' => implode(",", $faktorbentuk),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
             'ukuran_ram_maks' => $this->request->getVar('ukuran_ram_maks'),
             'jml_slot_pcie' => $this->request->getVar('jml_slot_pcie'),
@@ -362,6 +362,7 @@ class Motherboard  extends BaseController
             // $namaSampul = $fileSampul->getName();
 
         }
+        $faktorbentuk = $this->request->getVar('faktor_bentuk');
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->motherboardModel->save([
             'id' => $id,
@@ -371,7 +372,7 @@ class Motherboard  extends BaseController
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
             'socket' => $this->request->getVar('socket'),
-            'faktor_bentuk' => $this->request->getVar('faktor_bentuk'),
+            'faktor_bentuk' => implode(",", $faktorbentuk),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
             'ukuran_ram_maks' => $this->request->getVar('ukuran_ram_maks'),
             'jml_slot_pcie' => $this->request->getVar('jml_slot_pcie'),

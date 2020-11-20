@@ -7,7 +7,16 @@
                 <div class="col-12 py-5">
                     <div class="grid">
                         <div class="grid-header">
-                            <h2 class="my-3"><?= $title; ?></h2>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="my-3"><?= $title; ?></h3>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/procesor" class="btn btn-rounded social-icon-btn btn-primary">
+                                        <i class=" mdi mdi-arrow-left "></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid-body">
                             <div class="item-wrapper">
@@ -21,9 +30,17 @@
                                             <div class="form-group row showcase_row_area mt-4">
                                                 <label for="merk" class="col-sm-2 col-form-label">Merk</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control  <?= ($validation->hasError('merk')) ? 'is-invalid' : ''; ?>" id="merk" name="merk" autofocus value="<?= old('merk'); ?>">
+                                                    <select class="custom-select form-control <?= ($validation->hasError('merk')) ? 'is-invalid' : ''; ?>" id="merk" name="merk" value="">
+                                                        <option value="<?= (old('merk')) ? (old('merk')) : "" ?>" selected><?= (old('merk')) ? (old('merk')) : "Pilih Merk" ?></option>
+                                                        <option value="INTEL">INTEL</option>
+                                                        <option value="AMD">AMD</option>
+                                                    </select>
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('merk'); ?>
+                                                        <?php
+                                                        if ($validation->hasError('merk')) {
+                                                            echo $validation->getError('merk');
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -39,7 +56,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= old('harga'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= old('harga'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('harga'); ?>
                                                     </div>
@@ -48,7 +65,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('stok'); ?>
                                                     </div>
@@ -84,22 +101,23 @@
                                                     </div>
                                                 </div>
                                                 <label for="cache" class="col-sm-2 col-form-label">Cache</label>
-                                                <div class="col-sm-4">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('cache')) ? 'is-invalid' : ''; ?>" require id="cache" name="cache" value="<?= old('cache'); ?>">
+                                                <div class="col-sm-3">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('cache')) ? 'is-invalid' : ''; ?>" require id="cache" name="cache" value="<?= old('cache'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('cache'); ?>
                                                     </div>
                                                 </div>
+                                                <label for="cache" class="col-sm-1 col-form-label">MB</label>
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="jml_core" class="col-sm-2 col-form-label">Jumlah Core</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('jml_core')) ? 'is-invalid' : ''; ?>" require id="jml_core" name="jml_core" value="<?= old('jml_core'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('jml_core')) ? 'is-invalid' : ''; ?>" require id="jml_core" name="jml_core" value="<?= old('jml_core'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('jml_core'); ?>
                                                     </div>
                                                 </div>
-                                                <label for="jml_threads" class="col-sm-2 col-form-label">Jumlah Threads</label>
+                                                <label for="jml_threads" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="col-sm-2 col-form-label">Jumlah Threads</label>
                                                 <div class="col-sm-4">
                                                     <input type="text" class="form-control <?= ($validation->hasError('jml_threads')) ? 'is-invalid' : ''; ?>" require id="jml_threads" name="jml_threads" value="<?= old('jml_threads'); ?>">
                                                     <div class="invalid-feedback">
