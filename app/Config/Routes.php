@@ -114,10 +114,10 @@ $routes->get('/pegawai/(:any)', 'pegawai::detail/$1');
 $routes->get('/user/create', 'user::create');
 $routes->delete('/user/(:num)', 'user::delete/$1');
 // Kas
-$routes->get('/kas/create', 'kas::create');
-$routes->get('/kas/create2', 'kas::create2');
+$routes->get('/kas/createMasuk', 'kas::createMasuk');
+$routes->get('/kas/createKeluar', 'kas::creatKeluar');
 $routes->delete('/kas/(:num)', 'kas::delete/$1');
-$routes->delete('/kas/(:any)', 'kas::delete/$1');
+$routes->get('/kas/(:any)', 'kas::detail/$1');
 
 
 /**

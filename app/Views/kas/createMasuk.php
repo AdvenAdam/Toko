@@ -22,7 +22,7 @@
                             <div class="item-wrapper">
                                 <div class="row mb-3">
                                     <div class="col-md-8 mx-auto">
-                                        <form action="/kas/save" method="post" enctype="multipart/form-data">
+                                        <form action="/kas/saveMasuk" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <div class="form-group row showcase_row_area  mt-4">
                                                 <label for="kode_kas" class="col-sm-2 col-form-label">Kode Kas</label>
@@ -30,38 +30,18 @@
                                                     <input type="text" class="form-control " id="kode_kas" name="kode_kas" value="<?= $kode; ?>" readonly>
                                                 </div>
                                             </div>
-                                            <div class="form-group row showcase_row_area">
+                                            <div class="form-group row showcase_row_area  mt-4">
                                                 <label for="jenis_kas" class="col-sm-2 col-form-label">Jenis Kas</label>
                                                 <div class="col-sm-10">
-                                                    <select class="custom-select form-control <?= ($validation->hasError('jenis_kas')) ? 'is-invalid' : ''; ?>" id="jenis_kas" name="jenis_kas" value="">
-                                                        <option value="<?= (old('jenis_kas')) ? (old('jenis_kas')) : "" ?>" selected><?= (old('jenis_kas')) ? (old('jenis_kas')) : "Pilih jenis_kas" ?></option>
-                                                        <option value="Pemasukan">Pemasukan</option>
-                                                        <option value="Pengeluaran">Pengeluaran</option>
-                                                    </select>
-                                                    <div class="invalid-feedback">
-                                                        <?php
-                                                        if ($validation->hasError('jenis_kas')) {
-                                                            echo $validation->getError('jenis_kas');
-                                                        }
-                                                        ?>
-                                                    </div>
+                                                    <input type="text" class="form-control " id="jenis_kas" name="jenis_kas" value="Pemasukan" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="pemasukan" class="col-sm-2 col-form-label">Pemasukan</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('pemasukan')) ? 'is-invalid' : ''; ?>" id="" name="pemasukan" value="<?= old('pemasukan'); ?>">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('pemasukan')) ? 'is-invalid' : ''; ?>" id="input_mask_currency" name="pemasukan" value="<?= old('pemasukan'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('pemasukan'); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row showcase_row_area">
-                                                <label for="pengeluaran" class="col-sm-2 col-form-label">Pengeluaran</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('pengeluaran')) ? 'is-invalid' : ''; ?>" id="input_mask_currency" name="pengeluaran" value="<?= old('pengeluaran'); ?>">
-                                                    <div class="invalid-feedback">
-                                                        <?= $validation->getError('pengeluaran'); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,7 +57,7 @@
                                                 <div class="col-sm-9">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <button type="submit" class="btn btn-primary">Tambah Data</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                                 </div>
                                             </div>
                                         </form>

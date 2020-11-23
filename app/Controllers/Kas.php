@@ -31,7 +31,7 @@ class Kas extends BaseController
 
         return view('kas/index', $data);
     }
-    public function create()
+    public function createMasuk()
     {
 
         $query  = max($this->kasModel->getKas());
@@ -39,30 +39,35 @@ class Kas extends BaseController
         $kode = 'KAS-' . $angka;
         //session();
         $data = [
-            'title' => 'Tambah Data',
+            'title' => 'Input Kas Masuk',
             'validation' => \Config\Services::validation(),
             'kode' => $kode,
 
         ];
 
-        return view('kas/create', $data);
+        return view('kas/createMasuk', $data);
     }
-    public function save()
+
+    public function createKeluar()
+    {
+
+        $query  = max($this->kasModel->getKas());
+        $angka = $query['id'] + 1;
+        $kode = 'KAS-' . $angka;
+        //session();
+        $data = [
+            'title' => 'Input Kas Keluar',
+            'validation' => \Config\Services::validation(),
+            'kode' => $kode,
+
+        ];
+
+        return view('kas/createKeluar', $data);
+    }
+    public function saveMasuk()
     {
         // validasi input
         if (!$this->validate([
-            'kode_kas' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'jenis_kas' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
             'uraian' => [
                 'rules' => 'required',
                 'errors' => [
@@ -75,29 +80,51 @@ class Kas extends BaseController
                     'required' => '{field} harus diisi'
                 ]
             ],
+        ])) {
+            return redirect()->to('/kas/create')->withInput();
+        }
+        $this->kasModel->save([
+            'kode_kas' => $this->request->getVar('kode_kas'),
+            'jenis_kas' => $this->request->getVar('jenis_kas'),
+            'uraian' => $this->request->getVar('uraian'),
+            'pemasukan' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('pemasukan'))),
+            'pengeluaran' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('pengeluaran')))
+
+        ]);
+
+
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
+        return redirect()->to('/kas');
+    }
+    public function saveKeluar()
+    {
+        // validasi input
+        if (!$this->validate([
+            'uraian' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
             'pengeluaran' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
                 ]
             ],
-
-
-
         ])) {
             return redirect()->to('/kas/create')->withInput();
         }
 
 
-        $data = $this->kasModel->save([
+        $this->kasModel->save([
             'kode_kas' => $this->request->getVar('kode_kas'),
             'jenis_kas' => $this->request->getVar('jenis_kas'),
             'uraian' => $this->request->getVar('uraian'),
-            'pemasukan' => preg_replace("/[^0-9]/", "", $this->request->getVar('pemasukan')),
-            'pengeluaran' => preg_replace("/[^0-9]/", "", $this->request->getVar('pengeluaran'))
-
+            'pemasukan' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('pemasukan'))),
+            'pengeluaran' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('pengeluaran')))
         ]);
-        dd($data);
+
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/kas');
