@@ -109,12 +109,12 @@ class User extends BaseController
         // $options = [
         //     'cost' => 10,
         // ];
-        // $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT, $options);
+        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
         $slug = url_title($this->request->getVar('username'), '-', true);
         $this->authModel->save([
             'username' => $this->request->getVar('username'),
             'slug' => $slug,
-            'password' => $this->request->getVar('password'),
+            'password' => $password,
             'no_pegawai' => $this->request->getVar('no_pegawai'),
             'level' => $this->request->getVar('level'),
             'foto' => $namaGambar,

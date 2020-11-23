@@ -70,13 +70,12 @@
     <script src="/zz/src/assets/js/dashboard.js"></script>
     <!-- jQuery -->
     <script src="/zz/src/assets/jquery/jquery.min.js"></script>
+    <script src="/zz/src/assets/jquery/jquery.inputmask.bundle.min.js"></script>
     <!-- DataTables -->
     <script src="/zz/src/assets/datatables/jquery.dataTables.min.js"></script>
     <script src="/zz/src/assets/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="/zz/src/assets/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="/zz/src/assets/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <!-- sweet alert -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
     <!-- page script -->
     <script>
@@ -117,10 +116,18 @@
             }
         }
     </script>
-    <?php
-
-    ?>
-
+    <!-- Format Uang -->
+    <script type="text/javascript">
+        $("#input_mask_currency").inputmask({
+            prefix: 'Rp.',
+            radixPoint: ',',
+            groupSeparator: ".",
+            alias: "numeric",
+            autoGroup: true,
+            digits: 0,
+            rightAlign: false
+        });
+    </script>
 
 </body>
 

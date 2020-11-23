@@ -12,7 +12,7 @@
                                     <h3 class="my-3"><?= $title; ?></h3>
                                 </div>
                                 <div class="col-sm-6" align="right">
-                                    <a href="/psu" class="btn btn-rounded social-icon-btn btn-primary">
+                                    <a href="/ram" class="btn btn-rounded social-icon-btn btn-primary">
                                         <i class=" mdi mdi-arrow-left "></i>
                                     </a>
                                 </div>

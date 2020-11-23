@@ -5,6 +5,8 @@ namespace App\Controllers;
 use \App\Models\VgaModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Vga extends BaseController
 {
@@ -336,5 +338,64 @@ class Vga extends BaseController
             ]
         );
         return redirect()->to('/vga/tambah');
+    }
+    public function excel()
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Merk');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Harga');
+        $sheet->setCellValue('E1', 'Stok');
+        $sheet->setCellValue('F1', 'Base Clock');
+        $sheet->setCellValue('G1', 'Boost Clock');
+        $sheet->setCellValue('H1', 'Ukuran Memori');
+        $sheet->setCellValue('I1', 'Tipe Memori');
+        $sheet->setCellValue('J1', 'Lebar Memori');
+        $sheet->setCellValue('K1', 'Konektor Daya');
+        $sheet->setCellValue('L1', 'Gambar');
+        $sheet->setCellValue('M1', 'Rincian');
+        $sheet->setCellValue('N1', 'Created At');
+        $sheet->setCellValue('O1', 'Updated At');
+
+        $vga = $this->vgaModel->getVga();
+        $no = 1;
+        $x = 2;
+        foreach ($vga as $val) :
+            $sheet->setCellValue('A' . $x, $no++);
+            $sheet->setCellValue('B' . $x, $val['merk']);
+            $sheet->setCellValue('C' . $x, $val['nama']);
+            $sheet->setCellValue('D' . $x, $val['harga']);
+            $sheet->setCellValue('E' . $x, $val['stok']);
+            $sheet->setCellValue('F' . $x, $val['base_clock']);
+            $sheet->setCellValue('G' . $x, $val['boost_clock']);
+            $sheet->setCellValue('H' . $x, $val['ukuran_memori']);
+            $sheet->setCellValue('I' . $x, $val['tipe_memori']);
+            $sheet->setCellValue('J' . $x, $val['lebar_memori']);
+            $sheet->setCellValue('K' . $x, $val['konektor_daya']);
+            $sheet->setCellValue('L' . $x, $val['gambar']);
+            $sheet->setCellValue('M' . $x, $val['rincian']);
+            $sheet->setCellValue('N' . $x, $val['created_at']);
+            $sheet->setCellValue('O' . $x, $val['updated_at']);
+            $x++;
+        endforeach;
+        $writer = new xlsx($spreadsheet);
+        $filename = 'laporan-data-vga';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+    public function cetak()
+    {
+        $data = [
+            'title' => 'Cetak Daftar VGA',
+            'vga' => $this->vgaModel->getVga()
+        ];
+
+        return view('/vga/cetak', $data);
     }
 }

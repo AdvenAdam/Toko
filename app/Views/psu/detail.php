@@ -53,7 +53,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="10%">Power</td>
-                                                <td> <?= $psu['mb_power']; ?></td>
+                                                <td> <?= $psu['mb_power'] . " Watt"; ?></td>
                                             </tr>
 
                                             <tr>

@@ -5,6 +5,8 @@ namespace App\Controllers;
 use \App\Models\MotherboardModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Motherboard  extends BaseController
 {
@@ -411,5 +413,74 @@ class Motherboard  extends BaseController
             ]
         );
         return redirect()->to('/motherboard/tambah');
+    }
+    public function excel()
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Merk');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Harga');
+        $sheet->setCellValue('E1', 'Stok');
+        $sheet->setCellValue('F1', 'Socket');
+        $sheet->setCellValue('G1', 'Faktor Bentuk');
+        $sheet->setCellValue('H1', 'Jenis RAM');
+        $sheet->setCellValue('I1', 'Ukuran Maks RAM');
+        $sheet->setCellValue('J1', 'Slot PCIE');
+        $sheet->setCellValue('K1', 'Kekuatan CPU');
+        $sheet->setCellValue('L1', 'Chipset');
+        $sheet->setCellValue('M1', 'Slot RAM');
+        $sheet->setCellValue('N1', 'Slot Sata');
+        $sheet->setCellValue('O1', 'Slot M2');
+        $sheet->setCellValue('P1', 'Frekuensi Maks RAM');
+        $sheet->setCellValue('Q1', 'Gambar');
+        $sheet->setCellValue('R1', 'Rincian');
+        $sheet->setCellValue('S1', 'Created At');
+        $sheet->setCellValue('T1', 'Updated At');
+
+        $motherboard = $this->motherboardModel->getMotherboard();
+        $no = 1;
+        $x = 2;
+        foreach ($motherboard as $val) :
+            $sheet->setCellValue('A' . $x, $no++);
+            $sheet->setCellValue('B' . $x, $val['merk']);
+            $sheet->setCellValue('C' . $x, $val['nama']);
+            $sheet->setCellValue('D' . $x, $val['harga']);
+            $sheet->setCellValue('E' . $x, $val['stok']);
+            $sheet->setCellValue('F' . $x, $val['socket']);
+            $sheet->setCellValue('G' . $x, $val['faktor_bentuk']);
+            $sheet->setCellValue('H' . $x, $val['jenis_ram']);
+            $sheet->setCellValue('I' . $x, $val['ukuran_ram_maks']);
+            $sheet->setCellValue('J' . $x, $val['jml_slot_pcie']);
+            $sheet->setCellValue('K' . $x, $val['kekuatan_cpu']);
+            $sheet->setCellValue('L' . $x, $val['chipset']);
+            $sheet->setCellValue('M' . $x, $val['jml_slot_ram']);
+            $sheet->setCellValue('N' . $x, $val['jml_slot_sata']);
+            $sheet->setCellValue('O' . $x, $val['jml_slot_m2']);
+            $sheet->setCellValue('P' . $x, $val['frekuensi_maks_ram']);
+            $sheet->setCellValue('Q' . $x, $val['gambar']);
+            $sheet->setCellValue('R' . $x, $val['rincian']);
+            $sheet->setCellValue('S' . $x, $val['created_at']);
+            $sheet->setCellValue('T' . $x, $val['updated_at']);
+            $x++;
+        endforeach;
+        $writer = new xlsx($spreadsheet);
+        $filename = 'laporan-data-motherboard';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+    public function cetak()
+    {
+        $data = [
+            'title' => 'Cetak Daftar Mtherboard',
+            'motherboard' => $this->motherboardModel->getMotherboard()
+        ];
+
+        return view('/motherboard/cetak', $data);
     }
 }

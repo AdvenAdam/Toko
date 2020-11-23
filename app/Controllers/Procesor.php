@@ -5,6 +5,8 @@ namespace App\Controllers;
 use \App\Models\ProcesorModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Procesor extends BaseController
 {
@@ -187,7 +189,7 @@ class Procesor extends BaseController
     public function edit($slug)
     {
         $data = [
-            'title' => 'Ubah Data Casing',
+            'title' => 'Ubah Data procesor',
             'validation' => \Config\Services::validation(),
             'procesor' => $this->procesorModel->getprocesor($slug)
         ];
@@ -336,5 +338,64 @@ class Procesor extends BaseController
             ]
         );
         return redirect()->to('/procesor/tambah');
+    }
+    public function excel()
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Merk');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Harga');
+        $sheet->setCellValue('E1', 'Stok');
+        $sheet->setCellValue('F1', 'Jumlah Core');
+        $sheet->setCellValue('G1', 'Jumlah Threads');
+        $sheet->setCellValue('H1', 'Socket');
+        $sheet->setCellValue('I1', 'Frekuensi');
+        $sheet->setCellValue('J1', 'iGPU');
+        $sheet->setCellValue('K1', 'cache');
+        $sheet->setCellValue('L1', 'Gambar');
+        $sheet->setCellValue('M1', 'Rincian');
+        $sheet->setCellValue('N1', 'Created At');
+        $sheet->setCellValue('O1', 'Updated At');
+
+        $procesor = $this->procesorModel->getProcesor();
+        $no = 1;
+        $x = 2;
+        foreach ($procesor as $val) :
+            $sheet->setCellValue('A' . $x, $no++);
+            $sheet->setCellValue('B' . $x, $val['merk']);
+            $sheet->setCellValue('C' . $x, $val['nama']);
+            $sheet->setCellValue('D' . $x, $val['harga']);
+            $sheet->setCellValue('E' . $x, $val['stok']);
+            $sheet->setCellValue('F' . $x, $val['jml_core']);
+            $sheet->setCellValue('G' . $x, $val['jml_threads']);
+            $sheet->setCellValue('H' . $x, $val['socket']);
+            $sheet->setCellValue('I' . $x, $val['frekuensi']);
+            $sheet->setCellValue('J' . $x, $val['iGPU']);
+            $sheet->setCellValue('K' . $x, $val['cache']);
+            $sheet->setCellValue('L' . $x, $val['gambar']);
+            $sheet->setCellValue('M' . $x, $val['rincian']);
+            $sheet->setCellValue('N' . $x, $val['created_at']);
+            $sheet->setCellValue('O' . $x, $val['updated_at']);
+            $x++;
+        endforeach;
+        $writer = new xlsx($spreadsheet);
+        $filename = 'laporan-data-procesor';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+    public function cetak()
+    {
+        $data = [
+            'title' => 'Cetak Daftar Processor',
+            'procesor' => $this->procesorModel->getProcesor()
+        ];
+
+        return view('/procesor/cetak', $data);
     }
 }

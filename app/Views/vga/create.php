@@ -7,7 +7,16 @@
                 <div class="col-12 py-5">
                     <div class="grid">
                         <div class="grid-header">
-                            <h2 class="my-3"><?= $title; ?></h2>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="my-3"><?= $title; ?></h3>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/vga" class="btn btn-rounded social-icon-btn btn-primary">
+                                        <i class=" mdi mdi-arrow-left "></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="grid-body">
                             <div class="item-wrapper">
@@ -39,7 +48,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= old('harga'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" require id="harga" name="harga" value="<?= old('harga'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('harga'); ?>
                                                     </div>
@@ -48,7 +57,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="stok" class="col-sm-2 col-form-label">Stok</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" require id="stok" name="stok" value="<?= old('stok'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('stok'); ?>
                                                     </div>
@@ -60,7 +69,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="base_clock" class="col-sm-2 col-form-label">Base Clock</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('base_clock')) ? 'is-invalid' : ''; ?>" require id="base_clock" name="base_clock" value="<?= old('base_clock'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('base_clock')) ? 'is-invalid' : ''; ?>" require id="base_clock" name="base_clock" value="<?= old('base_clock'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('base_clock'); ?>
                                                     </div>
@@ -68,7 +77,7 @@
                                                 <label class="col-sm-1 col-form-label">MHz</label>
                                                 <label for="boost_clock" class="col-sm-2 col-form-label">Boost Clock</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('boost_clock')) ? 'is-invalid' : ''; ?>" require id="boost_clock" name="boost_clock" value="<?= old('boost_clock'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('boost_clock')) ? 'is-invalid' : ''; ?>" require id="boost_clock" name="boost_clock" value="<?= old('boost_clock'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('boost_clock'); ?>
                                                     </div>
@@ -78,7 +87,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="ukuran_memori" class="col-sm-2 col-form-label">Ukuran Memori</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('ukuran_memori')) ? 'is-invalid' : ''; ?>" require id="ukuran_memori" name="ukuran_memori" value="<?= old('ukuran_memori'); ?>">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('ukuran_memori')) ? 'is-invalid' : ''; ?>" require id="ukuran_memori" name="ukuran_memori" value="<?= old('ukuran_memori'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('ukuran_memori'); ?>
                                                     </div>
@@ -102,12 +111,13 @@
                                                 </div>
                                                 <label class="col-sm-1 col-form-label">Bit</label>
                                                 <label for="konektor_daya" class="col-sm-2 col-form-label">Konektor daya</label>
-                                                <div class="col-sm-4">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('konektor_daya')) ? 'is-invalid' : ''; ?>" require id="konektor_daya" name="konektor_daya" value="<?= old('konektor_daya'); ?>">
+                                                <div class="col-sm-3">
+                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('konektor_daya')) ? 'is-invalid' : ''; ?>" require id="konektor_daya" name="konektor_daya" value="<?= old('konektor_daya'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('konektor_daya'); ?>
                                                     </div>
                                                 </div>
+                                                <label class="col-sm-1 col-form-label">Pin</label>
                                             </div>
                                             <div class="grid-header">
                                                 <h7 class="my-10"><?= "Rincian Produk"; ?></h7>

@@ -92,6 +92,12 @@
                 </a>
             </li>
             <li>
+                <a href="/kas">
+                    <span class="link-title">Kas</span>
+                    <i class="mdi mdi-calculator  link-icon"></i>
+                </a>
+            </li>
+            <li>
                 <a href="/Auth">
                     <span class="link-title">Login</span>
                     <i class="mdi mdi-login link-icon"></i>
@@ -103,7 +109,6 @@
                     <i class="mdi mdi-account link-icon"></i>
                 </a>
             </li>
-
         </ul>
 
     </div>

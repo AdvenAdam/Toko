@@ -17,7 +17,15 @@
                             </div>
                         <?php endif; ?>
                         <div class="card-body">
-                            <a href="/memori/create" class="btn btn-primary ">Tambah Data</a>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="/memori/create" class="btn btn-primary ">Tambah Data</a>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/memori/excel" class="btn btn-success btn-sm"><i class="mdi mdi-file-excel-box"></i> Export ke Excel</a>
+                                    <a href="/memori/cetak" class="btn btn-warning btn-sm"><i class="mdi mdi-printer"></i> Cetak Data</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <table id="example" class="table table-bordered table-hover">

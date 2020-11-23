@@ -5,6 +5,8 @@ namespace App\Controllers;
 use \App\Models\PsuModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Psu  extends BaseController
 {
@@ -122,7 +124,7 @@ class Psu  extends BaseController
             'stok' => $this->request->getVar('stok'),
             'sertifikat' => $this->request->getVar('sertifikat'),
             'jenis_kabel' => $this->request->getVar('jenis_kabel'),
-            'mb_power' => $this->request->getVar('mb_power') . "Watt",
+            'mb_power' => $this->request->getVar('mb_power'),
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);
@@ -265,7 +267,7 @@ class Psu  extends BaseController
             'stok' => $this->request->getVar('stok'),
             'sertifikat' => $this->request->getVar('sertifikat'),
             'jenis_kabel' => $this->request->getVar('jenis_kabel'),
-            'mb_power' => $this->request->getVar('mb_power') . "Watt",
+            'mb_power' => $this->request->getVar('mb_power'),
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);
@@ -295,5 +297,58 @@ class Psu  extends BaseController
             ]
         );
         return redirect()->to('/psu/tambah');
+    }
+    public function excel()
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Merk');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Harga');
+        $sheet->setCellValue('E1', 'Stok');
+        $sheet->setCellValue('F1', 'Sertifikat');
+        $sheet->setCellValue('G1', 'Jenis Kabel');
+        $sheet->setCellValue('H1', 'Power');
+        $sheet->setCellValue('I1', 'Gambar');
+        $sheet->setCellValue('J1', 'Rincian');
+        $sheet->setCellValue('K1', 'Created At');
+        $sheet->setCellValue('L1', 'Updated At');
+
+        $psu = $this->psuModel->getPsu();
+        $no = 1;
+        $x = 2;
+        foreach ($psu as $val) :
+            $sheet->setCellValue('A' . $x, $no++);
+            $sheet->setCellValue('B' . $x, $val['merk']);
+            $sheet->setCellValue('C' . $x, $val['nama']);
+            $sheet->setCellValue('D' . $x, $val['harga']);
+            $sheet->setCellValue('E' . $x, $val['stok']);
+            $sheet->setCellValue('F' . $x, $val['sertifikat']);
+            $sheet->setCellValue('G' . $x, $val['jenis_kabel']);
+            $sheet->setCellValue('H' . $x, $val['mb_power']);
+            $sheet->setCellValue('I' . $x, $val['gambar']);
+            $sheet->setCellValue('J' . $x, $val['rincian']);
+            $sheet->setCellValue('K' . $x, $val['created_at']);
+            $sheet->setCellValue('L' . $x, $val['updated_at']);
+            $x++;
+        endforeach;
+        $writer = new xlsx($spreadsheet);
+        $filename = 'laporan-data-powersupply';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+    public function cetak()
+    {
+        $data = [
+            'title' => 'Cetak Daftar Power Supply',
+            'psu' => $this->psuModel->getPsu()
+        ];
+
+        return view('/psu/cetak', $data);
     }
 }

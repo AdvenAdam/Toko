@@ -21,11 +21,15 @@ class AuthModel extends Model
 
     public function login($username, $password)
     {
-        return $this->db->table('tbl_user')->where(
+        $cekuser = $this->db->table('tbl_user')->where(
             [
                 'username' => $username,
-                'password' => $password
             ]
         )->get()->getRowArray();
+        if (password_verify($password, $cekuser['password'])) {
+            return $cekuser;
+        } else {
+            return false;
+        }
     }
 }

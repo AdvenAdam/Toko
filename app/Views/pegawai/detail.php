@@ -27,12 +27,12 @@
                                                 <td><?= $pegawai['nama']; ?></td>
                                             </tr>
                                             <tr>
-                                                <td width="10%">alamat</td>
+                                                <td width="10%">Alamat</td>
                                                 <td><?= $pegawai['alamat']; ?></td>
                                             </tr>
                                             <tr>
-                                                <td width="10%"> no_hp</td>
-                                                <td> <?= $pegawai['stok']; ?></td>
+                                                <td width="10%"> No Hp</td>
+                                                <td> <?= $pegawai['no_hp']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="10%">Email</td>

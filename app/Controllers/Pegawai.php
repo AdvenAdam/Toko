@@ -174,7 +174,7 @@ class Pegawai extends BaseController
     public function edit($slug)
     {
         $data = [
-            'title' => 'Ubah Data Memory',
+            'title' => 'Ubah Data Pegawai',
             'validation' => \Config\Services::validation(),
             'pegawai' => $this->pegawaiModel->getpegawai($slug)
         ];

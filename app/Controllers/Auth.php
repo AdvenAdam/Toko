@@ -46,6 +46,7 @@ class Auth extends BaseController
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
         $cek      = $this->authModel->login($username, $password);
+
         if ($cek) {
             // jika data cocok
             session()->set('log', true);

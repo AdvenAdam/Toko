@@ -15,7 +15,15 @@
                             </div>
                         <?php endif; ?>
                         <div class="card-body">
-                            <a href="/ram/create" class="btn btn-primary ">Tambah Data</a>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="/ram/create" class="btn btn-primary ">Tambah Data</a>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/ram/excel" class="btn btn-success btn-sm"><i class="mdi mdi-file-excel-box"></i> Export ke Excel</a>
+                                    <a href="/ram/cetak" class="btn btn-warning btn-sm"><i class="mdi mdi-printer"></i> Cetak Data</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <table id="example" class="table table-bordered table-hover">
@@ -38,8 +46,8 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
-                                            <td><?= $val['ukuran_ram'] . ' ' . $val['jenis_ram']; ?></td>
-                                            <td><?= $val['frekuensi']; ?></td>
+                                            <td><?= $val['ukuran_ram'] . 'GB' . ' ' . $val['jenis_ram']; ?></td>
+                                            <td><?= $val['frekuensi'] . "MHz"; ?></td>
                                             <td><?= $val['harga']; ?></td>
                                             <td><?= $val['stok']; ?></td>
                                             <td><a href="/ram/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>

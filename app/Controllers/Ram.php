@@ -5,6 +5,8 @@ namespace App\Controllers;
 use \App\Models\RamModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Ram extends BaseController
 {
@@ -121,8 +123,8 @@ class Ram extends BaseController
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
-            'ukuran_ram' => $this->request->getVar('ukuran_ram') . "GB",
-            'frekuensi' => $this->request->getVar('frekuensi') . "MHz",
+            'ukuran_ram' => $this->request->getVar('ukuran_ram'),
+            'frekuensi' => $this->request->getVar('frekuensi'),
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);
@@ -263,8 +265,8 @@ class Ram extends BaseController
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
-            'ukuran_ram' => $this->request->getVar('ukuran_ram') . "GB",
-            'frekuensi' => $this->request->getVar('frekuensi') . "MHz",
+            'ukuran_ram' => $this->request->getVar('ukuran_ram'),
+            'frekuensi' => $this->request->getVar('frekuensi'),
             'gambar' => $namaGambar,
             'rincian' => $this->request->getVar('rincian'),
         ]);
@@ -294,5 +296,58 @@ class Ram extends BaseController
             ]
         );
         return redirect()->to('/ram/tambah');
+    }
+    public function excel()
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Merk');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Harga');
+        $sheet->setCellValue('E1', 'Stok');
+        $sheet->setCellValue('F1', 'Jenis RAM');
+        $sheet->setCellValue('G1', 'Ukuran RAM');
+        $sheet->setCellValue('H1', 'Frekuensi');
+        $sheet->setCellValue('I1', 'Gambar');
+        $sheet->setCellValue('J1', 'Rincian');
+        $sheet->setCellValue('K1', 'Created At');
+        $sheet->setCellValue('L1', 'Updated At');
+
+        $ram = $this->ramModel->getRam();
+        $no = 1;
+        $x = 2;
+        foreach ($ram as $val) :
+            $sheet->setCellValue('A' . $x, $no++);
+            $sheet->setCellValue('B' . $x, $val['merk']);
+            $sheet->setCellValue('C' . $x, $val['nama']);
+            $sheet->setCellValue('D' . $x, $val['harga']);
+            $sheet->setCellValue('E' . $x, $val['stok']);
+            $sheet->setCellValue('F' . $x, $val['jenis_ram']);
+            $sheet->setCellValue('G' . $x, $val['ukuran_ram']);
+            $sheet->setCellValue('H' . $x, $val['frekuensi']);
+            $sheet->setCellValue('I' . $x, $val['gambar']);
+            $sheet->setCellValue('J' . $x, $val['rincian']);
+            $sheet->setCellValue('K' . $x, $val['created_at']);
+            $sheet->setCellValue('L' . $x, $val['updated_at']);
+            $x++;
+        endforeach;
+        $writer = new xlsx($spreadsheet);
+        $filename = 'laporan-data-ram';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+    public function cetak()
+    {
+        $data = [
+            'title' => 'Cetak Daftar Cassing',
+            'ram' => $this->ramModel->getRam()
+        ];
+
+        return view('/ram/cetak', $data);
     }
 }

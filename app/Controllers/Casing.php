@@ -5,6 +5,8 @@ namespace App\Controllers;
 use \App\Models\CasingModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Casing  extends BaseController
 {
@@ -20,9 +22,6 @@ class Casing  extends BaseController
                 'title' => 'Daftar Cassing',
                 'casing' => $this->casingModel->getCasing()
             ];
-
-
-        // $komikModel = new \App\Models\KomikModel();
 
         return view('casing/index', $data);
     }
@@ -274,5 +273,55 @@ class Casing  extends BaseController
             ]
         );
         return redirect()->to('/casing/tambah');
+    }
+
+    public function excel()
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Merk');
+        $sheet->setCellValue('C1', 'Nama');
+        $sheet->setCellValue('D1', 'Harga');
+        $sheet->setCellValue('E1', 'Stok');
+        $sheet->setCellValue('F1', 'Faktor Bentuk');
+        $sheet->setCellValue('G1', 'Gambar');
+        $sheet->setCellValue('H1', 'Rincian');
+        $sheet->setCellValue('I1', 'Created At');
+        $sheet->setCellValue('J1', 'Updated At');
+
+        $casing = $this->casingModel->getCasing();
+        $no = 1;
+        $x = 2;
+        foreach ($casing as $val) :
+            $sheet->setCellValue('A' . $x, $no++);
+            $sheet->setCellValue('B' . $x, $val['merk']);
+            $sheet->setCellValue('C' . $x, $val['nama']);
+            $sheet->setCellValue('D' . $x, $val['harga']);
+            $sheet->setCellValue('E' . $x, $val['stok']);
+            $sheet->setCellValue('F' . $x, $val['faktor_bentuk']);
+            $sheet->setCellValue('G' . $x, $val['gambar']);
+            $sheet->setCellValue('H' . $x, $val['rincian']);
+            $sheet->setCellValue('I' . $x, $val['created_at']);
+            $sheet->setCellValue('J' . $x, $val['updated_at']);
+            $x++;
+        endforeach;
+        $writer = new xlsx($spreadsheet);
+        $filename = 'laporan-data-casing';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+    public function cetak()
+    {
+        $data = [
+            'title' => 'Cetak Daftar Cassing',
+            'casing' => $this->casingModel->getCasing()
+        ];
+
+        return view('/casing/cetak', $data);
     }
 }
