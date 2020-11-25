@@ -16,7 +16,15 @@
                             </div>
                         <?php endif; ?>
                         <div class="card-body">
-                            <a href="/pegawai/create" class="btn btn-primary ">Tambah Data</a>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="/pegawai/create" class="btn btn-primary ">Tambah Data</a>
+                                </div>
+                                <div class="col-sm-6" align="right">
+                                    <a href="/pegawai/excel" class="btn btn-success btn-sm"><i class="mdi mdi-file-excel-box"></i> Export ke Excel</a>
+                                    <a href="/pegawai/cetak" class="btn btn-warning btn-sm"><i class="mdi mdi-printer"></i> Cetak Data</a>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <table id="example" class="table table-bordered table-hover">
@@ -26,6 +34,7 @@
                                         <th><b>No Pegawai</th>
                                         <th><b>Nama</th>
                                         <th><b>Alamat</th>
+                                        <th><b>No HP</th>
                                         <th><b>Jabatan</th>
                                         <th><b>#</b></th>
                                     </tr>
@@ -37,6 +46,7 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $val['no_pegawai']; ?></td>
                                             <td><?= $val['nama']; ?></td>
+                                            <td><?= $val['no_hp']; ?></td>
                                             <td><?= $val['alamat']; ?></td>
                                             <td><?= $val['jabatan']; ?></td>
                                             <td><a href="/pegawai/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>

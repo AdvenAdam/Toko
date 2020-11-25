@@ -26,19 +26,19 @@
                                             <?= csrf_field(); ?>
                                             <div class="form-group row showcase_row_area  mt-4">
                                                 <label for="kode_kas" class="col-sm-2 col-form-label">Kode Kas</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-5">
                                                     <input type="text" class="form-control " id="kode_kas" name="kode_kas" value="<?= $kode; ?>" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area  mt-4">
                                                 <label for="jenis_kas" class="col-sm-2 col-form-label">Jenis Kas</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-5">
                                                     <input type="text" class="form-control " id="jenis_kas" name="jenis_kas" value="Pemasukan" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="pemasukan" class="col-sm-2 col-form-label">Pemasukan</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-5">
                                                     <input type="text" class="form-control input_mask_currency <?= ($validation->hasError('pemasukan')) ? 'is-invalid' : ''; ?>" name="pemasukan" value="<?= old('pemasukan'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('pemasukan'); ?>

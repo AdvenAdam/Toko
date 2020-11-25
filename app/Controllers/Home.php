@@ -40,6 +40,8 @@ class Home extends BaseController
 
 	public function index()
 	{
+		$tgl = 0;
+
 		$data = [
 			'title' => 'Halaman depan',
 			'ram' => count($this->ramModel->getRam()),

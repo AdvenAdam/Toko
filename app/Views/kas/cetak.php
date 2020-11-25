@@ -37,30 +37,49 @@
                 <thead>
                     <tr align="middle">
                         <th width="5%"><b>No</th>
-                        <th><b>Merk</th>
-                        <th><b>Nama</th>
-                        <th><b>Ukuran</th>
-                        <th><b>Frekuensi</th>
-                        <th><b>Harga</th>
-                        <th><b>Stok</th>
-
+                        <th><b>Tanggal</th>
+                        <th><b>Jenis Kas</th>
+                        <th><b>Pemasukan</th>
+                        <th><b>Pengeluaran</th>
+                        <th><b>Saldo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($ram as $val) : ?>
+                    <?php foreach ($kas as $val) : ?>
+                        <?php
+                        $pemasukan += intval($val['pemasukan']);
+                        $pengeluaran += intval($val['pengeluaran']);
+                        $saldo += intval($val['pemasukan'] - $val['pengeluaran']);
+
+                        ?>
                         <tr align="middle">
                             <td><?= $i++; ?></td>
-                            <td><?= $val['merk']; ?></td>
-                            <td><?= $val['nama']; ?></td>
-                            <td><?= $val['ukuran_ram'] . 'GB' . ' ' . $val['jenis_ram']; ?></td>
-                            <td><?= $val['frekuensi'] . "MHz"; ?></td>
-                            <td><?= $val['harga']; ?></td>
-                            <td><?= $val['stok']; ?></td>
-
+                            <td><?= $val['created_at']; ?></td>
+                            <td><?= $val['jenis_kas']; ?></td>
+                            <td><?= number_format($val['pemasukan']); ?></td>
+                            <td><?= number_format($val['pengeluaran']); ?></td>
+                            <td><?= number_format($val['pemasukan'] - $val['pengeluaran']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
+
+                <tr>
+                    <th colspan="3">
+                        <center>
+                            <h2>Total</h2>
+                        </center>
+                    </th>
+                    <th><b>
+                            <h4>Rp. <?= number_format($pemasukan) ?></h4>
+                        </b></th>
+                    <th><b>
+                            <h4>Rp. <?= number_format($pengeluaran) ?></h4>
+                        </b></th>
+                    <td colspan="2"><b>
+                            <h4>Rp. <?= number_format($saldo) ?></h4>
+                        </b></td>
+                </tr>
             </table>
         </div>
         <!-- /.card-body -->

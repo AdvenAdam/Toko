@@ -3,22 +3,25 @@
 namespace App\Controllers;
 
 use App\Models\AuthModel;
+use App\Models\PegawaiModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 
 class User extends BaseController
 {
     protected $authModel;
+    protected $pegawaiModel;
     public function __construct()
     {
         $this->authModel = new AuthModel();
+        $this->pegawaiModel = new PegawaiModel();
     }
     public function index()
     {
         $data =
             [
                 'title' => 'Daftar User',
-                'user' => $this->authModel->getUser()
+                'user' => $this->authModel->getUser(),
             ];
 
 
@@ -31,7 +34,8 @@ class User extends BaseController
 
         $data = [
             'title' => 'Tambah User',
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'pegawai' => $this->pegawaiModel->getPegawai(),
         ];
         return view('user/create', $data);
     }
@@ -49,16 +53,18 @@ class User extends BaseController
             ],
             'password' => [
                 'label' => 'Password',
-                'rules' => 'required',
+                'rules' => 'required|min_length[8]|max_length[20]',
                 'errors' => [
-                    'required' => '{field} Wajib diisi'
+                    'required' => '{field} harus diisi',
+                    'min_length' => '{field} harus berisi minimal 8 karakter',
+                    'max_length' => '{field} harus berisi maximal 20 karakter'
                 ]
             ],
             'repassword' => [
                 'label' => 'Retype Password',
                 'rules' => 'required|matches[password]',
                 'errors' => [
-                    'required' => '{field} Wajib diisi',
+                    'required' => '{field} harus diisi',
                     'matches' => '{field} tidak sama'
                 ]
             ],

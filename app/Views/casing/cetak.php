@@ -33,37 +33,35 @@
             </h2>
         </div>
         <div class="card-body">
-            <table id="example" class="table table-bordered table-hover">
+            <table id="example" class="table table-hover">
                 <thead>
                     <tr align="middle">
-                        <th width="5%"><b>No</th>
-                        <th><b>Merk</th>
-                        <th><b>Nama</th>
-                        <th><b>Jenis</th>
-                        <th><b>Ukuran</th>
-                        <th><b>Harga</th>
-                        <th><b>Stok</th>
+                        <th width="5%"><b>No</b></th>
+                        <th><b>Merk</b></th>
+                        <th><b>Nama</b></th>
+                        <th><b>Faktor Bentuk</b></th>
+                        <th><b>Harga</b></th>
+                        <th><b>Stok</b></th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($memori as $val) : ?>
+                    <?php foreach ($casing as $val) : ?>
                         <tr align="middle">
                             <td><?= $i++; ?></td>
                             <td><?= $val['merk']; ?></td>
                             <td><?= $val['nama']; ?></td>
-                            <td><?= $val['jenis_memori']; ?></td>
-                            <td><?= $val['ukuran_memori']; ?></td>
+                            <td><?= $val['faktor_bentuk']; ?></td>
                             <td><?= $val['harga']; ?></td>
                             <td><?= $val['stok']; ?></td>
 
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
-
             </table>
         </div>
-    </div>
-    <script>
-        window.print
-    </script>
+        <!-- /.card-body -->
+        <script>
+            window.print()
+        </script>

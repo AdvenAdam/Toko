@@ -62,5 +62,5 @@
         <!-- /.card-body -->
     </div>
     <script>
-        window.print
+        window.print()
     </script>

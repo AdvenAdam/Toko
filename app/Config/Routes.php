@@ -107,6 +107,8 @@ $routes->get('/pendingin/(:any)', 'pendingin::detail/$1');
 
 // pegawai
 $routes->get('/pegawai/create', 'pegawai::create');
+$routes->get('/pegawai/cetak', 'pegawai::cetak');
+$routes->get('/pegawai/excel', 'pegawai::excel');
 $routes->get('/pegawai/edit/(:segment)', 'pegawai::edit/$1');
 $routes->delete('/pegawai/(:num)', 'pegawai::delete/$1');
 $routes->get('/pegawai/(:any)', 'pegawai::detail/$1');
@@ -116,6 +118,8 @@ $routes->delete('/user/(:num)', 'user::delete/$1');
 // Kas
 $routes->get('/kas/createMasuk', 'kas::createMasuk');
 $routes->get('/kas/createKeluar', 'kas::createKeluar');
+$routes->get('/kas/cetak', 'kas::cetak');
+$routes->get('/kas/excel', 'kas::excel');
 $routes->delete('/kas/(:num)', 'kas::delete/$1');
 $routes->get('/kas/edit/(:segment)', 'kas::edit/$1');
 

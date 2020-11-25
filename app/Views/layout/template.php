@@ -121,6 +121,17 @@
             rightAlign: false
         });
     </script>
+    <!-- phone number format -->
+    <script>
+        $('.phone').inputmask({
+            prefix: '(+62)',
+            groupSeparator: "-",
+            alias: "numeric",
+            autoGroup: true,
+            digits: 0,
+            rightAlign: false
+        });
+    </script>
 
     <!-- fade out alert -->
     <script>

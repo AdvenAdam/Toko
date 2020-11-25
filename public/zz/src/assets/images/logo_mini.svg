@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-    <title>Logo Element</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Logo-Element" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle" fill="#575DFA" x="0" y="0" width="26" height="26" rx="4"></rect>
-        <text id="." font-family="Montserrat-Black, Montserrat Black" font-size="23" font-weight="700" fill="#DB504A">
-            <tspan x="14" y="23">.</tspan>
-        </text>
-        <text id="L" font-family="ArialRoundedMTBold, Arial Rounded MT Bold" font-size="23" font-weight="normal" fill="#FFFFFF">
-            <tspan x="6" y="20">L</tspan>
-        </text>
-    </g>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="169.333mm" height="169.333mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 16933 16933"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" horiz-adv-x="719" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Arial Rounded MT Bold">
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="s" horiz-adv-x="542"><path d="M498 162c0,-36.6666 -8.99961,-68.1665 -26.8335,-94.3337 -17.8331,-26.1663 -44.3334,-45.9994 -79.3332,-59.4992 -34.9997,-13.5007 -77.5002,-20.1671 -127.667,-20.1671 -47.8332,0 -88.833,7.33367 -123,22.0001 -34.1663,14.5003 -59.3331,32.8336 -75.6663,54.8337 -16.1671,21.8331 -24.3333,43.8332 -24.3333,65.9995 0,14.6664 5.16662,27.1667 15.6669,37.5 10.3332,10.5003 23.4999,15.6669 39.5,15.6669 14.0001,0 24.6665,-3.4998 32.1663,-10.3332 7.49982,-6.83344 14.6664,-16.3333 21.4999,-28.8336 13.6669,-23.6669 30.0002,-41.5 48.9998,-53.1669 19.0005,-11.833 45.0007,-17.666 77.8334,-17.666 26.6665,0 48.5005,6.00003 65.5001,17.8331 17.1667,11.833 25.667,25.4999 25.667,40.8336 0,23.4999 -8.83345,40.4996 -26.5004,51.333 -17.8331,10.6664 -46.9998,20.9997 -87.6664,30.8336 -45.8332,11.3328 -83.167,23.3329 -112,35.8332 -28.6674,12.5003 -51.6671,29.1667 -69.0008,49.6662 -17.1658,20.5003 -25.8331,45.8341 -25.8331,75.6672 0,26.8335 8.00004,51.9994 23.8331,75.8334 16.0001,23.8331 39.5009,42.6666 70.6667,56.8328 31.0006,14.1671 68.5006,21.3337 112.5,21.3337 34.5004,0 65.5001,-3.4998 92.8339,-10.6664 27.4999,-7.16663 50.4996,-16.8335 68.8329,-28.8336 18.5003,-12.1671 32.5004,-25.4999 42.0002,-40.1672 9.66687,-14.6664 14.5003,-28.8327 14.5003,-42.9998 0,-15.1667 -5.16662,-27.8331 -15.4999,-37.5 -10.1671,-9.83302 -24.8335,-14.6664 -43.667,-14.6664 -13.6669,0 -25.3329,3.83299 -34.9997,11.6669 -9.49983,7.83301 -20.5003,19.4999 -33.0006,35.1668 -9.99917,12.9996 -21.8331,23.4999 -35.5,31.3329 -13.666,7.83301 -32.1663,11.6669 -55.6662,11.6669 -24.0001,0 -44.0002,-5.16662 -60.0003,-15.3337 -15.833,-10.3332 -23.8331,-23.1667 -23.8331,-38.4995 0,-14.0001 5.833,-25.4999 17.4999,-34.3334 11.833,-9.00049 27.4999,-16.5003 47.3339,-22.3333 19.8331,-5.83388 47.166,-13.0005 81.9996,-21.4999 41.333,-10.0001 75.167,-22.1672 101.333,-36.1672 26.1672,-14.0001 46.0002,-30.4995 59.5001,-49.6662 13.4999,-19.0005 20.3333,-40.6666 20.3333,-65.1669z"/></glyph>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Arial Rounded MT Bold";src:url("#FontID0") format(svg)}
+    .fil1 {fill:#FEFEFE}
+    .fil0 {fill:#464FFA}
+    .fnt0 {font-weight:normal;font-size:11314.9px;font-family:'Arial Rounded MT Bold'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" x="2371" y="3387" width="12192" height="10160" rx="1524" ry="1524"/>
+  <text x="5416" y="11397"  class="fil1 fnt0">s</text>
+ </g>
 </svg>

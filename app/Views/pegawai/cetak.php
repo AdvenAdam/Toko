@@ -37,30 +37,27 @@
                 <thead>
                     <tr align="middle">
                         <th width="5%"><b>No</th>
-                        <th><b>Merk</th>
+                        <th><b>No Pegawai</th>
                         <th><b>Nama</th>
-                        <th><b>Ukuran</th>
-                        <th><b>Frekuensi</th>
-                        <th><b>Harga</th>
-                        <th><b>Stok</th>
-
+                        <th><b>Alamat</th>
+                        <th><b>No HP</th>
+                        <th><b>Jabatan</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($ram as $val) : ?>
+                    <?php foreach ($pegawai as $val) : ?>
                         <tr align="middle">
                             <td><?= $i++; ?></td>
-                            <td><?= $val['merk']; ?></td>
+                            <td><?= $val['no_pegawai']; ?></td>
                             <td><?= $val['nama']; ?></td>
-                            <td><?= $val['ukuran_ram'] . 'GB' . ' ' . $val['jenis_ram']; ?></td>
-                            <td><?= $val['frekuensi'] . "MHz"; ?></td>
-                            <td><?= $val['harga']; ?></td>
-                            <td><?= $val['stok']; ?></td>
-
+                            <td><?= $val['no_hp']; ?></td>
+                            <td><?= $val['alamat']; ?></td>
+                            <td><?= $val['jabatan']; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
+
             </table>
         </div>
         <!-- /.card-body -->
