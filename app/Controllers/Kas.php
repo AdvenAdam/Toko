@@ -81,7 +81,7 @@ class Kas extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/kas/create')->withInput();
+            return redirect()->to('/kas/createMasuk')->withInput();
         }
         $this->kasModel->save([
             'kode_kas' => $this->request->getVar('kode_kas'),
@@ -113,7 +113,7 @@ class Kas extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/kas/create')->withInput();
+            return redirect()->to('/kas/createKeluar')->withInput();
         }
 
 
@@ -137,12 +137,12 @@ class Kas extends BaseController
         return redirect()->to('/kas');
     }
 
-    public function edit($slug)
+    public function edit($kode_kas)
     {
         $data = [
             'title' => 'Ubah Data Kas',
             'validation' => \Config\Services::validation(),
-            'kas' => $this->kasModel->getKas($slug)
+            'kas' => $this->kasModel->getKas($kode_kas)
         ];
         return view('kas/edit', $data);
     }
@@ -151,53 +151,26 @@ class Kas extends BaseController
     {
         // validasi input
         if (!$this->validate([
-            'nama' => [
+            'uraian' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
                 ]
             ],
-            'alamat' => [
+            'pemasukan' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
                 ]
             ],
-            'no_hp' => [
+            'pengeluaran' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
                 ]
             ],
-            'gaji_pokok' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'jabatan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'email' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'foto' => [
-                'rules' => 'is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'max_size' => 'ukuran foto terlalu besar',
-                    'is_image' => 'yang anda pilih bukan foto',
-                    'mime_in' => 'yang anda pilih bukan foto'
-                ]
-            ]
-
         ])) {
-            return redirect()->to('/kas/edit/' . $this->request->getVar('slug'))->withInput();
+            return redirect()->to('/kas/edit/' . $this->request->getVar('kode_kas'))->withInput();
         }
 
         $this->kasModel->save([
@@ -205,8 +178,8 @@ class Kas extends BaseController
             'kode_kas' => $this->request->getVar('kode_kas'),
             'jenis_kas' => $this->request->getVar('jenis_kas'),
             'uraian' => $this->request->getVar('uraian'),
-            'pemasukan' => preg_replace("/[^0-9]/", "", $this->request->getVar('pemasukan')),
-            'pengeluaran' => preg_replace("/[^0-9]/", "", $this->request->getVar('pengeluaran'))
+            'pemasukan' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('pemasukan'))),
+            'pengeluaran' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('pengeluaran')))
 
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');

@@ -39,7 +39,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="pemasukan" class="col-sm-2 col-form-label">Pemasukan</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('pemasukan')) ? 'is-invalid' : ''; ?>" id="input_mask_currency" name="pemasukan" value="<?= old('pemasukan'); ?>">
+                                                    <input type="text" class="form-control input_mask_currency <?= ($validation->hasError('pemasukan')) ? 'is-invalid' : ''; ?>" name="pemasukan" value="<?= old('pemasukan'); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('pemasukan'); ?>
                                                     </div>

@@ -24,7 +24,6 @@
                                     <tr align="middle">
                                         <th width="5%"><b>No</th>
                                         <th><b>Username</th>
-                                        <th><b>Password</th>
                                         <th><b>No Pegawai</th>
                                         <th><b>Level</th>
                                         <th><b>#</b></th>
@@ -36,7 +35,6 @@
                                         <tr align="middle">
                                             <td><?= $i++; ?></td>
                                             <td><?= $val['username']; ?></td>
-                                            <td><?= $val['password']; ?></td>
                                             <td><?= $val['no_pegawai']; ?></td>
                                             <td><?= $val['level']; ?></td>
                                             <td>

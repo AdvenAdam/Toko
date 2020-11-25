@@ -10,6 +10,7 @@ use \App\Models\PendinginModel;
 use \App\Models\ProcesorModel;
 use \App\Models\PsuModel;
 use \App\Models\VgaModel;
+use \App\Models\KasModel;
 
 class Home extends BaseController
 {
@@ -21,6 +22,7 @@ class Home extends BaseController
 	protected $procesorModel;
 	protected $psuModel;
 	protected $vgaModel;
+	protected $kasModel;
 	public function __construct()
 	{
 		$this->ramModel = new RamModel();
@@ -31,6 +33,7 @@ class Home extends BaseController
 		$this->procesorModel = new ProcesorModel();
 		$this->psuModel = new PsuModel();
 		$this->vgaModel = new VgaModel();
+		$this->kasModel = new KasModel();
 	}
 
 
@@ -47,11 +50,19 @@ class Home extends BaseController
 			'pendingin' => count($this->pendinginModel->getPendingin()),
 			'psu' => count($this->psuModel->getPsu()),
 			'vga' => count($this->vgaModel->getVga()),
+			'kas' => ($this->kasModel->getKas()),
 
 		];
 		return view('pages/home', $data);
 	}
 
 	//--------------------------------------------------------------------
+	public function dashAcount()
+	{
+		$data = [
+			'kas' => ($this->kasModel->getKas()),
 
+		];
+		return view('layout/template', $data);
+	}
 }

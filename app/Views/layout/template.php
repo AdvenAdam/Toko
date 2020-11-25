@@ -91,10 +91,7 @@
                     "sZeroRecords": "Data tidak Ditemukan",
                     "sInfoFiltered": " - disaring dari _MAX_ data",
                 }
-
-
             });
-
         });
     </script>
     <!-- IMG PREVIEW -->
@@ -104,13 +101,9 @@
             const sampul = document.querySelector('#gambar');
             const gambarLabel = document.querySelector('.custom-file-label');
             const imgPreview = document.querySelector('.img-preview');
-
-
             gambarLabel.textContent = gambar.files[0].name;
-
             const fileGambar = new FileReader();
             fileGambar.readAsDataURL(gambar.files[0]);
-
             fileGambar.onload = function(e) {
                 imgPreview.src = e.target.result;
             }
@@ -118,7 +111,7 @@
     </script>
     <!-- Format Uang -->
     <script type="text/javascript">
-        $("#input_mask_currency").inputmask({
+        $(".input_mask_currency").inputmask({
             prefix: 'Rp.',
             radixPoint: ',',
             groupSeparator: ".",
@@ -137,6 +130,7 @@
             })
         }, 3000);
     </script>
+
 </body>
 
 </html>

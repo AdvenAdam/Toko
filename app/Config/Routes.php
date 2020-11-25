@@ -115,9 +115,9 @@ $routes->get('/user/create', 'user::create');
 $routes->delete('/user/(:num)', 'user::delete/$1');
 // Kas
 $routes->get('/kas/createMasuk', 'kas::createMasuk');
-$routes->get('/kas/createKeluar', 'kas::creatKeluar');
+$routes->get('/kas/createKeluar', 'kas::createKeluar');
 $routes->delete('/kas/(:num)', 'kas::delete/$1');
-$routes->get('/kas/(:any)', 'kas::detail/$1');
+$routes->get('/kas/edit/(:segment)', 'kas::edit/$1');
 
 
 /**
