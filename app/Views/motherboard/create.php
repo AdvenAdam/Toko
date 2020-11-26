@@ -111,9 +111,9 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    <?= $validation->getError('faktor_bentuk'); ?>
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('faktor_bentuk'); ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">

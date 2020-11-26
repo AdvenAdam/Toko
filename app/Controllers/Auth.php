@@ -40,13 +40,13 @@ class Auth extends BaseController
                 ]
             ]
         ])) {
-            return redirect()->to('/Auth/login')->withInput();
+            return redirect()->to('/Auth')->withInput();
         }
         // jika valid
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
-        $cek      = $this->authModel->login($username, $password);
-
+        $query = $this->authModel->getUser();
+        $cek = $this->authModel->login($username, $password, $query);
         if ($cek) {
             // jika data cocok
             session()->set('log', true);

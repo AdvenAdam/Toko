@@ -142,6 +142,7 @@ class Motherboard  extends BaseController
             ]
 
         ])) {
+            session()->setFlashdata('pesan', 'erroro');
             return redirect()->to('/motherboard/create')->withInput();
         }
         // ambil gambar
@@ -170,8 +171,8 @@ class Motherboard  extends BaseController
             'slug' => $slug,
             'harga' => $this->request->getVar('harga'),
             'stok' => $this->request->getVar('stok'),
-            'socket' => $this->request->getVar('socket'),
             'faktor_bentuk' => implode(",", $faktorbentuk),
+            'socket' => $this->request->getVar('socket'),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
             'ukuran_ram_maks' => $this->request->getVar('ukuran_ram_maks'),
             'jml_slot_pcie' => $this->request->getVar('jml_slot_pcie'),

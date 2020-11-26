@@ -19,17 +19,22 @@ class AuthModel extends Model
         return $this->where(['slug' => $slug])->first();
     }
 
-    public function login($username, $password)
+    public function login($username, $password, $query)
     {
+
         $cekuser = $this->db->table('tbl_user')->where(
             [
                 'username' => $username,
             ]
         )->get()->getRowArray();
-        if (password_verify($password, $cekuser['password'])) {
-            return $cekuser;
-        } else {
-            return false;
+
+        foreach ($query as $result) {
+
+            if (password_verify($password, $result['password'])) {
+                return $cekuser;
+            } else {
+                echo "Jancok salaj";
+            }
         }
     }
 }

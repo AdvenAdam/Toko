@@ -33,22 +33,27 @@
             <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
                 <div class="grid">
                     <div class="grid-body">
+                        <?php if (session()->getFlashdata('pesan')) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= session()->getFlashdata('pesan') ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="row">
                             <div class="grid-header">
-                                <h2 class="mt-5 mb-5"> <a href="" class="logo">
+                                <h7 class="mt-5 mb-5"> <a href="" class="logo">
                                         <img src="/zz/src/assets/images/logo.svg" alt="logo" />
-                                    </a> </h2>
+                                    </a> </h7>
                             </div>
                             <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper">
                                 <form action="/Auth/cek_login" method="POST" enctype="multipart/form-data">
                                     <div class="form-group input-rounded">
-                                        <input type="text" class="form-control  <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" name="username" placeholder="Username">
+                                        <input type="text" class="form-control  <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" value="<?= old('username'); ?>" name="username" placeholder="Username">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('username'); ?>
                                         </div>
                                     </div>
                                     <div class="form-group input-rounded">
-                                        <input type="password" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" name="password" placeholder="Password">
+                                        <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" value="<?= old('password'); ?>" name="password" placeholder="Password">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('password'); ?>
                                         </div>
