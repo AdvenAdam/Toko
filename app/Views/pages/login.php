@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-12 logo-section">
                 <center>
-                    <h2>Form Login</h2>
+                    <h2><?= $title; ?></h2>
                 </center>
             </div>
         </div>
@@ -36,6 +36,10 @@
                         <?php if (session()->getFlashdata('pesan')) : ?>
                             <div class="alert alert-danger" role="alert">
                                 <?= session()->getFlashdata('pesan') ?>
+                            </div>
+                        <?php elseif (session()->getFlashdata('success')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= session()->getFlashdata('success') ?>
                             </div>
                         <?php endif; ?>
                         <div class="row">

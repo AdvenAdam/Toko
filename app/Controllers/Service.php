@@ -5,7 +5,6 @@ namespace App\Controllers;
 use \App\Models\ServModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
-use CodeIgniter\Config\I18n;
 
 class Service extends BaseController
 {
@@ -19,10 +18,9 @@ class Service extends BaseController
         $data =
             [
                 'title' => 'Daftar Service',
-                'service' => $this->servModel->getService()
+                'service' => $this->servModel->getServ()
             ];
 
-        // $komikModel = new \App\Models\KomikModel();
         return view('service/index', $data);
     }
     public function create()
@@ -100,25 +98,12 @@ class Service extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/service');
     }
-    public function detail($slug)
-    {
-        $service = $this->serviceModel->getService($slug);
-        $data = [
-            'title' => 'Detail service',
-            'service' => $this->serviceModel->getService($slug)
-        ];
 
-        //JIka  data tidak ada di table
-        if (empty($data['service'])) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('service ' . $slug . ' tidak ditemukan');
-        }
-        return view('service/detail', $data);
-    }
     public function delete($id)
     {
         //cari gambar berdasar id
-        $service = $this->serviceModel->find($id);
-        $this->serviceModel->delete($id);
+        $service = $this->servModel->find($id);
+        $this->servModel->delete($id);
         session()->setFlashdata('pesan', 'Data Berhasil dihapus');
         return redirect()->to('/service');
     }
@@ -128,7 +113,7 @@ class Service extends BaseController
         $data = [
             'title' => 'Ubah Data',
             'validation' => \Config\Services::validation(),
-            'service' => $this->serviceModel->getService($slug)
+            'service' => $this->servModel->getService($slug)
         ];
         return view('service/edit', $data);
     }
@@ -185,7 +170,7 @@ class Service extends BaseController
             return redirect()->to('/service/edit/' . $this->request->getVar('slug'))->withInput();
         }
 
-        $this->memoriModel->save([
+        $this->servModel->save([
             'id' => $id,
             'nama' => $this->request->getVar('nama'),
             'kerusakan' => $this->request->getVar('kerusakan'),

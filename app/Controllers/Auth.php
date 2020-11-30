@@ -52,12 +52,23 @@ class Auth extends BaseController
             session()->set('log', true);
             session()->set('username', $cek['username']);
             session()->set('level', $cek['level']);
+            session()->set('foto', $cek['foto']);
             //login sukses
-            return redirect()->to('/casing');
+
+            return redirect()->to('/dashboard');
         } else {
             // jika tidak cocok
             session()->setFlashData('pesan', 'login gagal pastikan username atau password benar');
             return redirect()->to('/Auth');
         }
+    }
+    public function logout()
+    {
+        session()->remove('log');
+        session()->remove('username');
+        session()->remove('level');
+        session()->remove('foto');
+        session()->setFlashData('success', 'Logout berhasil');
+        return redirect()->to('/Auth');
     }
 }

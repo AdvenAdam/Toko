@@ -85,7 +85,7 @@
                                                         <option value="Admin">Admin</option>
                                                         <option value="Warehouse">Warehouse</option>
                                                         <option value="Customer_service">Customer Service</option>
-                                                        <option value="Acountant">Acountant</option>
+                                                        <option value="Accountant">Accountant</option>
                                                         <option value="Teknisi">Teknisi</option>
                                                     </select>
                                                     <div class="invalid-feedback">

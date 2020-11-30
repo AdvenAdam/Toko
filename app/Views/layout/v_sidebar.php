@@ -109,6 +109,19 @@
                     <i class="mdi mdi-account link-icon"></i>
                 </a>
             </li>
+            <li>
+                <a href="/auth/logout">
+                    <span class="link-title">Logout</span>
+                    <i class="mdi mdi-account link-icon"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/service">
+                    <span class="link-title">Service</span>
+                    <i class="mdi mdi-account link-icon"></i>
+                </a>
+            </li>
+
         </ul>
 
     </div>

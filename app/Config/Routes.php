@@ -123,6 +123,9 @@ $routes->get('/kas/excel', 'kas::excel');
 $routes->delete('/kas/(:num)', 'kas::delete/$1');
 $routes->get('/kas/edit/(:segment)', 'kas::edit/$1');
 
+//dashboard
+$routes->get('/dashboard/warehouse', 'dashboard::warehouse');
+
 
 /**
  * --------------------------------------------------------------------
