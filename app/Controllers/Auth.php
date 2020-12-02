@@ -20,7 +20,7 @@ class Auth extends BaseController
                 'title' => 'Form Login',
                 'validation' => \Config\Services::validation()
             ];
-        return view('pages/login', $data);
+        return view('layout/front/v_auth', $data);
     }
 
 

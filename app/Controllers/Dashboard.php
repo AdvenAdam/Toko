@@ -53,6 +53,9 @@ class Dashboard extends BaseController
         if (session()->get('level') == 'Customer_service') {
             return redirect()->to('/dashboard/CustomerService');
         }
+        if (session()->get('level') == 'Guest') {
+            return redirect()->to('/');
+        }
     }
 
     public function Warehouse()
@@ -82,10 +85,10 @@ class Dashboard extends BaseController
         if (session()->get('level') != 'Accountant') {
             return redirect()->to('/Dashboard');
         } else {
+
             $data = [
                 'title' => 'Halaman Dashboard Accountant',
                 'kas' => ($this->kasModel->getKas()),
-                'nama' => session()->get('level')
 
             ];
             return view('pages/Accountan', $data);

@@ -123,12 +123,60 @@ class User extends BaseController
             'password' => $password,
             'no_pegawai' => $this->request->getVar('no_pegawai'),
             'level' => $this->request->getVar('level'),
-            'foto' => $namaGambar,
+            'email' => "-",
+            'foto' => '/img/user/' . $namaGambar,
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/user');
     }
+    public function save_guest()
+    {
+
+        // validasi input
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required|is_unique[tbl_user.username]',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'is_unique' => '{field} sudah ada'
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|min_length[8]|max_length[20]',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'min_length' => '{field} harus berisi minimal 8 karakter',
+                    'max_length' => '{field} harus berisi maximal 20 karakter'
+                ]
+            ],
+            'repassword' => [
+                'label' => 'Retype Password',
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'matches' => '{field} tidak sama'
+                ]
+            ],
+        ])) {
+            return redirect()->to('/Auth #lg2')->withInput();
+        }
+
+        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+        $slug = url_title($this->request->getVar('username'), '-', true);
+        $this->authModel->save([
+            'username' => $this->request->getVar('username'),
+            'slug' => $slug,
+            'password' => $password,
+            'email' => $this->request->getVar('email'),
+            'level' => "Guest",
+        ]);
+
+        session()->setFlashdata('success', 'Regis Berhasil');
+        return redirect()->to('/Auth');
+    }
+
     public function delete($id)
     {
 

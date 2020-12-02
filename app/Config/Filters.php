@@ -21,14 +21,14 @@ class Filters extends BaseConfig
 			'authfilter' => ['except' => [
 				'auth', 'auth/*',
 				'home', 'home/*',
-				'/'
+				'user', 'user/save_guest',
+				'/', '*'
 			]]
 		],
 		'after'  => [
 			'authfilter' => ['except' => [
 				'casing', 'casing/*',
 				'dashboard', 'dashboard/*',
-				'home', 'home/*',
 				'kas', 'kas/*',
 				'memori', 'memori/*',
 				'motherboard', 'motherboard/*',
