@@ -93,58 +93,32 @@
             </div>
             <div class="col-lg-8">
                 <div class="testimonial-active pl-70">
-                    <div class="testimonial-plr-1">
-                        <div class="single-testimonial">
-                            <div class="testi-rating-quotes-icon">
-                                <div class="testi-rating">
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
+                    <?php foreach ($rating as $val) { ?>
+                        <div class="testimonial-plr-1">
+                            <div class="single-testimonial">
+                                <div class="testi-rating-quotes-icon">
+                                    <div class="testi-rating">
+                                        <?php for ($i = 1; $i <= $val['rating']; $i++) { ?>
+                                            <i class="icon-rating"></i>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="testi-quotes-icon">
+                                        <img class="inject-me" src="/front/dking/assets/images/icon-img/quotes-icon.png" alt="">
+                                    </div>
                                 </div>
-                                <div class="testi-quotes-icon">
-                                    <img class="inject-me" src="/front/dking/assets/images/icon-img/quotes-icon.png" alt="">
-                                </div>
-                            </div>
-                            <p>Quickly iterate superior manufactured products with long-term <span>high impact niche markets</span>. Rapidiously synergize revolutionary data after tactical technology.</p>
-                            <div class="client-info-wrap">
-                                <div class="client-img">
-                                    <img src="/front/dking/assets/images/testimonial/client-1.png" alt="">
-                                </div>
-                                <div class="client-info">
-                                    <h3>Binte Chuka</h3>
-                                    <span>Google, CEO</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-plr-1">
-                        <div class="single-testimonial">
-                            <div class="testi-rating-quotes-icon">
-                                <div class="testi-rating">
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
-                                    <i class="icon-rating"></i>
-                                </div>
-                                <div class="testi-quotes-icon">
-                                    <img class="inject-me" src="/front/dking/assets/images/icon-img/quotes-icon.png" alt="">
-                                </div>
-                            </div>
-                            <p>Quickly iterate superior manufactured products with long-term <span>high impact niche markets</span>. Rapidiously synergize revolutionary data after tactical technology.</p>
-                            <div class="client-info-wrap">
-                                <div class="client-img">
-                                    <img src="/front/dking/assets/images/testimonial/client-1.png" alt="">
-                                </div>
-                                <div class="client-info">
-                                    <h3>Binte Chuka</h3>
-                                    <span>Google, CEO</span>
+                                <p><?= $val['pesan']; ?></p>
+                                <div class="client-info-wrap">
+                                    <!-- <div class="client-img">
+                                        <img src="/front/dking/assets/images/testimonial/client-1.png" alt="">
+                                    </div> -->
+                                    <div class="client-info">
+                                        <h3><?= $val['nama']; ?></h3>
+                                        <span><?= $val['pekerjaan']; ?>, at <?= $val['created_at']; ?></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

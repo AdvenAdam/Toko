@@ -12,11 +12,11 @@
                             <div class="main-menu menu-lh-1 main-menu-padding-1 menu-mrg-1">
                                 <nav>
                                     <ul>
-                                        <li><a class="smooth" href="/ #home">Home</a></li>
-                                        <li><a class="smooth" href="/ #shop">Shop</a>
-                                        <li><a class="smooth" href="/ #brand">Brand's</a> </li>
-                                        <li><a class="smooth" href="/ #upcoming">Upcoming product</a> </li>
-                                        <li><a class="smooth" href="/ #contact">Contact Us</a></li>
+                                        <li><a href="/ #home">Home</a></li>
+                                        <li><a href="/ #shop">Shop</a>
+                                        <li><a href="/ #brand">Brand's</a> </li>
+                                        <li><a href="/ #upcoming">Upcoming product</a> </li>
+                                        <li><a href="/ #contact">Contact Us</a></li>
                                     </ul>
                                 </nav>
                             </div>

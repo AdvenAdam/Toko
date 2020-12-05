@@ -55,6 +55,8 @@ class Dashboard extends BaseController
         }
         if (session()->get('level') == 'Guest') {
             return redirect()->to('/');
+        } else {
+            return redirect()->to('/Home');
         }
     }
 

@@ -1,31 +1,3 @@
- <div class="contact-us-area pt-160 pb-160" id="contact">
-     <div class="container">
-         <div class="row">
-             <div class="col-lg-12 col-md-8">
-                 <div class="contact-form-area contact-form-padding bg-gray">
-                     <h2>Get In Touch</h2>
-                     <form id="contact-form" action="assets/mail-php/mail.php" method="post">
-                         <div class="single-contact-form">
-                             <input name="name" type="text" placeholder="Your name *">
-                         </div>
-                         <div class="single-contact-form">
-                             <input name="email" type="email" placeholder="Your e-mail *">
-                         </div>
-                         <div class="single-contact-form">
-                             <input name="phone" type="text" placeholder="Phone number">
-                         </div>
-                         <div class="single-contact-form">
-                             <textarea name="message" placeholder="Your message" spellcheck="false"></textarea>
-                             <p>* Required fields</p>
-                             <button class="submit" type="submit">Send message</button>
-                         </div>
-                     </form>
-                     <p class="form-messege"></p>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
  <footer class="footer-area bg-gray-3 pt-160">
      <div class="footer-top pb-120">
          <div class="container">
@@ -49,10 +21,10 @@
                          <h3 class="footer-title">Socials</h3>
                          <div class="footer-info-list">
                              <ul>
-                                 <li><a href="#">Instagram</a></li>
-                                 <li><a href="#">Twitter</a></li>
-                                 <li><a href="#">Facebook</a></li>
-                                 <li><a href="#">Pinterest</a></li>
+                                 <li><a data-toggle="tab" href="#">Instagram</a></li>
+                                 <li><a data-toggle="tab" href="#">Twitter</a></li>
+                                 <li><a data-toggle="tab" href="#">Facebook</a></li>
+                                 <li><a data-toggle="tab" href="#">Pinterest</a></li>
                              </ul>
                          </div>
                      </div>

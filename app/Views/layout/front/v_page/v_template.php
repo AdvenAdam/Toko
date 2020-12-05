@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dking - Multipurpose eCommerce HTML Template</title>
+    <title><?= $title; ?></title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,20 @@
 	============================================ -->
     <link rel="stylesheet" href="/front/dking/assets/css/vendor/vendor.min.css">
     <link rel="stylesheet" href="/front/dking/assets/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/front/dking/assets/css/style.min.css">
     <link rel="stylesheet" href="/front/dking/assets/css/dropdown.css">
+    <link rel="stylesheet" href="/front/dking/assets/css/rating.css">
+
+    <!-- css utk Gambar -->
+    <link rel="stylesheet" href="/zz/src/assets/css/gambar.css">
 
 </head>
 
 <body>
     <div class="main-wrapper main-wrapper-3">
         <?= $this->renderSection('content'); ?>
-        <?= $this->include('layout/front/v_footer.php'); ?>
+        <?= $this->include('layout/front/v_page/v_footer.php'); ?>
 
     </div>
     <!-- All JS is here
@@ -31,6 +36,7 @@
 
     <script src="/front/dking/assets/js/vendor/vendor.min.js"></script>
     <script src="/front/dking/assets/js/plugins/plugins.min.js"></script>
+    <script src="/zz/src/assets/jquery/jquery.inputmask.bundle.min.js"></script>
     <!-- Main JS -->
     <script src="/front/dking/assets/js/main.js"></script>
 
@@ -93,6 +99,18 @@
 
         });
     </script>
+    <!-- phone number format -->
+    <script>
+        $('.phone').inputmask({
+            prefix: '(0)',
+            groupSeparator: "-",
+            alias: "numeric",
+            autoGroup: true,
+            digits: 0,
+            rightAlign: false
+        });
+    </script>
+
 </body>
 
 </html>

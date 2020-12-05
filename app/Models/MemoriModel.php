@@ -19,7 +19,10 @@ class MemoriModel extends Model
         if ($slug == false) {
             return $this->findAll();
         }
-
         return $this->where(['slug' => $slug])->first();
+    }
+    public function shopMemori()
+    {
+        return $this->where('status', 'available')->orderBY('id', 'DESC')->limit(2)->find();
     }
 }
