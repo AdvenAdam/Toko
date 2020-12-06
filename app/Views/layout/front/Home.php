@@ -67,7 +67,7 @@
                             </div>
                         <?php } else { ?>
                             <div class="same-style">
-                                <a href="/Auth"><i class="icofont-user-alt-3"></i></a>
+                                <a href="/Auth/Login"><i class="icofont-user-alt-3"></i></a>
                             </div>
                         <?php } ?>
                         <div class="same-style header-cart">

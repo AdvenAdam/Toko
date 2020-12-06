@@ -160,7 +160,7 @@ class User extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/Auth #lg2')->withInput();
+            return redirect()->to('/Auth/Registrasi')->withInput();
         }
 
         $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
@@ -173,8 +173,8 @@ class User extends BaseController
             'level' => "Guest",
         ]);
 
-        session()->setFlashdata('success', 'Regis Berhasil');
-        return redirect()->to('/Auth');
+        session()->setFlashdata('success', 'Registrasi Berhasil');
+        return redirect()->to('/Auth/Login');
     }
 
     public function delete($id)

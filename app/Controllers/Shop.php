@@ -64,7 +64,8 @@ class Shop extends BaseController
             'pendingin'     => $this->pendinginModel->getPendingin(),
             'psu'           => $this->psuModel->getPsu(),
             'vga'           => $this->vgaModel->getVga(),
-            'uri'           =>  new \CodeIgniter\HTTP\URI(current_url())
+            'uri'           =>  new \CodeIgniter\HTTP\URI(current_url()),
+            'validation' => \Config\Services::validation()
         ];
 
         return view('layout/front/Shop', $data);

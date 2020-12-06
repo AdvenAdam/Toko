@@ -11,7 +11,7 @@
             <a href="#memory" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'Memory') ? 'active' : ''; ?>">Memory</a>
             <a href="#vga" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'VGA') ? 'active' : ''; ?>">VGA</a>
             <a href="#ram" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'RAM') ? 'active' : ''; ?>">RAM</a>
-            <a href="#cooler" data-toggle="tab class=" <?= ($uri->getSegment(2) == 'Cooler') ? 'active' : ''; ?>"">Cooler</a>
+            <a href="#cooler" data-toggle="tab" class=" <?= ($uri->getSegment(2) == 'Cooler') ? 'active' : ''; ?>">Cooler</a>
             <a href="#psu" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'PSU') ? 'active' : ''; ?>">PSU</a>
         </div>
         <div class="row mb-30">

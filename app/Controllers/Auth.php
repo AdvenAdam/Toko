@@ -18,7 +18,8 @@ class Auth extends BaseController
         $data =
             [
                 'title' => 'Form Login',
-                'validation' => \Config\Services::validation()
+                'validation' => \Config\Services::validation(),
+                'uri'           =>  new \CodeIgniter\HTTP\URI(current_url()),
             ];
         return view('layout/front/Auth', $data);
     }
@@ -40,7 +41,7 @@ class Auth extends BaseController
                 ]
             ]
         ])) {
-            return redirect()->to('/Auth')->withInput();
+            return redirect()->to('/Auth/Registrasi')->withInput();
         }
         // jika valid
         $username = $this->request->getPost('username');
@@ -59,7 +60,7 @@ class Auth extends BaseController
         } else {
             // jika tidak cocok
             session()->setFlashData('pesan', 'login gagal pastikan username atau password benar');
-            return redirect()->to('/Auth');
+            return redirect()->to('/Auth/Login');
         }
     }
     public function logout()
@@ -69,6 +70,6 @@ class Auth extends BaseController
         session()->remove('level');
         session()->remove('foto');
         session()->setFlashData('success', 'Logout berhasil');
-        return redirect()->to('/Auth');
+        return redirect()->to('/Auth/Login');
     }
 }

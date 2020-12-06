@@ -7,7 +7,7 @@
             <h2>Login / Register</h2>
             <ul>
                 <li>
-                    <a href="/ #contact">Home </a>
+                    <a href="/">Home </a>
                 </li>
                 <li><span> > </span></li>
                 <li class="active"> Login / Register </li>
@@ -21,10 +21,10 @@
             <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a class="active" data-toggle="tab" href="#lg1">
+                        <a class="<?= ($uri->getSegment(2) == 'Login') ? 'active' : ''; ?>" data-toggle="tab" href="#Login">
                             <h4> login </h4>
                         </a>
-                        <a data-toggle="tab" href="#lg2">
+                        <a class="<?= ($uri->getSegment(2) == 'Registrasi') ? 'active' : ''; ?>" data-toggle="tab" href="#Registrasi">
                             <h4> register </h4>
                         </a>
                     </div>
@@ -38,7 +38,7 @@
                                 <?= session()->getFlashdata('success') ?>
                             </div>
                         <?php endif; ?>
-                        <div id="lg1" class="tab-pane active">
+                        <div id="Login" class="tab-pane <?= ($uri->getSegment(2) == 'Login') ? 'active' : ''; ?>">
                             <div class="login-form-container">
                                 <div class="login-register-form">
                                     <form action="/Auth/cek_login" method="POST" enctype="multipart/form-data">
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="lg2" class="tab-pane">
+                        <div id="Registrasi" class="tab-pane <?= ($uri->getSegment(2) == 'Registrasi') ? 'active' : ''; ?>">
                             <div class="login-form-container">
                                 <div class="login-register-form">
                                     <form action="/user/save_guest" method="post">

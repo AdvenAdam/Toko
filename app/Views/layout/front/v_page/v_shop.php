@@ -79,7 +79,7 @@
                             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
-                                        <a href="/Shop/Casing">
+                                        <a href="/Shop/#Casing">
                                             <img src="/img/aset/more.png" class="gambar" alt="">
                                         </a>
                                     </div>

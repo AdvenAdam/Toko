@@ -10,10 +10,10 @@
             <button class="t-header-toggler t-header-mobile-toggler d-block d-lg-none">
                 <i class="mdi mdi-menu"></i>
             </button>
-            <form action="#" class="t-header-search-box">
+            <form action="" class="t-header-search-box">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" autocomplete="off">
-                    <button class="btn btn-primary" type="submit"><i class="mdi mdi-arrow-right-thick"></i></button>
+                    <input type="text" class="form-control" id="inlineFormInputGroup" value="<?= format_indo(date('Y-m-d')); ?>" readonly>
+                    <button class="btn btn-primary" type="submit"><i class="mdi mdi mdi-calendar-blank "></i></button>
                 </div>
             </form>
             <ul class="nav ml-auto">

@@ -100,6 +100,12 @@
                         <i class="mdi mdi-account link-icon"></i>
                     </a>
                 </li>
+                <li>
+                    <a href="/toko">
+                        <span class="link-title">Toko</span>
+                        <i class="mdi mdi-shopping  link-icon"></i>
+                    </a>
+                </li>
             <?php } ?>
             <!-- Acccountant Level -->
             <?php if (session()->get('level') == 'Accountant') { ?>
@@ -115,7 +121,7 @@
                 <li>
                     <a href="/service">
                         <span class="link-title">Service</span>
-                        <i class="mdi mdi-account link-icon"></i>
+                        <i class="mdi mdi-auto-fix  link-icon"></i>
                     </a>
                 </li>
             <?php } ?>

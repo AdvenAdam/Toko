@@ -11,6 +11,9 @@ use \App\Models\ProcesorModel;
 use \App\Models\PsuModel;
 use \App\Models\VgaModel;
 use \App\Models\KasModel;
+use \App\Models\SubsModel;
+use \App\Models\RatingModel;
+
 
 class Dashboard extends BaseController
 {
@@ -23,6 +26,8 @@ class Dashboard extends BaseController
     protected $psuModel;
     protected $vgaModel;
     protected $kasModel;
+    protected $subsModel;
+    protected $ratingModel;
 
     public function __construct()
     {
@@ -35,6 +40,8 @@ class Dashboard extends BaseController
         $this->psuModel = new PsuModel();
         $this->vgaModel = new VgaModel();
         $this->kasModel = new KasModel();
+        $this->subsModel = new SubsModel();
+        $this->ratingModel = new RatingModel();
     }
     public function index()
     {
@@ -103,9 +110,13 @@ class Dashboard extends BaseController
         }
         $data = [
             'title' => 'Halaman Dashboard Admin',
+            'review' => $this->ratingModel->getRating(),
+            'subs' => $this->subsModel->getSubs(),
+
         ];
         return view('pages/Admin', $data);
     }
+
     public function Teknisi()
     {
         if (session()->get('level') != 'Teknisi') {
