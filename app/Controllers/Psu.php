@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\MerkModel;
 use \App\Models\PsuModel;
+use \App\Models\Merkodel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -11,9 +13,11 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 class Psu  extends BaseController
 {
     protected $psuModel;
+    protected $merkModel;
     public function __construct()
     {
         $this->psuModel = new PsuModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
@@ -33,6 +37,7 @@ class Psu  extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('psu/create', $data);
@@ -170,6 +175,7 @@ class Psu  extends BaseController
         $data = [
             'title' => 'Ubah Data Power Supply',
             'validation' => \Config\Services::validation(),
+            'merk'  => $this->merkModel->getMerk(),
             'psu' => $this->psuModel->getpsu($slug)
         ];
         return view('psu/edit', $data);

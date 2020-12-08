@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\CasingModel;
+use \App\Models\MerkModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -11,9 +12,11 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 class Casing  extends BaseController
 {
     protected $casingModel;
+    protected $merkModel;
     public function __construct()
     {
         $this->casingModel = new CasingModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
@@ -30,6 +33,7 @@ class Casing  extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('casing/create', $data);
@@ -157,7 +161,8 @@ class Casing  extends BaseController
         $data = [
             'title' => 'Ubah Data Casing',
             'validation' => \Config\Services::validation(),
-            'casing' => $this->casingModel->getcasing($slug)
+            'casing' => $this->casingModel->getcasing($slug),
+            'merk'  => $this->merkModel->getMerk(),
         ];
         return view('casing/edit', $data);
     }

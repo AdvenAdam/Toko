@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\VgaModel;
+use \App\Models\MerkModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -11,15 +12,18 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 class Vga extends BaseController
 {
     protected $vgaModel;
+    protected $merkModel;
     public function __construct()
     {
         $this->vgaModel = new VgaModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
         $data =
             [
                 'title' => 'Daftar VGA',
+                'merk'  => $this->merkModel->getMerk(),
                 'vga' => $this->vgaModel->getVga()
             ];
 
@@ -191,6 +195,7 @@ class Vga extends BaseController
         $data = [
             'title' => 'Ubah Data VGA',
             'validation' => \Config\Services::validation(),
+            'merk'  => $this->merkModel->getMerk(),
             'vga' => $this->vgaModel->getvga($slug)
         ];
         return view('vga/edit', $data);

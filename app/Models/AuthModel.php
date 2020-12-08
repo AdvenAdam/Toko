@@ -13,7 +13,7 @@ class AuthModel extends Model
     public function getUser($slug = false)
     {
         if ($slug == false) {
-            return $this->findAll();
+            return $this->where('level !=', 'Guest')->orderBY('id', 'DESC')->find();
         }
 
         return $this->where(['slug' => $slug])->first();
@@ -36,5 +36,9 @@ class AuthModel extends Model
                 echo "Jancok salaj";
             }
         }
+    }
+    public function getGuest()
+    {
+        return $this->where('level', 'Guest')->find();
     }
 }

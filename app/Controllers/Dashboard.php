@@ -13,6 +13,9 @@ use \App\Models\VgaModel;
 use \App\Models\KasModel;
 use \App\Models\SubsModel;
 use \App\Models\RatingModel;
+use \App\Models\TokoModel;
+use \App\Models\AuthModel;
+use \App\Models\MerkModel;
 
 
 class Dashboard extends BaseController
@@ -28,6 +31,9 @@ class Dashboard extends BaseController
     protected $kasModel;
     protected $subsModel;
     protected $ratingModel;
+    protected $tokoModel;
+    protected $authModel;
+    protected $merkModel;
 
     public function __construct()
     {
@@ -42,6 +48,9 @@ class Dashboard extends BaseController
         $this->kasModel = new KasModel();
         $this->subsModel = new SubsModel();
         $this->ratingModel = new RatingModel();
+        $this->tokoModel = new TokoModel();
+        $this->authModel = new AuthModel();
+        $this->merkModel = new merkModel();
     }
     public function index()
     {
@@ -82,6 +91,7 @@ class Dashboard extends BaseController
             'pendingin'     => count($this->pendinginModel->getPendingin()),
             'psu'           => count($this->psuModel->getPsu()),
             'vga'           => count($this->vgaModel->getVga()),
+            'merk'           => ($this->merkModel->getMerk()),
 
 
         ];
@@ -110,8 +120,16 @@ class Dashboard extends BaseController
         }
         $data = [
             'title' => 'Halaman Dashboard Admin',
-            'review' => $this->ratingModel->getRating(),
-            'subs' => $this->subsModel->getSubs(),
+            'rating' => $this->ratingModel->getRating(),
+            'bintang1' => count($this->ratingModel->getBintang1()),
+            'bintang2' => count($this->ratingModel->getBintang2()),
+            'bintang3' => count($this->ratingModel->getBintang3()),
+            'bintang4' => count($this->ratingModel->getBintang4()),
+            'bintang5' => count($this->ratingModel->getBintang5()),
+            'subs' => $this->subsModel->paginate(8),
+            'toko' => $this->tokoModel->getToko(),
+            'user' => $this->authModel->getUser(),
+            'guest' => count($this->authModel->getGuest()),
 
         ];
         return view('pages/Admin', $data);

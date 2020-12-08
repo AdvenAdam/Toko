@@ -12,6 +12,9 @@ use \App\Models\PsuModel;
 use \App\Models\VgaModel;
 use \App\Models\KasModel;
 use \App\Models\RatingModel;
+use \App\Models\SliderModel;
+use \App\Models\TokoModel;
+use \App\Models\MerkModel;
 
 class Home extends BaseController
 {
@@ -25,6 +28,9 @@ class Home extends BaseController
 	protected $vgaModel;
 	protected $kasModel;
 	protected $ratingModel;
+	protected $sliderModel;
+	protected $tokoModel;
+	protected $merkModel;
 
 	public function __construct()
 	{
@@ -38,6 +44,9 @@ class Home extends BaseController
 		$this->vgaModel = new VgaModel();
 		$this->kasModel = new KasModel();
 		$this->ratingModel = new RatingModel();
+		$this->sliderModel = new SliderModel();
+		$this->tokoModel = new TokoModel();
+		$this->merkModel = new MerkModel();
 	}
 	public function index()
 	{
@@ -61,7 +70,7 @@ class Home extends BaseController
 		}
 		$data = [
 			'title'         => 'SpaceCom-Dashboard',
-			'memory' 		=> $this->memoriModel->shopMemori(),
+			'memory' 		=> $this->memoriModel->paginate(5),
 			'ram'           => $this->ramModel->paginate(5),
 			'casing'        => $this->casingModel->paginate(5),
 			'motherboard'   => $this->motherboardModel->paginate(5),
@@ -69,7 +78,10 @@ class Home extends BaseController
 			'pendingin'     => $this->pendinginModel->paginate(5),
 			'psu'           => $this->psuModel->paginate(5),
 			'vga'           => $this->vgaModel->paginate(5),
-			'rating'		=> $this->ratingModel->paginate(5),
+			'rating'		=> $this->ratingModel->getRating(),
+			'slider'		=> $this->sliderModel->getSlider(),
+			'toko'			=> $this->tokoModel->getTampiltoko(),
+			'merk'			=> $this->merkModel->getMerk(),
 			'validation' => \Config\Services::validation(),
 		];
 

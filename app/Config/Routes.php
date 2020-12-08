@@ -125,8 +125,19 @@ $routes->get('/kas/excel', 'kas::excel');
 $routes->delete('/kas/(:num)', 'kas::delete/$1');
 $routes->get('/kas/edit/(:segment)', 'kas::edit/$1');
 
-//dashboard
-$routes->get('/dashboard/warehouse', 'dashboard::warehouse');
+// Toko
+$routes->get('/toko/cetak', 'toko::cetak');
+$routes->get('/toko/excel', 'toko::excel');
+$routes->delete('/toko/(:num)', 'toko::delete/$1');
+$routes->get('/toko/edit/(:segment)', 'toko::edit/$1');
+
+// Slider
+$routes->delete('/slider/(:num)', 'slider::delete/$1');
+$routes->get('/slider/edit/(:segment)', 'slider::edit/$1');
+
+//merk
+$routes->delete('/slider/(:num)', 'slider::delete/$1');
+$routes->get('/slider/edit/(:segment)', 'slider::edit/$1');
 
 
 /**

@@ -20,4 +20,24 @@ class RatingModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+    public function getBintang1()
+    {
+        return $this->where('rating', 1)->find();
+    }
+    public function getBintang2()
+    {
+        return $this->where('rating', 2)->find();
+    }
+    public function getBintang3()
+    {
+        return $this->where('rating', 3)->find();
+    }
+    public function getBintang4()
+    {
+        return $this->where('rating', 4)->find();
+    }
+    public function getBintang5()
+    {
+        return $this->where('rating', 5)->find();
+    }
 }

@@ -36,6 +36,7 @@
                                         <th><b>Platform</b></th>
                                         <th><b>Link</b></th>
                                         <th><b>Tampil</b></th>
+                                        <th><b>#</b></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,17 +44,17 @@
                                     <?php foreach ($toko as $val) : ?>
                                         <tr align="middle">
                                             <td><?= $i++; ?></td>
-                                            <td><img src="<?= $val['gambar']; ?>" alt=""></td>
+                                            <td><img src="/img/toko/<?= $val['gambar']; ?>" alt="" class="tablegambar"></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['platform']; ?></td>
                                             <td><?= $val['link']; ?></td>
                                             <td><?= $val['tampil']; ?></td>
-                                            <a href="/toko/edit/<?= $val['slug']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>
-                                            <form action="/toko/<?= $val['id']; ?>" method="post" class="d-inline">
-                                                <?= csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-dark btn-sm" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
-                                            </form>
+                                            <td> <a href="/toko/edit/<?= $val['id']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>
+                                                <form action="/toko/<?= $val['id']; ?>" method="post" class="d-inline">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-dark btn-sm" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

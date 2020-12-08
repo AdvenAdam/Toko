@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\MemoriModel;
+use \App\Models\MerkModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use CodeIgniter\Config\I18n;
@@ -12,16 +13,19 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 class Memori extends BaseController
 {
     protected $memoriModel;
+    protected $merkModel;
+
     public function __construct()
     {
         $this->memoriModel = new MemoriModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
         $data =
             [
                 'title' => 'Daftar Memory Penyimpanan',
-                'memori' => $this->memoriModel->getMemori()
+                'memori' => $this->memoriModel->getMemori(),
             ];
 
 
@@ -34,6 +38,7 @@ class Memori extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('memori/create', $data);
@@ -165,7 +170,9 @@ class Memori extends BaseController
         $data = [
             'title' => 'Ubah Data Memory',
             'validation' => \Config\Services::validation(),
-            'memori' => $this->memoriModel->getmemori($slug)
+            'memori' => $this->memoriModel->getmemori($slug),
+            'merk'  => $this->merkModel->getMerk(),
+
         ];
         return view('memori/edit', $data);
     }

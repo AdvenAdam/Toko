@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\RamModel;
+use \App\Models\MerkModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -10,10 +11,12 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Ram extends BaseController
 {
+    protected $merkModel;
     protected $ramModel;
     public function __construct()
     {
         $this->ramModel = new RamModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
@@ -33,6 +36,7 @@ class Ram extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('ram/create', $data);
@@ -170,6 +174,7 @@ class Ram extends BaseController
         $data = [
             'title' => 'Ubah Data RAM',
             'validation' => \Config\Services::validation(),
+            'merk'  => $this->merkModel->getMerk(),
             'ram' => $this->ramModel->getram($slug)
         ];
         return view('ram/edit', $data);

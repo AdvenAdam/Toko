@@ -55,8 +55,8 @@
                                                 </div>
                                             </div>
                                             <div class="row showcase_row_area">
-                                                <div class="col-md-4 showcase_text_area">
-                                                    <label>Tampilkan di dashboard Toko</label>
+                                                <div class="col-md-3 showcase_text_area">
+                                                    <label>Tampilkan di dashboard </label>
                                                 </div>
                                                 <div class="col-md-8 showcase_content_area">
                                                     <div class="form-inline">

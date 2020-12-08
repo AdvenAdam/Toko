@@ -85,6 +85,12 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="/merk">
+                        <span class="link-title">Merk</span>
+                        <i class="mdi mdi mdi-label link-icon"></i>
+                    </a>
+                </li>
             <?php } ?>
             <!-- admin level -->
             <?php if (session()->get('level') == 'Admin') { ?>
@@ -104,6 +110,18 @@
                     <a href="/toko">
                         <span class="link-title">Toko</span>
                         <i class="mdi mdi-shopping  link-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/slider">
+                        <span class="link-title">Slider Dashboard Toko</span>
+                        <i class="mdi mdi mdi-monitor-multiple  link-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/rating">
+                        <span class="link-title">Review&Rating</span>
+                        <i class="mdi  mdi mdi-tooltip  link-icon"></i>
                     </a>
                 </li>
             <?php } ?>

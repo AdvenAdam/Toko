@@ -1,37 +1,24 @@
 <div class="slider-area bg-light-green slider-mt-1" id="home">
     <div class="slider-active-1 nav-style-1 dot-style-1">
-        <div class="single-slider slider-height-2 custom-d-flex custom-align-item-center">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-12 col-sm-5">
-                        <div class="slider-content-1 slider-animated-1">
-                            <h1 class="animated">Be Smart With <br>Gadget</h1>
+
+        <?php foreach ($slider as $val) { ?>
+            <div class="single-slider slider-height-2 custom-d-flex custom-align-item-center">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6 col-12 col-sm-5">
+                            <div class="slider-content-1 slider-animated-1">
+                                <h1 class="animated"><?= $val['baris_satu']; ?> <br><?= $val['baris_dua']; ?></h1>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12 col-sm-7">
-                        <div class="slider-single-img-2 slider-animated-1">
-                            <a href="#"><img class="animated" src="/front/dking/assets/images/slider/electric-2-slider-1.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="single-slider slider-height-2 custom-d-flex custom-align-item-center">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                        <div class="slider-content-1 slider-animated-1">
-                            <h1 class="animated">Be Smart With <br>Gadget</h1>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                        <div class="slider-single-img-2 slider-animated-1">
-                            <a href="#"><img class="animated" src="/front/dking/assets/images/slider/electric-2-slider-1.png" alt=""></a>
+                        <div class="col-lg-6 col-md-6 col-12 col-sm-7">
+                            <div class="slider-single-img-2 slider-animated-1">
+                                <a href="<?= $val['link']; ?>"><img class="animated" src="/img/slider/<?= $val['gambar']; ?>" height="433px" width="735px" alt=""></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
     <div class="slider-shape-electric2">
         <img src="/front/dking/assets/images/slider/shape-electric2.png" alt="shape">

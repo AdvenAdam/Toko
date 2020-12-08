@@ -423,6 +423,39 @@
         </div>
     </div>
 </div>
+<div class="product-area section-padding-6 pt-35 pb-50 fix">
+    <div class="container-fluid">
+        <div class="col-lg-4 col-md-4">
+            <div class="section-title-7 mb-30">
+                <h1>Stores</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="product-slider-active-3">
+                    <?php foreach ($toko as $val) : ?>
+                        <div class="product-wrap-plr-1">
+                            <div class="product-wrap">
+                                <div class="product-img product-img-zoom">
+                                    <a href="<?= $val['nama']; ?>">
+                                        <img src="/img/toko/<?= $val['gambar']; ?>" class="banner" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- upcomong -->
 <div class="product-area section-padding-6 pt-155 pb-155 fix" id="upcoming">
     <div class="container-fluid">
         <div class="row">

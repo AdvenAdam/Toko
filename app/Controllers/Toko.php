@@ -39,7 +39,7 @@ class Toko  extends BaseController
         // validasi input
         if (!$this->validate([
             'nama' => [
-                'rules' => 'required|is_unique[tbl_toko.nama]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi',
                     'is_unique' => '{field} sudah ada'
@@ -52,12 +52,12 @@ class Toko  extends BaseController
                 ]
             ],
             'link' => [
-                'rules' => 'required|numeric',
+                'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'numeric' => 'Pastikan {field} diisi dengan angka saja'
+                    'required' => '{field} harus diisi'
                 ]
             ],
+
             'tampil' => [
                 'rules' => 'required',
                 'errors' => [
@@ -94,7 +94,7 @@ class Toko  extends BaseController
             // $namaSampul = $fileSampul->getName();
 
         }
-        $slug = url_title($this->request->getVar('nama'), '-', true);
+        $slug = url_title($this->request->getVar('nama') . $this->request->getVar('platform'), '-', true);
         $this->tokoModel->save([
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
@@ -129,7 +129,7 @@ class Toko  extends BaseController
         $data = [
             'title' => 'Ubah Data toko',
             'validation' => \Config\Services::validation(),
-            'toko' => $this->tokoModel->getcasing($slug)
+            'toko' => $this->tokoModel->getToko($slug)
         ];
         return view('toko/edit', $data);
     }
@@ -138,15 +138,10 @@ class Toko  extends BaseController
     public function update($id)
     {
         //cek nama
-        $casinglama = $this->tokoModel->getcasing($this->request->getVar('slug'));
-        if ($casinglama['nama'] == $this->request->getVar('nama')) {
-            $rule_nama = 'required';
-        } else {
-            $rule_nama = 'required|is_unique[tbl_casing.nama]';
-        }
+
         if (!$this->validate([
             'nama' => [
-                'rules' => $rule_nama,
+                'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi',
                     'is_unique' => '{field} sudah ada'
@@ -159,12 +154,12 @@ class Toko  extends BaseController
                 ]
             ],
             'link' => [
-                'rules' => 'required|numeric',
+                'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'numeric' => 'Pastikan {field} diisi dengan angka saja'
+                    'required' => '{field} harus diisi'
                 ]
             ],
+
             'tampil' => [
                 'rules' => 'required',
                 'errors' => [
@@ -182,7 +177,7 @@ class Toko  extends BaseController
             ]
         ])) {
 
-            return redirect()->to('/toko/edit/' . $this->request->getVar('slug'))->withInput();
+            return redirect()->to('/toko/edit/' . $this->request->getVar('id'))->withInput();
         }
 
         $fileGambar = $this->request->getFile('gambar');
@@ -198,12 +193,10 @@ class Toko  extends BaseController
             // hapus file gambar lama
             unlink('img/toko/' . $this->request->getVar('gambarLama'));
         }
-        $slug = url_title($this->request->getVar('nama'), '-', true);
-        $faktorbentuk = $this->request->getVar('faktor_bentuk');
+
         $this->tokoModel->save([
             'id' => $id,
             'nama' => $this->request->getVar('nama'),
-            'slug' => $slug,
             'platform' => $this->request->getVar('platform'),
             'link' => $this->request->getVar('link'),
             'gambar' => $namaGambar,

@@ -9,7 +9,7 @@ class TokoModel extends Model
     protected $table = 'tbl_toko';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'link', 'platform', 'link', 'gambar', 'tampil'
+        'nama', 'link', 'platform', 'link', 'gambar', 'tampil'
     ];
 
     public function getToko($slug = false)
@@ -17,6 +17,10 @@ class TokoModel extends Model
         if ($slug == false) {
             return $this->findAll();
         }
-        return $this->where(['slug' => $slug])->first();
+        return $this->where(['id' => $slug])->first();
+    }
+    public function getTampiltoko()
+    {
+        return $this->where('tampil', 'True')->find();
     }
 }

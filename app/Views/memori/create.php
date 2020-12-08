@@ -30,10 +30,20 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="merk" class="col-sm-2 col-form-label">Merk</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control  <?= ($validation->hasError('merk')) ? 'is-invalid' : ''; ?>" id="merk" name="merk" autofocus value="<?= old('merk'); ?>">
+                                                <div class="col-sm-4">
+                                                    <select class="custom-select form-control <?= ($validation->hasError('merk')) ? 'is-invalid' : ''; ?>" id="merk" name="merk" value="">
+                                                        <option value="<?= (old('merk')) ? (old('merk')) : "" ?>" selected><?= (old('merk')) ? (old('merk')) : "Pilih merk" ?></option>
+                                                        <?php foreach ($merk as $val) : ?>
+                                                            <option value="<?= $val['nama']; ?>"><?= $val['nama']; ?></option>
+                                                        <?php endforeach; ?>
+
+                                                    </select>
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('merk'); ?>
+                                                        <?php
+                                                        if ($validation->hasError('merk')) {
+                                                            echo $validation->getError('merk');
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>

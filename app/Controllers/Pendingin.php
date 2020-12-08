@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\PendinginModel;
+use \App\Models\MerkModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -11,9 +12,11 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 class Pendingin  extends BaseController
 {
     protected $pendinginModel;
+    protected $merkModel;
     public function __construct()
     {
         $this->pendinginModel = new PendinginModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
@@ -33,6 +36,7 @@ class Pendingin  extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('pendingin/create', $data);
@@ -156,6 +160,7 @@ class Pendingin  extends BaseController
         $data = [
             'title' => 'Ubah Data Cooler',
             'validation' => \Config\Services::validation(),
+            'merk'  => $this->merkModel->getMerk(),
             'pendingin' => $this->pendinginModel->getpendingin($slug)
         ];
         return view('pendingin/edit', $data);

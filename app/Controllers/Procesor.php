@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\ProcesorModel;
+use \App\Models\MerkModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -11,9 +12,11 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 class Procesor extends BaseController
 {
     protected $procesorModel;
+    protected $merkModel;
     public function __construct()
     {
         $this->procesorModel = new ProcesorModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
@@ -33,6 +36,7 @@ class Procesor extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('procesor/create', $data);
@@ -191,6 +195,7 @@ class Procesor extends BaseController
         $data = [
             'title' => 'Ubah Data procesor',
             'validation' => \Config\Services::validation(),
+            'merk'  => $this->merkModel->getMerk(),
             'procesor' => $this->procesorModel->getprocesor($slug)
         ];
         return view('procesor/edit', $data);

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\MotherboardModel;
+use \App\Models\MerkModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -11,9 +12,11 @@ use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 class Motherboard  extends BaseController
 {
     protected $motherboardModel;
+    protected $merkModel;
     public function __construct()
     {
         $this->motherboardModel = new MotherboardModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
@@ -33,6 +36,7 @@ class Motherboard  extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('motherboard/create', $data);
@@ -228,6 +232,7 @@ class Motherboard  extends BaseController
         $data = [
             'title' => 'Ubah Data Motherboard',
             'validation' => \Config\Services::validation(),
+            'merk'  => $this->merkModel->getMerk(),
             'motherboard' => $this->motherboardModel->getmotherboard($slug)
         ];
         return view('motherboard/edit', $data);

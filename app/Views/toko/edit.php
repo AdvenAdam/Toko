@@ -25,7 +25,6 @@
 
                                         <form action="/toko/update/<?= $toko['id']; ?>" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
-                                            <input type="hidden" name="slug" value="<?= $toko['slug']; ?>">
                                             <input type="hidden" name="gambarLama" value="<?= $toko['gambar']; ?>">
                                             <div class="grid-header">
                                                 <h7 class="my-10"><?= "Informasi Dasar Toko"; ?></h7>
@@ -41,8 +40,8 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="platform" class="col-sm-2 col-form-label">platform</label>
-                                                <div class="col-sm-5">
-                                                    <input type="text" class="form-control input_mask_currency <?= ($validation->hasError('platform')) ? 'is-invalid' : ''; ?>" require id="platform" name="platform" value="<?= (old('platform')) ? (old('platform')) : $toko['platform']; ?>">
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('platform')) ? 'is-invalid' : ''; ?>" require id="platform" name="platform" value="<?= (old('platform')) ? (old('platform')) : $toko['platform']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('platform'); ?>
                                                     </div>
@@ -50,8 +49,8 @@
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="link" class="col-sm-2 col-form-label">Link</label>
-                                                <div class="col-sm-3">
-                                                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" class="form-control <?= ($validation->hasError('link')) ? 'is-invalid' : ''; ?>" require id="link" name="link" value="<?= (old('link')) ? (old('link')) : $toko['link']; ?>">
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('link')) ? 'is-invalid' : ''; ?>" require id="link" name="link" value="<?= (old('link')) ? (old('link')) : $toko['link']; ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('link'); ?>
                                                     </div>
