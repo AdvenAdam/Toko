@@ -56,7 +56,7 @@
                             <td><?= $val['sertifikat']; ?></td>
                             <td><?= $val['jenis_kabel']; ?></td>
                             <td><?= $val['mb_power'] . "Watt"; ?></td>
-                            <td><?= $val['harga']; ?></td>
+                            <td><?= number_format($val['harga']); ?></td>
                             <td><?= $val['stok']; ?></td>
                         </tr>
                     <?php endforeach; ?>

@@ -52,7 +52,7 @@
                             <td><?= $val['merk']; ?></td>
                             <td><?= $val['nama']; ?></td>
                             <td><?= $val['ukuran_memori'] . " GB" . '/' . $val['tipe_memori'] . '/' . $val['lebar_memori'] . "Bit"; ?></td>
-                            <td><?= $val['harga']; ?></td>
+                            <td><?= number_format($val['harga']); ?></td>
                             <td><?= $val['stok']; ?></td>
                         </tr>
                     <?php endforeach; ?>

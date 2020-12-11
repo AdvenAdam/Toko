@@ -1,13 +1,12 @@
 <div class="slider-area bg-light-green slider-mt-1" id="home">
     <div class="slider-active-1 nav-style-1 dot-style-1">
-
         <?php foreach ($slider as $val) { ?>
             <div class="single-slider slider-height-2 custom-d-flex custom-align-item-center">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-6 col-12 col-sm-5">
                             <div class="slider-content-1 slider-animated-1">
-                                <h1 class="animated"><?= $val['baris_satu']; ?> <br><?= $val['baris_dua']; ?></h1>
+                                <h1 class="animated"><?= $val['baris_satu']; ?><br><?= $val['baris_dua']; ?></h1>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 col-sm-7">

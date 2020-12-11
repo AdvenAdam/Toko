@@ -11,7 +11,7 @@ class MemoriModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = [
         'merk', 'nama', 'slug', 'harga', 'stok',
-        'ukuran_memori', 'jenis_memori', 'rincian', 'gambar'
+        'ukuran_memori', 'jenis_memori', 'rincian', 'gambar', 'diskon', 'berlaku', 'harga_new'
     ];
 
     public function getMemori($slug = false)
@@ -21,8 +21,8 @@ class MemoriModel extends Model
         }
         return $this->where(['slug' => $slug])->first();
     }
-    public function shopMemori()
+    public function diskonMemori()
     {
-        return $this->where('status', 'available')->orderBY('id', 'DESC')->limit(2)->find();
+        return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
 }

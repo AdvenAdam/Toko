@@ -10,7 +10,7 @@ class VgaModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = [
         'merk', 'nama', 'slug', 'harga', 'stok', 'base_clock',
-        'boost_clock', 'ukuran_memori', 'tipe_memori', 'lebar_memori', 'konektor_daya', 'rincian', 'gambar'
+        'boost_clock', 'ukuran_memori', 'tipe_memori', 'lebar_memori', 'konektor_daya', 'rincian', 'gambar', 'diskon', 'berlaku', 'harga_new'
     ];
 
     public function getVga($slug = false)
@@ -20,5 +20,9 @@ class VgaModel extends Model
         }
 
         return $this->where(['slug' => $slug])->first();
+    }
+    public function diskonVga()
+    {
+        return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
 }

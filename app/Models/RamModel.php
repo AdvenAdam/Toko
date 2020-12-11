@@ -10,7 +10,7 @@ class RamModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = [
         'merk', 'nama', 'slug', 'harga', 'stok', 'jenis_ram',
-        'ukuran_ram', 'frekuensi', 'rincian', 'gambar'
+        'ukuran_ram', 'frekuensi', 'rincian', 'gambar', 'diskon', 'berlaku', 'harga_new'
     ];
 
     public function getRam($slug = false)
@@ -18,7 +18,10 @@ class RamModel extends Model
         if ($slug == false) {
             return $this->findAll();
         }
-
         return $this->where(['slug' => $slug])->first();
+    }
+    public function diskonRam()
+    {
+        return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
 }

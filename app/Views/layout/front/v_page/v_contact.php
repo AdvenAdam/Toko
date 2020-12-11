@@ -1,8 +1,8 @@
 <!-- get in touch -->
-<div class="contact-us-area pt-160 pb-160" id="contact">
+<div class="contact-us-area pt-160 pb-160">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-8">
+            <div class="col-lg-12 col-md-8" id="contact">
                 <div class="contact-form-area contact-form-padding bg-gray">
                     <h2>Get In Touch</h2>
                     <?php if (session()->getFlashdata('pesan')) : ?>

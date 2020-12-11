@@ -10,7 +10,7 @@ class ProcesorModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = [
         'merk', 'nama', 'slug', 'harga', 'stok', 'jml_core',
-        'jml_threads', 'jml_pin_cpu', 'socket', 'frekuensi', 'iGPU', 'cache', 'rincian', 'gambar'
+        'jml_threads', 'jml_pin_cpu', 'socket', 'frekuensi', 'iGPU', 'cache', 'rincian', 'gambar', 'diskon', 'berlaku', 'harga_new'
     ];
 
     public function getProcesor($slug = false)
@@ -20,5 +20,9 @@ class ProcesorModel extends Model
         }
 
         return $this->where(['slug' => $slug])->first();
+    }
+    public function diskonProcie()
+    {
+        return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
 }

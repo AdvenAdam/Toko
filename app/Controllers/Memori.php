@@ -10,6 +10,10 @@ use CodeIgniter\Config\I18n;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
+if (session()->get('level') <> 'Warehouse') {
+    return redirect()->to('/Dashboard');
+}
+
 class Memori extends BaseController
 {
     protected $memoriModel;
@@ -120,7 +124,7 @@ class Memori extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'ukuran_memori' => $this->request->getVar('ukuran_memori'),
             'jenis_memori' => $this->request->getVar('jenis_memori'),
@@ -256,7 +260,7 @@ class Memori extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'ukuran_memori' => $this->request->getVar('ukuran_memori'),
             'jenis_memori' => $this->request->getVar('jenis_memori'),

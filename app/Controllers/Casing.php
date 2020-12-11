@@ -9,15 +9,20 @@ use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
+if (session()->get('level') <> 'Warehouse') {
+    return redirect()->to('/Dashboard');
+}
 class Casing  extends BaseController
 {
     protected $casingModel;
     protected $merkModel;
+
     public function __construct()
     {
         $this->casingModel = new CasingModel();
         $this->merkModel = new MerkModel();
     }
+
     public function index()
     {
         $data =
@@ -111,7 +116,7 @@ class Casing  extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'faktor_bentuk' => implode(",", $faktorbentuk),
             'gambar' => $namaGambar,
@@ -244,7 +249,7 @@ class Casing  extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'faktor_bentuk' => implode(",", $faktorbentuk),
             'gambar' => $namaGambar,

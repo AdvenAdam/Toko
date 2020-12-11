@@ -3,6 +3,7 @@
 <?= $this->include('layout/front/v_page/v_nav'); ?>
 <?= $this->include('layout/front/v_page/v_modal.php'); ?>
 <div class="shop-area pt-160 pb-160">
+
     <div class="container">
         <div class="shop-categorie-tab mb-20 nav">
             <a href="#casing" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'Casing') ? 'active' : ''; ?>">Casing </a>
@@ -15,40 +16,38 @@
             <a href="#psu" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'PSU') ? 'active' : ''; ?>">PSU</a>
         </div>
         <div class="row mb-30">
-            <div class="col"></div>
-        </div>
-        <div class="widget-style-top">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="sidebar-widget mb-30">
-                        <h4 class="pro-sidebar-title">Filter By Price Range</h4>
-                        <div class="price-filter price-mrg-none mt-30">
-                            <div id="slider-range"></div>
-                            <div class="price-slider-amount">
-                                <div class="label-input">
-                                    <span>Price: </span><input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                                </div>
-                            </div>
-                        </div>
+            <div class="col">
+                <?php if (session()->getFlashdata('pesan')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('pesan') ?>
                     </div>
-                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <!-- <div class="widget-style-top">
+            <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="sidebar-widget mb-30">
                         <h4 class="pro-sidebar-title">Filter By Brand</h4>
                         <div class="sidebar-widget-brand-logo brand-logo-mrg-none mt-20">
                             <ul>
-                                <li><a href="#"><img src="/front/dking/assets/images/brand-logo/brand-logo-1.png" alt=""></a></li>
-                                <li><a href="#"><img src="/front/dking/assets/images/brand-logo/brand-logo-2.png" alt=""></a></li>
-                                <li><a href="#"><img src="/front/dking/assets/images/brand-logo/brand-logo-3.png" alt=""></a></li>
+                                <?php foreach ($merk as $val) { ?>
+                                    <li>
+                                        <form action="" method="POST">
+                                            <input type="hidden" name="merk" value="<?= $val['nama']; ?>">
+                                            <input type="image" src="img/merk/<?= $val['gambar']; ?>" alt="Submit button">
+                                        </form>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row flex-row-reverse">
             <div class="col-lg-12">
-                <div class="tab-content">
+                <div class="tab-content mt-30">
                     <div id="casing" class="tab-pane <?= ($uri->getSegment(2) == 'Casing') ? 'active' : ''; ?>">
                         <div class="shop-top-bar">
                             <div class="shop-top-bar-left">
@@ -57,21 +56,11 @@
                                     <a href="#shop-2" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-1" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($casing as $val) { ?>
+                                    <?php foreach (array_reverse($casing) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -80,25 +69,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,16 +129,26 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,13 +156,7 @@
                                     </div>
                                 <?php } ?>
                             </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                     <div id="motherboard" class="tab-pane <?= ($uri->getSegment(2) == 'Motherboard') ? 'active' : ''; ?>">
@@ -158,21 +167,11 @@
                                     <a href="#shop-4" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-3" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($motherboard as $val) { ?>
+                                    <?php foreach (array_reverse($motherboard) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -181,25 +180,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -225,29 +240,32 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -259,21 +277,11 @@
                                     <a href="#shop-6" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-5" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($procesor as $val) { ?>
+                                    <?php foreach (array_reverse($procesor) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -282,25 +290,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -326,29 +350,32 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -360,21 +387,11 @@
                                     <a href="#shop-8" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-7" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($memory as $val) { ?>
+                                    <?php foreach (array_reverse($memory) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -383,25 +400,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -427,29 +460,32 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -461,21 +497,11 @@
                                     <a href="#shop-10" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-9" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($vga as $val) { ?>
+                                    <?php foreach (array_reverse($vga) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -484,25 +510,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -528,29 +570,32 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -562,21 +607,11 @@
                                     <a href="#shop-12" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-11" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($ram as $val) { ?>
+                                    <?php foreach (array_reverse($ram) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -585,25 +620,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -629,29 +680,32 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -663,21 +717,11 @@
                                     <a href="#shop-14" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-13" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($pendingin as $val) { ?>
+                                    <?php foreach (array_reverse($pendingin) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -686,25 +730,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -728,29 +788,32 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -762,21 +825,11 @@
                                     <a href="#shop-16" data-toggle="tab"><img class="inject-me" src="/front/dking/assets/images/icon-img/shop-list.svg" alt=""></a>
                                 </div>
                             </div>
-                            <div class="shop-top-bar-right">
-                                <div class="shop-page-list">
-                                    <ul>
-                                        <li>Show</li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">6</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="tab-content pt-30">
                             <div id="shop-15" class="tab-pane active">
                                 <div class="row">
-                                    <?php foreach ($psu as $val) { ?>
+                                    <?php foreach (array_reverse($psu) as $val) { ?>
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
@@ -785,25 +838,41 @@
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
                                                     <div class="product-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$ 130</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="product-action-position-1 text-center">
                                                     <div class="product-content">
                                                         <h4><?= $val['nama']; ?></a></h4>
                                                         <div class="product-price">
-                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                            <!-- <span class="old-price">$ 130</span> -->
+                                                            <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                                <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } else { ?>
+                                                                <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <form action="wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
+                                                                </form>
+                                                            <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -829,29 +898,32 @@
                                                 <div class="shop-list-content ml-20">
                                                     <h3><a href="#"><?= $val['nama']; ?></a></h3>
                                                     <div class="pro-list-price">
-                                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                                        <!-- <span class="old-price">$50.00</span> -->
+                                                        <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                                            <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } else { ?>
+                                                            <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                                        <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
                                                     <div class="product-list-action">
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <button title="Add to Cart">Add to cart</button>
+                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                                <button title="Add to Cart">Add to cart</button>
+                                                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <?php } ?>
                                                         </div>
-                                                        <button title="Add to Wishlist"><i class="icon-heart-empty"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 <?php } ?>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-50">
-                                <ul>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#"><i class="icofont-long-arrow-right"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>

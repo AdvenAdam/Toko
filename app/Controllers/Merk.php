@@ -7,6 +7,10 @@ use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 
 
+if (session()->get('level') <> 'Warehouse') {
+    return redirect()->to('/Dashboard');
+}
+
 class Merk  extends BaseController
 {
     protected $merkModel;

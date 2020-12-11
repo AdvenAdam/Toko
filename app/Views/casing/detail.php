@@ -37,7 +37,7 @@
                                             </tr>
                                             <tr>
                                                 <td width="10%">Harga</td>
-                                                <td><?= $casing['harga']; ?></td>
+                                                <td><?= number_format($casing['harga']); ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="10%"> Stok</td>

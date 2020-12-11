@@ -46,7 +46,7 @@
                                             <td><?= $val['merk']; ?></td>
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['ukuran_memori'] . " GB" . '/' . $val['tipe_memori'] . '/' . $val['lebar_memori'] . "Bit"; ?></td>
-                                            <td><?= $val['harga']; ?></td>
+                                            <td><?= number_format($val['harga']); ?></td>
                                             <td><?= $val['stok']; ?></td>
                                             <td><a href="/vga/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>
                                                 <a href="/vga/edit/<?= $val['slug']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>

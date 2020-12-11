@@ -50,7 +50,7 @@
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['jenis_memori']; ?></td>
                                             <td><?= $val['ukuran_memori']; ?></td>
-                                            <td><?= $val['harga']; ?></td>
+                                            <td><?= number_format($val['harga']); ?></td>
                                             <td><?= $val['stok']; ?></td>
                                             <td><a href="/memori/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>
                                                 <a href="/memori/edit/<?= $val['slug']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>

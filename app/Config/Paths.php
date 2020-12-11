@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 /**
  * Holds the paths that are used by the system to
@@ -11,7 +13,7 @@
 
 class Paths
 {
-	/*
+    /*
 	 *---------------------------------------------------------------
 	 * SYSTEM FOLDER NAME
 	 *---------------------------------------------------------------
@@ -20,9 +22,9 @@ class Paths
 	 * Include the path if the folder is not in the same directory
 	 * as this file.
 	 */
-	public $systemDirectory = __DIR__ . '/../../vendor/codeigniter4/framework/system';
+    public $systemDirectory = __DIR__ . '/../../vendor/codeigniter4/framework/system';
 
-	/*
+    /*
 	 *---------------------------------------------------------------
 	 * APPLICATION FOLDER NAME
 	 *---------------------------------------------------------------
@@ -35,9 +37,9 @@ class Paths
 	 *
 	 * NO TRAILING SLASH!
 	 */
-	public $appDirectory = __DIR__ . '/..';
+    public $appDirectory = __DIR__ . '/..';
 
-	/*
+    /*
 	 * ---------------------------------------------------------------
 	 * WRITABLE DIRECTORY NAME
 	 * ---------------------------------------------------------------
@@ -48,9 +50,9 @@ class Paths
 	 * for maximum security, keeping it out of the app and/or
 	 * system directories.
 	 */
-	public $writableDirectory = __DIR__ . '/../../writable';
+    public $writableDirectory = __DIR__ . '/../../writable';
 
-	/*
+    /*
 	 * ---------------------------------------------------------------
 	 * TESTS DIRECTORY NAME
 	 * ---------------------------------------------------------------
@@ -61,9 +63,9 @@ class Paths
 	 * for maximum security, keeping it out of the app and/or
 	 * system directories.
 	 */
-	public $testsDirectory = __DIR__ . '/../../tests';
+    public $testsDirectory = __DIR__ . '/../../tests';
 
-	/*
+    /*
 	 * ---------------------------------------------------------------
 	 * VIEW DIRECTORY NAME
 	 * ---------------------------------------------------------------
@@ -73,5 +75,5 @@ class Paths
 	 * default this is in `app/Views`. This value
 	 * is used when no value is provided to `Services::renderer()`.
 	 */
-	public $viewDirectory = __DIR__ . '/../Views';
+    public $viewDirectory = __DIR__ . '/../Views';
 }

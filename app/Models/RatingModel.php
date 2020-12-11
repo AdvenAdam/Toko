@@ -20,6 +20,10 @@ class RatingModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+    public function getBintang0()
+    {
+        return $this->where('rating', null)->find();
+    }
     public function getBintang1()
     {
         return $this->where('rating', 1)->find();

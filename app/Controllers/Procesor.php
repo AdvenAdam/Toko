@@ -9,6 +9,9 @@ use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
+if (session()->get('level') <> 'Warehouse') {
+    return redirect()->to('/Dashboard');
+}
 class Procesor extends BaseController
 {
     protected $procesorModel;
@@ -142,7 +145,7 @@ class Procesor extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'jml_core' => $this->request->getVar('jml_core'),
             'jml_threads' => $this->request->getVar('jml_threads'),
@@ -306,7 +309,7 @@ class Procesor extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'jml_core' => $this->request->getVar('jml_core'),
             'jml_threads' => $this->request->getVar('jml_threads'),

@@ -10,7 +10,7 @@ class PsuModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = [
         'merk', 'nama', 'slug', 'harga', 'stok', 'sertifikat',
-        'jml_pin_cpu', 'jenis_kabel', 'mb_power', 'rincian', 'gambar'
+        'jml_pin_cpu', 'jenis_kabel', 'mb_power', 'rincian', 'gambar', 'diskon', 'berlaku', 'harga_new'
     ];
 
     public function getPsu($slug = false)
@@ -18,7 +18,10 @@ class PsuModel extends Model
         if ($slug == false) {
             return $this->findAll();
         }
-
         return $this->where(['slug' => $slug])->first();
+    }
+    public function diskonPsu()
+    {
+        return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
 }

@@ -55,7 +55,7 @@
                             <td><?= $val['nama']; ?></td>
                             <td><?= $val['ukuran_ram'] . 'GB' . ' ' . $val['jenis_ram']; ?></td>
                             <td><?= $val['frekuensi'] . "MHz"; ?></td>
-                            <td><?= $val['harga']; ?></td>
+                            <td><?= number_format($val['harga']); ?></td>
                             <td><?= $val['stok']; ?></td>
 
                         </tr>

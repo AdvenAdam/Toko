@@ -48,7 +48,7 @@
                                             <td><?= $val['nama']; ?></td>
                                             <td><?= $val['ukuran_ram'] . 'GB' . ' ' . $val['jenis_ram']; ?></td>
                                             <td><?= $val['frekuensi'] . "MHz"; ?></td>
-                                            <td><?= $val['harga']; ?></td>
+                                            <td><?= number_format($val['harga']); ?></td>
                                             <td><?= $val['stok']; ?></td>
                                             <td><a href="/ram/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>
                                                 <a href="/ram/edit/<?= $val['slug']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>

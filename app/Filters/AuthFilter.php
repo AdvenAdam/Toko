@@ -13,7 +13,7 @@ class AuthFilter implements FilterInterface
         // Do something here
         if (session()->get('log') != true) {
             session()->setFlashdata('pesan', 'Silahkan Login Terlebih dahulu');
-            return redirect()->to('/Auth');
+            return redirect()->to('/Auth/Login');
         }
     }
 

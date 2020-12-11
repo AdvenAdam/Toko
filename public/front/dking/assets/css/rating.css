@@ -32,3 +32,39 @@ div.stars {
     content: '\f006';
     font-family: FontAwesome;
   }
+  /* //button */
+  .button {
+    border: none;
+    padding: 7px 32px 7px;
+    background-color: #333333;
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    position: relative;
+  }
+  
+ .button.padding-dec {
+    padding: 6px 20px 7px;
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .button {
+      padding: 6px 22px;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .button {
+      padding: 8px 22px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .button {
+      padding: 6px 22px;
+    }
+  }
+  
+  .button:hover {
+    background-color: #0A1039;
+  }

@@ -44,13 +44,28 @@
                                 <?php } ?>
                             </table>
                         </div>
-                        <div class="grid-body py-3">
-                            <div class="grid-header">
-                                <p><b>Jumlah Akun Pengguna</b></p>
+                        <div class="row">
+                            <div class="col-md-6 equel-grid">
+                                <div class="grid-body py-3">
+                                    <div class="grid-header">
+                                        <p><b>Jumlah Akun Pengguna</b></p>
+                                    </div>
+                                    <div class="d-flex align-items-end mt-2">
+                                        <h1><b><?= $guest; ?></b></h1>
+                                        <p class="ml-1 font-weight-bold"> Akun </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex align-items-end mt-2">
-                                <h1><b><?= $guest; ?></b></h1>
-                                <p class="ml-1 font-weight-bold"> Akun </p>
+                            <div class="col-md-6 equel-grid">
+                                <div class="grid-body py-3">
+                                    <div class="grid-header">
+                                        <p><b>Jumlah Email Subscriber</b></p>
+                                    </div>
+                                    <div class="d-flex align-items-end mt-2">
+                                        <h1><b><?= $countsub; ?></b></h1>
+                                        <p class="ml-1 font-weight-bold"> Email </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -117,45 +132,46 @@
             </div>
         </div>
     </div>
-</div>
 
-<!-- chart js  -->
-<!-- jQuery -->
-<script src="/zz/src/assets/jquery/jquery.min.js"></script>
 
-<script>
-    $(function() {
-        'use strict';
-        if ($("#chartjs-doughnut-chart").length) {
-            var DoughnutData = {
-                datasets: [{
-                    data: [<?php echo json_encode($bintang1); ?>, <?php echo json_encode($bintang2); ?>, <?php echo json_encode($bintang3); ?>, <?php echo json_encode($bintang4); ?>, <?php echo json_encode($bintang5); ?>],
-                    backgroundColor: chartColors,
-                    borderColor: chartColors,
-                    borderWidth: chartColors
-                }],
-                labels: [
-                    'Bintang 1',
-                    'Bintang 2',
-                    'Bintang 3',
-                    'Bintang 4',
-                    'Bintang 5',
-                ]
-            };
-            var DoughnutOptions = {
-                responsive: true,
-                animation: {
-                    animateScale: true,
-                    animateRotate: true
-                }
-            };
-            var doughnutChartCanvas = $("#chartjs-doughnut-chart").get(0).getContext("2d");
-            var doughnutChart = new Chart(doughnutChartCanvas, {
-                type: 'doughnut',
-                data: DoughnutData,
-                options: DoughnutOptions
-            });
-        }
-    });
-</script>
-<?= $this->endSection(); ?>
+    <!-- chart js  -->
+    <!-- jQuery -->
+    <script src="/zz/src/assets/jquery/jquery.min.js"></script>
+
+    <script>
+        $(function() {
+            'use strict';
+            if ($("#chartjs-doughnut-chart").length) {
+                var DoughnutData = {
+                    datasets: [{
+                        data: [<?php echo json_encode($bintang0); ?>, <?php echo json_encode($bintang1); ?>, <?php echo json_encode($bintang2); ?>, <?php echo json_encode($bintang3); ?>, <?php echo json_encode($bintang4); ?>, <?php echo json_encode($bintang5); ?>],
+                        backgroundColor: chartColors,
+                        borderColor: chartColors,
+                        borderWidth: chartColors
+                    }],
+                    labels: [
+                        'Bintang 0',
+                        'Bintang 1',
+                        'Bintang 2',
+                        'Bintang 3',
+                        'Bintang 4',
+                        'Bintang 5',
+                    ]
+                };
+                var DoughnutOptions = {
+                    responsive: true,
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                };
+                var doughnutChartCanvas = $("#chartjs-doughnut-chart").get(0).getContext("2d");
+                var doughnutChart = new Chart(doughnutChartCanvas, {
+                    type: 'doughnut',
+                    data: DoughnutData,
+                    options: DoughnutOptions
+                });
+            }
+        });
+    </script>
+    <?= $this->endSection(); ?>

@@ -10,7 +10,7 @@ use \App\Models\PendinginModel;
 use \App\Models\ProcesorModel;
 use \App\Models\PsuModel;
 use \App\Models\VgaModel;
-use \App\Models\KasModel;
+use \App\Models\MerkModel;
 
 class Shop extends BaseController
 {
@@ -22,7 +22,7 @@ class Shop extends BaseController
     protected $procesorModel;
     protected $psuModel;
     protected $vgaModel;
-    protected $kasModel;
+    protected $merkModel;
 
     public function __construct()
     {
@@ -34,7 +34,7 @@ class Shop extends BaseController
         $this->procesorModel = new ProcesorModel();
         $this->psuModel = new PsuModel();
         $this->vgaModel = new VgaModel();
-        $this->kasModel = new KasModel();
+        $this->merkModel = new MerkModel();
     }
     public function index()
     {
@@ -54,6 +54,13 @@ class Shop extends BaseController
             return redirect()->to('/dashboard/CustomerService');
         }
 
+        // $merk = $this->request->getVar('merk');
+        // if ($merk) {
+        //     $casing =  $this->casingModel->search($merk);
+        // } else {
+        //     $casing = $this->casingModel->getCasing();
+        // }
+
         $data = [
             'title'         => 'SpaceCom-Shop',
             'memory'        => $this->memoriModel->getMemori(),
@@ -64,6 +71,7 @@ class Shop extends BaseController
             'pendingin'     => $this->pendinginModel->getPendingin(),
             'psu'           => $this->psuModel->getPsu(),
             'vga'           => $this->vgaModel->getVga(),
+            'merk'          => $this->merkModel->getMerk(),
             'uri'           =>  new \CodeIgniter\HTTP\URI(current_url()),
             'validation' => \Config\Services::validation()
         ];

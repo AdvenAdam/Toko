@@ -10,6 +10,9 @@ use CodeIgniter\HTTP\Files\UploadedFile;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
+if (session()->get('level') <> 'Warehouse') {
+    return redirect()->to('/Dashboard');
+}
 class Psu  extends BaseController
 {
     protected $psuModel;
@@ -125,7 +128,7 @@ class Psu  extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'sertifikat' => $this->request->getVar('sertifikat'),
             'jenis_kabel' => $this->request->getVar('jenis_kabel'),
@@ -269,7 +272,7 @@ class Psu  extends BaseController
             'merk' => $this->request->getVar('merk'),
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
-            'harga' => $this->request->getVar('harga'),
+            'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'sertifikat' => $this->request->getVar('sertifikat'),
             'jenis_kabel' => $this->request->getVar('jenis_kabel'),

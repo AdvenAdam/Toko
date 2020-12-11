@@ -10,41 +10,31 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/casing/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/casing/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Faktor Bentuk:</span> <?= $val['faktor_bentuk']; ?></li>
@@ -57,7 +47,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -80,41 +69,31 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/motherboard/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/motherboard/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Socket </span>: <?= $val['socket']; ?></li>
@@ -129,7 +108,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -152,41 +130,31 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/procesor/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/procesor/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Socket </span>: <?= $val['socket']; ?></li>
@@ -201,7 +169,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -224,41 +191,31 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/memori/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/memori/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Jenis </span>: <?= $val['jenis_memori']; ?></li>
@@ -273,7 +230,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -296,41 +252,31 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/vga/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/vga/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Base Clock </span>: <?= $val['base_clock'] . 'MHz'; ?></li>
@@ -345,7 +291,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -368,41 +313,31 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/ram/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/ram/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Ukuran </span>: <?= $val['ukuran_ram']; ?></li>
@@ -417,7 +352,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -440,41 +374,31 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/pendingin/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/pendingin/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Jenis </span>: <?= $val['jenis_pendingin']; ?></li>
@@ -488,7 +412,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -511,46 +434,36 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-12 col-sm-6">
                             <div class="quickview-img">
-                                <img src="img/psu/<?= $val['gambar']; ?>" alt="">
+                                <img src="/img/psu/<?= $val['gambar']; ?>" alt="">
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-12 col-sm-6">
                             <div class="product-details-content quickview-content">
                                 <h2><?= $val['nama']; ?></h2>
                                 <div class="product-ratting-review-wrap">
-                                    <div class="product-ratting-digit-wrap">
-                                        <div class="product-ratting">
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-rating"></i>
-                                            <i class="icon-star-empty"></i>
-                                        </div>
-                                        <div class="product-digit">
-                                            <span>4.0</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-review-order">
-                                        <span>62 Reviews</span>
-                                        <span>242 orders</span>
-                                    </div>
                                 </div>
                                 <p><?= $val['rincian']; ?></p>
                                 <div class="pro-details-price">
-                                    <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
-                                    <!-- <span class="old-price">US $95.72</span> -->
+                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga_new'])); ?></span>
+                                        <span class="old-price"><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } else { ?>
+                                        <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="pro-details-quality">
-                                    <span>Quantity:</span>
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <div class="pro-details-quality">
+                                        <span>Quantity:</span>
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Sertifikat </span>: <?= $val['sertifikat']; ?></li>
                                         <li><span>Jenis Kabel </span>: <?= $val['jenis_kabel']; ?></li>
-                                        <li><span>Power </span>: <?= $val['mb_power']; ?></li>
+                                        <li><span>Power </span>: <?= $val['mb_power'] . 'W'; ?></li>
 
                                     </ul>
                                 </div>
@@ -561,7 +474,6 @@
                                     <div class="pro-details-action">
                                         <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
                                         <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
-                                        <a class="social" title="Social" href="#"><i class="icon-share"></i></a>
                                     </div>
                                 </div>
                             </div>

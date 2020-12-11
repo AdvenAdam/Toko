@@ -29,7 +29,6 @@
     <div class="main-wrapper main-wrapper-3">
         <?= $this->renderSection('content'); ?>
         <?= $this->include('layout/front/v_page/v_footer.php'); ?>
-
     </div>
     <!-- All JS is here
 ============================================ -->

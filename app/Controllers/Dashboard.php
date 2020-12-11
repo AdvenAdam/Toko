@@ -67,11 +67,9 @@ class Dashboard extends BaseController
             return redirect()->to('/dashboard/Admin');
         }
         if (session()->get('level') == 'Customer_service') {
-            return redirect()->to('/dashboard/CustomerService');
+            return redirect()->to('/Home');
         }
         if (session()->get('level') == 'Guest') {
-            return redirect()->to('/');
-        } else {
             return redirect()->to('/Home');
         }
     }
@@ -119,17 +117,19 @@ class Dashboard extends BaseController
             return redirect()->to('/Home');
         }
         $data = [
-            'title' => 'Halaman Dashboard Admin',
-            'rating' => $this->ratingModel->getRating(),
-            'bintang1' => count($this->ratingModel->getBintang1()),
-            'bintang2' => count($this->ratingModel->getBintang2()),
-            'bintang3' => count($this->ratingModel->getBintang3()),
-            'bintang4' => count($this->ratingModel->getBintang4()),
-            'bintang5' => count($this->ratingModel->getBintang5()),
-            'subs' => $this->subsModel->paginate(8),
-            'toko' => $this->tokoModel->getToko(),
-            'user' => $this->authModel->getUser(),
-            'guest' => count($this->authModel->getGuest()),
+            'title'     => 'Halaman Dashboard Admin',
+            'rating'    => $this->ratingModel->getRating(),
+            'bintang0'  => count($this->ratingModel->getBintang0()),
+            'bintang1'  => count($this->ratingModel->getBintang1()),
+            'bintang2'  => count($this->ratingModel->getBintang2()),
+            'bintang3'  => count($this->ratingModel->getBintang3()),
+            'bintang4'  => count($this->ratingModel->getBintang4()),
+            'bintang5'  => count($this->ratingModel->getBintang5()),
+            'subs'      => $this->subsModel->paginate(8),
+            'countsub'  => count($this->subsModel->getSubs()),
+            'toko'      => $this->tokoModel->getToko(),
+            'user'      => $this->authModel->getUser(),
+            'guest'     => count($this->authModel->getGuest()),
 
         ];
         return view('pages/Admin', $data);

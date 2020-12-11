@@ -10,7 +10,7 @@ class CasingModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = [
         'merk', 'nama', 'slug', 'harga', 'stok', 'faktor_bentuk',
-        'rincian', 'gambar'
+        'rincian', 'gambar', 'diskon', 'berlaku', 'harga_new'
     ];
 
     public function getCasing($slug = false)
@@ -20,5 +20,13 @@ class CasingModel extends Model
         }
 
         return $this->where(['slug' => $slug])->first();
+    }
+    public function diskonCasing()
+    {
+        return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
+    }
+    public function search($merk)
+    {
+        return $this->where('merk', $merk)->find();
     }
 }

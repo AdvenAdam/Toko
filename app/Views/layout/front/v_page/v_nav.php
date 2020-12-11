@@ -15,7 +15,7 @@
                                         <li><a href="/ #home">Home</a></li>
                                         <li><a href="/ #shop">Shop</a>
                                         <li><a href="/ #brand">Brand's</a> </li>
-                                        <li><a href="/ #upcoming">Upcoming product</a> </li>
+                                        <li><a href="/ #dotd">Deals</a> </li>
                                         <li><a href="/ #contact">Contact Us</a></li>
                                     </ul>
                                 </nav>
@@ -33,34 +33,27 @@
                                 </form>
                             </div>
                             <?php if (session()->get('log') == true) { ?>
-                                <div class="same-style"></div>
-                                <div class="navbar-custom-menu">
-                                    <ul class="nav navbar-nav">
-                                        <li class="dropdown user user-menu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <?= session()->get('username'); ?>
-                                            </a>
-
-                                            <ul class="dropdown-menu">
-                                                <!-- User image -->
-                                                <li class="user-header">
-                                                    <img src="img/user/<?= session()->get('foto'); ?>" class="img-circle" alt="User Image">
-
-
-
-                                                </li>
-                                                <!-- Menu Footer-->
-                                                <li class="user-footer">
-                                                    <div class="align-left">
-                                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                                    </div>
-                                                    <div class="align-right">
-                                                        <a href="/Auth/logout" class="btn btn-default btn-flat">Log out</a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                <div class="same-style">
+                                    <div class="navbar-custom-menu">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown user user-menu">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <?= session()->get('username'); ?>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <!-- Menu Footer-->
+                                                    <li class="user-footer">
+                                                        <div class="align-left">
+                                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                                        </div>
+                                                        <div class="align-right">
+                                                            <a href="/auth/logout" class="btn btn-default btn-flat">Log out</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             <?php } else { ?>
                                 <div class="same-style">
@@ -68,7 +61,11 @@
                                 </div>
                             <?php } ?>
                             <div class="same-style header-cart">
-                                <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
+                                <?php } else if (session()->get('level') == 'Guest') { ?>
+                                    <a class="cart-active" href="Wishlist/<?= session()->get('username'); ?>"><i class="icofont-heart"></i></a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -139,8 +136,8 @@
                     <h4>Subtotal: <span>$170.00</span></h4>
                 </div>
                 <div class="cart-checkout-btn">
-                    <a class="btn-hover cart-btn-style" href="cart.html">view cart</a>
-                    <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                    <a class="btn-hover cart-btn-style" href="/wishlist/wish/<?= session()->get('username'); ?>">view cart</a>
+                    <a class=" no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
                 </div>
             </div>
         </div>

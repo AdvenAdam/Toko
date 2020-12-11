@@ -50,7 +50,7 @@
                                             <td><?= $val['sertifikat']; ?></td>
                                             <td><?= $val['jenis_kabel']; ?></td>
                                             <td><?= $val['mb_power'] . "Watt"; ?></td>
-                                            <td><?= $val['harga']; ?></td>
+                                            <td><?= number_format($val['harga']); ?></td>
                                             <td><?= $val['stok']; ?></td>
                                             <td><a href="/psu/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>
                                                 <a href="/psu/edit/<?= $val['slug']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>

@@ -133,6 +133,39 @@
                         <i class="mdi mdi-calculator  link-icon"></i>
                     </a>
                 </li>
+                <li>
+                    <a href="#diskon" data-toggle="collapse" aria-extended="false">
+                        <span class="link-title">Tambah Diskon</span>
+                        <i class="mdi mdi-percent link-icon"></i>
+                    </a>
+                    <ul class="collapse navigation-submenu" id="diskon">
+                        <li>
+                            <a href="/diskon/Casing">Casing</a>
+                        </li>
+                        <li>
+                            <a href="/diskon/Memori">Memori</a>
+                        </li>
+                        <li>
+                            <a href="/diskon/Motherboard">Motherboard</a>
+                        </li>
+                        <li>
+                            <a href="/diskon/Pendingin">Pendingin</a>
+                        </li>
+                        <li>
+                            <a href="/diskon/Procesor">Processor</a>
+                        </li>
+                        <li>
+                            <a href="/diskon/Psu">Power Supply</a>
+                        </li>
+                        <li>
+                            <a href="/diskon/Ram">Ram</a>
+                        </li>
+                        <li>
+                            <a href="/diskon/Vga">Vga</a>
+                        </li>
+                    </ul>
+
+                </li>
             <?php } ?>
             <!-- Teknisi level -->
             <?php if (session()->get('level') == 'Teknisi') { ?>

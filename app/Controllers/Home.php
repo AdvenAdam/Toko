@@ -62,22 +62,25 @@ class Home extends BaseController
 		if (session()->get('level') == 'Admin') {
 			return redirect()->to('/dashboard/Admin');
 		}
-		if (session()->get('level') == 'Customer_service') {
-			return redirect()->to('/dashboard/CustomerService');
-		}
-		if (session()->get('level') == 'Guest') {
-			return redirect()->to('/');
-		}
+
 		$data = [
 			'title'         => 'SpaceCom-Dashboard',
-			'memory' 		=> $this->memoriModel->paginate(5),
-			'ram'           => $this->ramModel->paginate(5),
 			'casing'        => $this->casingModel->paginate(5),
+			'diskonCasing'	=> $this->casingModel->diskonCasing(),
+			'memory' 		=> $this->memoriModel->paginate(5),
+			'diskonMemori'	=> $this->memoriModel->diskonMemori(),
 			'motherboard'   => $this->motherboardModel->paginate(5),
-			'procesor'      => $this->procesorModel->paginate(5),
+			'diskonMobo'	=> $this->motherboardModel->diskonMobo(),
 			'pendingin'     => $this->pendinginModel->paginate(5),
+			'diskonCooler'  => $this->pendinginModel->diskonCooler(),
+			'procesor'      => $this->procesorModel->paginate(5),
+			'diskonProcie'  => $this->procesorModel->diskonProcie(),
 			'psu'           => $this->psuModel->paginate(5),
+			'diskonPsu'     => $this->psuModel->diskonPsu(),
+			'ram'           => $this->ramModel->paginate(5),
+			'diskonRam'     => $this->ramModel->diskonRam(),
 			'vga'           => $this->vgaModel->paginate(5),
+			'diskonVga'     => $this->vgaModel->diskonVga(5),
 			'rating'		=> $this->ratingModel->getRating(),
 			'slider'		=> $this->sliderModel->getSlider(),
 			'toko'			=> $this->tokoModel->getTampiltoko(),
