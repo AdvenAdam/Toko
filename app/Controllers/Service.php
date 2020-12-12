@@ -15,23 +15,48 @@ class Service extends BaseController
     }
     public function index()
     {
+        $query  = max($this->servModel->getServ());
+        $angka = $query['id'] + 1;
+        $kode = 'A-' . $angka;
+        $currentPage = $this->request->getVar('page_service') ? $this->request->getVar('page_service') : 1;
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $service =  $this->servModel->search($keyword);
+        } else {
+            $service = $this->servModel;
+        }
         $data =
             [
-                'title' => 'Daftar Service',
-                'service' => $this->servModel->getServ()
-            ];
+                'title'       => 'Daftar Service',
+                'service'     => $this->servModel->paginate(10, 'service'),
+                'pager'       => $this->servModel->pager,
+                'currentPage' => $currentPage,
+                'validation'  => \Config\Services::validation(),
+                'kode'        => $kode
 
-        return view('service/index', $data);
+            ];
+        return view('/service/index', $data);
     }
-    public function create()
+
+    public function teknisi()
     {
-        //session();
-        $data = [
-            'title' => 'Tambah Data',
-            'validation' => \Config\Services::validation()
-        ];
-        return view('service/create', $data);
+        if (session()->get('level') != 'Teknisi') {
+            return redirect()->to('/Home');
+        }
+        $user = session()->get('username');
+        $data =
+            [
+                'title'       => 'Daftar Service',
+                'diproses'    => $this->servModel->getProses($user),
+                'diterima'    => $this->servModel->getTrx('diterima'),
+                'selesai'     => $this->servModel->getTrx('selesai'),
+                'service'     => $this->servModel->getServ(),
+                'validation'  => \Config\Services::validation(),
+
+            ];
+        return view('/service/v_teknisi', $data);
     }
+
     public function save()
     {
         // validasi input
@@ -46,53 +71,27 @@ class Service extends BaseController
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi',
-                    'is_unique' => '{field} sudah ada'
-                ]
-            ],
-            'pc' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'status' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'biaya' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
                 ]
             ],
             'no_hp' => [
                 'rules' => 'required',
+                'label' => 'No HP',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => '{field} harus diisi',
                 ]
             ],
-            'rincian_service' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ]
 
         ])) {
-            return redirect()->to('/service/create')->withInput();
+            return redirect()->to('/service')->withInput();
         }
-        $slug = url_title(($this->request->getVar('nama') . $this->request->getVar('pc')), '-', true);
         $this->servModel->save([
             'nama' => $this->request->getVar('nama'),
             'kerusakan' => $this->request->getVar('kerusakan'),
-            'pc' => $this->request->getVar('pc'),
-            'slug' => $slug,
-            'status' => $this->request->getVar('status'),
-            'biaya' => $this->request->getVar('biaya'),
+            'antrian_pc' => $this->request->getVar('antrian'),
+            'status' => 'diterima',
+            'email' => $this->request->getVar('email'),
             'no_hp' => $this->request->getVar('no_hp'),
-            'rincian_service' => $this->request->getVar('rincian_service'),
+            'kerusakan' => $this->request->getVar('kerusakan'),
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
@@ -101,60 +100,37 @@ class Service extends BaseController
 
     public function delete($id)
     {
+        if (session()->get('level') != 'Teknisi') {
+            return redirect()->to('/Home');
+        }
         //cari gambar berdasar id
         $service = $this->servModel->find($id);
         $this->servModel->delete($id);
-        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        session()->setFlashdata('pesan', 'Berhasil');
         return redirect()->to('/service');
     }
 
-    public function edit($slug)
+    public function proses($id)
     {
-        $data = [
-            'title' => 'Ubah Data',
-            'validation' => \Config\Services::validation(),
-            'service' => $this->servModel->getService($slug)
-        ];
-        return view('service/edit', $data);
+        if (session()->get('level') != 'Teknisi') {
+            return redirect()->to('/Home');
+        }
+        $this->servModel->save([
+            'id' => $id,
+            'teknisi' => $this->request->getVar('teknisi'),
+            'status' => 'diproses',
+        ]);
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
+        return redirect()->to('/service/teknisi');
     }
 
-    public function update($id)
+    public function selesai($id)
     {
-        //gak perlu edit nama
-        // validasi input
+        if (session()->get('level') != 'Teknisi') {
+            return redirect()->to('/Home');
+        }
         if (!$this->validate([
-            'nama' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'kerusakan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi',
-                    'is_unique' => '{field} sudah ada'
-                ]
-            ],
-            'pc' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'status' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
             'biaya' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'no_hp' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi'
@@ -163,24 +139,28 @@ class Service extends BaseController
             'rincian_service' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} harus diisi'
+                    'required' => '{field} harus diisi',
                 ]
-            ]
+            ],
         ])) {
-            return redirect()->to('/service/edit/' . $this->request->getVar('slug'))->withInput();
+            return redirect()->to('/service')->withInput();
         }
-
         $this->servModel->save([
-            'id' => $id,
-            'nama' => $this->request->getVar('nama'),
-            'kerusakan' => $this->request->getVar('kerusakan'),
-            'pc' => $this->request->getVar('pc'),
-            'status' => $this->request->getVar('status'),
-            'biaya' => $this->request->getVar('biaya'),
-            'no_hp' => $this->request->getVar('no_hp'),
-            'rincian_service' => $this->request->getVar('rincian_service'),
+            'id'                => $id,
+            'biaya'             => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('biaya'))),
+            'status'            => 'selesai',
+            'rincian_service'   => $this->request->getVar('rincian_service'),
         ]);
-        session()->setFlashdata('pesan', 'Data Berhasil Diubah');
-        return redirect()->to('/service');
+
+        session()->setFlashdata('pesan', 'Berhasil Menyelesaikan Service');
+        return redirect()->to('/service/teknisi');
+    }
+    public function cetakBukti($antrian)
+    {
+        $data = [
+            'title' => 'Bukti Transaksi Service',
+            'service' => $this->servModel->getServ($antrian)
+        ];
+        return view('service/cetak', $data);
     }
 }

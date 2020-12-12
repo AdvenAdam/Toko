@@ -41,12 +41,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -55,6 +64,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 <?php } ?>
 <!-- Modal Motherboard -->
@@ -102,12 +112,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -163,12 +182,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -224,12 +252,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -285,12 +322,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -346,12 +392,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -406,12 +461,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -468,12 +532,21 @@
                                     </ul>
                                 </div>
                                 <div class="pro-details-action-wrap">
-                                    <div class="pro-details-buy-now">
-                                        <a href="#">Buy Now</a>
-                                    </div>
+                                    <?php if (session()->get('level') == 'Customer_service') { ?>
+                                        <div class="pro-details-buy-now">
+                                            <a href="#">Buy Now</a>
+                                        </div>
+                                        <div class="pro-details-action">
+                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
+                                        </div>
+                                    <?php } ?>
                                     <div class="pro-details-action">
-                                        <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        <a title="Add to Wishlist" href="#"><i class="icon-heart"></i></a>
+                                        <form action="wishlist/save" method="post">
+                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
+                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                            <button class="button" type="submit">Add To Wishlist</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

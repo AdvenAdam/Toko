@@ -80,6 +80,8 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="casing">
                                                             <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
@@ -143,7 +145,9 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                            <button type="submit" class="button" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="motherboard">
+                                                            <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
                                                 </div>
@@ -206,7 +210,9 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                            <button type="submit" class="button" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="procesor">
+                                                            <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
                                                 </div>
@@ -269,7 +275,9 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                            <button type="submit" class="button" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="memori">
+                                                            <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
                                                 </div>
@@ -332,7 +340,9 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                            <button type="submit" class="button" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="vga">
+                                                            <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
                                                 </div>
@@ -395,7 +405,9 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                            <button type="submit" class="button" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="ram">
+                                                            <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
                                                 </div>
@@ -458,7 +470,9 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                            <button type="submit" class="button" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="pendingin">
+                                                            <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
                                                 </div>
@@ -521,7 +535,9 @@
                                                             <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                             <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                             <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                            <button type="submit" class="button" title=" Add to Wishlist">Add To Wishlist</button>
+                                                            <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                            <input type="hidden" name="kategori" value="psu">
+                                                            <button class="button" type="submit">Add To Wishlist</button>
                                                         </form>
                                                     <?php } ?>
                                                 </div>

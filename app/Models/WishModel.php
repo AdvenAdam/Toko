@@ -9,7 +9,7 @@ class WishModel extends Model
     protected $table = 'tbl_wishlist';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'nama', 'slug', 'user',
+        'nama', 'slug', 'user', 'gambar', 'kategori'
     ];
 
     public function getWish($user = false)

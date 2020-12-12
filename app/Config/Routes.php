@@ -165,6 +165,9 @@ $routes->get('/diskon/Vga', 'diskon::indexVga', ['filter' => 'authfilter']);
 $routes->get('/Shop/Memory/(:any)', 'Shop::filter/$1');
 //wishlist
 $routes->get('/wishlist::wish/(:segment)', 'wishlist::wish/$1', ['filter' => 'authfilter']);
+//Service
+$routes->delete('/service/(:num)', 'service::delete/$1', ['filter' => 'authfilter']);
+
 
 /**
  * --------------------------------------------------------------------

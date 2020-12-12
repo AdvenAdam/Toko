@@ -20,52 +20,54 @@
         </div>
     </div>
 </div>
-<div class="cart-area bg-gray pt-100 pb-100">
-    <center>
-        <h1><?= $title; ?></h1>
-    </center>
-    <div class="container mt-30">
-        <form action="#">
-            <div class="cart-table-content wishlist-wrap">
-                <div class="table-content table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th class="th-text-center"> Price</th>
-                                <th class="th-text-center">Quantity</th>
-                                <th class="th-text-center">Total Prce</th>
-                                <th class="th-text-center">Add To Cart</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($wish as $val) { ?>
-                                <?php $slug = url_title($val['nama'], '-', true); ?>
-                                <tr>
-                                    <td class="cart-product">
-                                        <div class="product-img-info-wrap">
-                                            <div class="product-info">
-                                                <h4><a href="" data-toggle="modal" data-target="#exampleModal<?= $slug; ?>"><?= $val['nama']; ?></a></h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="product-price"><span class="amount"><?= $val['harga']; ?></span></td>
-                                    <td class="cart-quality">
-                                        <div class="pro-details-quality">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box plus-minus-width-inc" type="text" name="qtybutton" value="02">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="product-total"><span>$112.00</span></td>
-                                    <td class="product-wishlist-cart"><a href="#">Add To Cart</a></td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+
+<?php if ($wish == null) { ?>
+    <div class="empty-cart-area pt-100 pb-160">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="empty-cart-content text-center">
+                        <img src="/front/dking/assets/images/cart/empty-cart.png" alt="logo">
+                        <h3>Wishlist mu masih kosong :(</h3>
+                        <div class="empty-cart-btn">
+                            <a href="/Shop">Return To Shop</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+<?php } else if ($wish != null) { ?>
+    <div class="cart-area bg-gray pt-100 pb-100">
+        <center>
+            <h1><?= $title; ?></h1>
+        </center>
+        <div class="container mt-30">
+            <div class="row">
+                <?php foreach (array_reverse($wish) as $val) { ?>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="product-wrap mb-50">
+                            <div class="product-img product-img-zoom mb-25">
+                                <img src="/img/<?= $val['kategori']; ?>/<?= $val['gambar']; ?>" class="gambar" alt="">
+                            </div>
+                            <div class="product-content">
+                                <h4><?= $val['nama']; ?></a></h4>
+                            </div>
+                            <div class="product-action-position-1 text-center">
+                                <div class="product-content">
+                                    <h4><?= $val['nama']; ?></a></h4>
+                                    <div class="product-action-wrap">
+                                        <div class="product-action-cart">
+                                        </div>
+                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 <?= $this->endsection(); ?>

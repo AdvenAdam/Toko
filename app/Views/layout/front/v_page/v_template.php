@@ -15,10 +15,11 @@
 	============================================ -->
     <link rel="stylesheet" href="/front/dking/assets/css/vendor/vendor.min.css">
     <link rel="stylesheet" href="/front/dking/assets/css/plugins/plugins.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/front/dking/assets/css/style.min.css">
+    <!-- not main -->
     <link rel="stylesheet" href="/front/dking/assets/css/dropdown.css">
     <link rel="stylesheet" href="/front/dking/assets/css/rating.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     <!-- css utk Gambar -->
     <link rel="stylesheet" href="/zz/src/assets/css/gambar.css">
@@ -38,7 +39,6 @@
     <script src="/zz/src/assets/jquery/jquery.inputmask.bundle.min.js"></script>
     <!-- Main JS -->
     <script src="/front/dking/assets/js/main.js"></script>
-
 
     <!-- fade out alert -->
     <script>

@@ -170,7 +170,7 @@
             <!-- Teknisi level -->
             <?php if (session()->get('level') == 'Teknisi') { ?>
                 <li>
-                    <a href="/service">
+                    <a href="/service/teknisi">
                         <span class="link-title">Service</span>
                         <i class="mdi mdi-auto-fix  link-icon"></i>
                     </a>

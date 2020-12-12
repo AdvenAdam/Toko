@@ -46,8 +46,8 @@
                                             <td><?= $i++; ?></td>
                                             <td><?= $val['no_pegawai']; ?></td>
                                             <td><?= $val['nama']; ?></td>
-                                            <td><?= $val['no_hp']; ?></td>
                                             <td><?= $val['alamat']; ?></td>
+                                            <td><?= $val['no_hp']; ?></td>
                                             <td><?= $val['jabatan']; ?></td>
                                             <td><a href="/pegawai/<?= $val['slug']; ?>" class="btn btn-info btn-sm"><i class="mdi mdi-magnify"></i></a>
                                                 <a href="/pegawai/edit/<?= $val['slug']; ?>" class="btn btn-light btn-sm"><i class="mdi mdi-pencil-box-outline"></i></a>

@@ -22,12 +22,4 @@ class PegawaiModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
-
-    public function getMaxs()
-    {
-        $this->db->table('tbl_pegawai');
-        $this->selectmax('id');
-        $data = $this->get();
-        return $data;
-    }
 }

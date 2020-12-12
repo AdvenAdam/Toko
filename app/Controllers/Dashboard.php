@@ -16,6 +16,7 @@ use \App\Models\RatingModel;
 use \App\Models\TokoModel;
 use \App\Models\AuthModel;
 use \App\Models\MerkModel;
+use \App\Models\ServModel;
 
 
 class Dashboard extends BaseController
@@ -34,6 +35,7 @@ class Dashboard extends BaseController
     protected $tokoModel;
     protected $authModel;
     protected $merkModel;
+    protected $servModel;
 
     public function __construct()
     {
@@ -51,6 +53,7 @@ class Dashboard extends BaseController
         $this->tokoModel = new TokoModel();
         $this->authModel = new AuthModel();
         $this->merkModel = new merkModel();
+        $this->servModel = new ServModel();
     }
     public function index()
     {
@@ -141,18 +144,13 @@ class Dashboard extends BaseController
             return redirect()->to('/Home');
         }
         $data = [
-            'title' => 'Halaman Dashboard Teknisi',
+            'title'       => 'Halaman Dashboard Teknisi',
+            'teknisi'     => $this->authModel->getTeknisi(),
+            'diproses'    => count($this->servModel->getTrx('diproses')),
+            'diterima'    => count($this->servModel->getTrx('diterima')),
+            'selesai'     => count($this->servModel->getTrx('selesai')),
+
         ];
         return view('pages/Teknisi', $data);
-    }
-    public function CustomerService()
-    {
-        if (session()->get('level') != 'Customer_service') {
-            return redirect()->to('/Home');
-        }
-        $data = [
-            'title' => 'Halaman Dashboard Admin',
-        ];
-        return view('pages/CS', $data);
     }
 }

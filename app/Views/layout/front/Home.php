@@ -17,6 +17,11 @@
                                 <ul>
                                     <li><a class="smooth" href="/ #home">Home</a></li>
                                     <li><a class="smooth" href="/ #shop">Shop</a>
+                                        <ul class="sub-menu-width">
+                                            <li><a href="/Shop">Shop</a></li>
+                                            <li><a href="/Service">Service Computer</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a class="smooth" href="/ #brand">Brand's</a> </li>
                                     <li><a class="smooth" href="/ #dotd">Deals</a> </li>
                                     <li><a class="smooth" href="/ #contact">Contact Us</a></li>
@@ -43,7 +48,6 @@
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 <?= session()->get('username'); ?>
                                             </a>
-
                                             <ul class="dropdown-menu">
                                                 <!-- Menu Footer-->
                                                 <li class="user-footer">

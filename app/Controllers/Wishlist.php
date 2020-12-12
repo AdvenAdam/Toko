@@ -14,6 +14,10 @@ use \App\Models\ProcesorModel;
 use \App\Models\PsuModel;
 use \App\Models\VgaModel;
 
+if (session()->get('level') != 'Guest') {
+    session()->setFlashdata('pesan', 'Silahkan Login Terlebih dahulu');
+    return redirect()->to('/Auth/Login');
+}
 class wishlist  extends BaseController
 {
     protected $wishModel;
@@ -25,6 +29,7 @@ class wishlist  extends BaseController
     protected $procesorModel;
     protected $psuModel;
     protected $vgaModel;
+
     public function __construct()
     {
         $this->wishModel = new WishModel();
@@ -37,13 +42,17 @@ class wishlist  extends BaseController
         $this->psuModel = new PsuModel();
         $this->vgaModel = new VgaModel();
     }
+
     public function wish($user)
     {
+        if ($user != session()->get('username')) {
+            return redirect()->to('/');
+        }
         $data =
             [
-                'title' => 'Daftar Wislist',
+                'title' => 'Daftar Wishlist',
                 'validation' => \Config\Services::validation(),
-                'wish' => $this->wishModel->getWish($user),
+                'wish'      => $this->wishModel->getWish($user),
                 'memory'        => $this->memoriModel->getMemori(),
                 'ram'           => $this->ramModel->getRam(),
                 'casing'        => $this->casingModel->getCasing(),
@@ -75,6 +84,18 @@ class wishlist  extends BaseController
                     'required' => '{field} harus diisi'
                 ]
             ],
+            'gambar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
+            'kategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+            ],
 
 
         ])) {
@@ -83,6 +104,8 @@ class wishlist  extends BaseController
         $this->wishModel->save([
             'nama' => $this->request->getVar('nama'),
             'slug' => $this->request->getVar('slug'),
+            'gambar' => $this->request->getVar('gambar'),
+            'kategori' => $this->request->getVar('kategori'),
             'user' => session()->get('username'),
         ]);
         session()->setFlashdata('pesan', 'Wishlist berhasil di tambahkan silahkan melihat produk yang lain :)');

@@ -42,4 +42,8 @@ class AuthModel extends Model
     {
         return $this->where('level', 'Guest')->find();
     }
+    public function getTeknisi()
+    {
+        return $this->where('level', 'Teknisi')->find();
+    }
 }

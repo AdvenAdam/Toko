@@ -124,7 +124,7 @@ class User extends BaseController
             'no_pegawai' => $this->request->getVar('no_pegawai'),
             'level' => $this->request->getVar('level'),
             'email' => "-",
-            'foto' => '/img/user/' . $namaGambar,
+            'foto' =>  $namaGambar,
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');

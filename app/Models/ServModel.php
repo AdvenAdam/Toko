@@ -10,16 +10,27 @@ class ServModel extends Model
     protected $table = 'tbl_service';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'id', 'nama', 'slug', 'kerusakan', 'pc', 'status',
-        'biaya', 'no_hp'
+        'nama', 'slug', 'kerusakan', 'antrian_pc', 'no_hp',
+        'email', 'slug', 'status', 'teknisi', 'biaya', 'rincian_service'
     ];
 
-    public function getServ($slug = false)
+    public function search($keywoard)
     {
-        if ($slug == false) {
+        return $this->table('tbl_service')->like('nama', $keywoard)->orLike('antrian_pc', $keywoard);
+    }
+    public function getServ($antrian = false)
+    {
+        if ($antrian == false) {
             return $this->findAll();
         }
-
-        return $this->where(['slug' => $slug])->first();
+        return $this->where(['antrian_pc' => $antrian])->find();
+    }
+    public function getTrx($status)
+    {
+        return $this->where('status', $status)->find();
+    }
+    public function getProses($user)
+    {
+        return $this->where(['status' => 'diproses', 'teknisi' => $user])->find();
     }
 }

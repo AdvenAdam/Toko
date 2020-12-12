@@ -3,7 +3,6 @@
 <?= $this->include('layout/front/v_page/v_nav'); ?>
 <?= $this->include('layout/front/v_page/v_modal.php'); ?>
 <div class="shop-area pt-160 pb-160">
-
     <div class="container">
         <div class="shop-categorie-tab mb-20 nav">
             <a href="#casing" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'Casing') ? 'active' : ''; ?>">Casing </a>
@@ -98,6 +97,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -112,7 +113,7 @@
                                 </div>
                             </div>
                             <div id="shop-2" class="tab-pane ">
-                                <?php foreach ($casing as $val) { ?>
+                                <?php foreach (array_reverse($casing) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -146,6 +147,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="casing">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>
@@ -209,6 +212,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="motherboard">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -223,7 +228,7 @@
                                 </div>
                             </div>
                             <div id="shop-4" class="tab-pane ">
-                                <?php foreach ($motherboard as $val) { ?>
+                                <?php foreach (array_reverse($motherboard) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -257,6 +262,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="motherboard">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>
@@ -319,6 +326,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="procesor">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -333,7 +342,7 @@
                                 </div>
                             </div>
                             <div id="shop-6" class="tab-pane ">
-                                <?php foreach ($procesor as $val) { ?>
+                                <?php foreach (array_reverse($procesor) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -367,6 +376,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="procesor">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>
@@ -429,6 +440,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="memori">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -443,7 +456,7 @@
                                 </div>
                             </div>
                             <div id="shop-8" class="tab-pane ">
-                                <?php foreach ($memory as $val) { ?>
+                                <?php foreach (array_reverse($memory) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -477,6 +490,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="memori">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>
@@ -539,6 +554,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="vga">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -553,7 +570,7 @@
                                 </div>
                             </div>
                             <div id="shop-10" class="tab-pane ">
-                                <?php foreach ($vga as $val) { ?>
+                                <?php foreach (array_reverse($vga) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -587,6 +604,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="vga">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>
@@ -649,6 +668,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="ram">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -663,7 +684,7 @@
                                 </div>
                             </div>
                             <div id="shop-12" class="tab-pane ">
-                                <?php foreach ($ram as $val) { ?>
+                                <?php foreach (array_reverse($ram) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -697,6 +718,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="ram">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>
@@ -759,6 +782,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="pendingin">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -773,7 +798,7 @@
                                 </div>
                             </div>
                             <div id="shop-14" class="tab-pane ">
-                                <?php foreach ($pendingin as $val) { ?>
+                                <?php foreach (array_reverse($pendingin) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -805,6 +830,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="pendingin">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>
@@ -867,6 +894,8 @@
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="psu">
                                                                     <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
@@ -881,7 +910,7 @@
                                 </div>
                             </div>
                             <div id="shop-16" class="tab-pane ">
-                                <?php foreach ($psu as $val) { ?>
+                                <?php foreach (array_reverse($psu) as $val) { ?>
                                     <div class="shop-list-wrap mb-50">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -915,6 +944,8 @@
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                 <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                <input type="hidden" name="kategori" value="psu">
                                                                 <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
                                                             <?php } ?>
                                                         </div>

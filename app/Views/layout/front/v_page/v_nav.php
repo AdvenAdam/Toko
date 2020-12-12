@@ -14,6 +14,11 @@
                                     <ul>
                                         <li><a href="/ #home">Home</a></li>
                                         <li><a href="/ #shop">Shop</a>
+                                            <ul class="sub-menu-width">
+                                                <li><a href="/Shop">Shop</a></li>
+                                                <li><a href="/Service">Service Computer</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="/ #brand">Brand's</a> </li>
                                         <li><a href="/ #dotd">Deals</a> </li>
                                         <li><a href="/ #contact">Contact Us</a></li>
