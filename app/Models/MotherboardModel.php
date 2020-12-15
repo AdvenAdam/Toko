@@ -26,4 +26,8 @@ class MotherboardModel extends Model
     {
         return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
+    public function getSelect($socket)
+    {
+        return $this->where('socket', $socket)->find();
+    }
 }

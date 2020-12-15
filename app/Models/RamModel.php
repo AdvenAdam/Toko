@@ -24,4 +24,8 @@ class RamModel extends Model
     {
         return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
+    public function getSelect($jenis_ram)
+    {
+        return $this->where('jenis_ram', $jenis_ram)->find();
+    }
 }

@@ -35,6 +35,9 @@ class Shop extends BaseController
         $this->psuModel = new PsuModel();
         $this->vgaModel = new VgaModel();
         $this->merkModel = new MerkModel();
+        helper('number');
+        helper('form');
+        helper('date');
     }
     public function index()
     {
@@ -50,16 +53,7 @@ class Shop extends BaseController
         if (session()->get('level') == 'Admin') {
             return redirect()->to('/dashboard/Admin');
         }
-        if (session()->get('level') == 'Customer_service') {
-            return redirect()->to('/dashboard/CustomerService');
-        }
 
-        // $merk = $this->request->getVar('merk');
-        // if ($merk) {
-        //     $casing =  $this->casingModel->search($merk);
-        // } else {
-        //     $casing = $this->casingModel->getCasing();
-        // }
 
         $data = [
             'title'         => 'SpaceCom-Shop',
@@ -72,13 +66,77 @@ class Shop extends BaseController
             'psu'           => $this->psuModel->getPsu(),
             'vga'           => $this->vgaModel->getVga(),
             'merk'          => $this->merkModel->getMerk(),
+            'cart'          => \Config\Services::cart(),
             'uri'           =>  new \CodeIgniter\HTTP\URI(current_url()),
             'validation' => \Config\Services::validation()
         ];
 
         return view('layout/front/Shop', $data);
     }
+    public function cek()
+    {
+        $cart = \Config\Services::cart();
+        $response = $cart->contents();
 
+        echo '<pre>';
+        print_r($response);
+        echo '</pre>';
+    }
+    public function add()
+    {
+        $cart = \Config\Services::cart();
+        $cart->insert([
+            'id'      => $this->request->getVar('id'),
+            'qty'     => 1,
+            'price'   => $this->request->getVar('price'),
+            'name'    => $this->request->getVar('name'),
+            'options' => array(
+                'gambar' => $this->request->getVar('gambar'),
+                'kategori' => $this->request->getVar('kategori')
+            )
+        ]);
+        session()->setflashdata('pesan', 'Berhasil diambahkan ke keranjang');
+        return redirect()->to('/shop/cart');
+    }
     //--------------------------------------------------------------------
+    public function clear()
+    {
+        $cart = \Config\Services::cart();
+        $cart->destroy();
+        session()->setflashdata('pesan', 'Berhasil Mengosongkan');
+        return redirect()->to('/Shop/cart');
+    }
+    public function cart()
+    {
 
+        $data = [
+            'title' => 'Cart View',
+            'cart' => \Config\Services::cart(),
+            'times' => format_indo(date('Y-m-d')),
+            'validation' => \Config\Services::validation()
+
+        ];
+        return view('layout/front/Shopcart', $data);
+    }
+    public function update()
+    {
+        $cart = \Config\Services::cart();
+        $i = 1;
+        foreach ($cart->contents() as $key => $value) {
+
+            $cart->update([
+                'rowid'      => $value['rowid'],
+                'qty'     => $this->request->getVar('qty' . $i++)
+            ]);
+        }
+        session()->setflashdata('pesan', 'Berhasil Menambahkan');
+        return redirect()->to('/Shop/cart');
+    }
+    public function delete($rowid)
+    {
+        $cart = \Config\Services::cart();
+        $cart->remove($rowid);
+        session()->setflashdata('pesan', 'Berhasil Menghapus');
+        return redirect()->to('/Shop/cart');
+    }
 }

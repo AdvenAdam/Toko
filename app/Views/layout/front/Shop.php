@@ -91,9 +91,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="///wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -142,14 +153,27 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
-                                                                <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                                                <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                                                <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
-                                                                <input type="hidden" name="kategori" value="casing">
-                                                                <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                                <form action="///wishlist/save" method="post">
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                    <input type="hidden" name="slug" value="<?= $slug; ?>">
+                                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                                </form>
                                                             <?php } ?>
                                                         </div>
                                                     </div>
@@ -159,7 +183,6 @@
                                     </div>
                                 <?php } ?>
                             </div>
-
                         </div>
                     </div>
                     <div id="motherboard" class="tab-pane <?= ($uri->getSegment(2) == 'Motherboard') ? 'active' : ''; ?>">
@@ -206,9 +229,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="//wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -257,7 +291,18 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
@@ -320,9 +365,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="//wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -371,7 +427,18 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
@@ -434,9 +501,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="//wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -485,7 +563,18 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
@@ -548,9 +637,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="//wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -599,7 +699,18 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
@@ -662,9 +773,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="//wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -713,7 +835,18 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
@@ -776,9 +909,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="//wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -825,7 +969,18 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">
@@ -888,9 +1043,20 @@
                                                     <div class="product-action-wrap">
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="wishlist/save" method="post">
+                                                                <form action="//wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -939,7 +1105,18 @@
                                                         <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
-                                                                <button title="Add to Cart">Add to cart</button>
+                                                                <form action="/shop/add" method="post">
+                                                                    <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                                    <input type="hidden" name="name" value="<?= $val['nama']; ?>">
+                                                                    <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
+                                                                    <?php } else { ?>
+                                                                        <input type="hidden" name="price" value="<?= $val['harga']; ?>">
+                                                                    <?php } ?>
+                                                                    <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
+                                                                    <input type="hidden" name="kategori" value="casing">
+                                                                    <button title="Add to Cart" type="submit" class="button">Add to cart</button>
+                                                                </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
                                                                 <input type="hidden" name="slug" value="<?= $slug; ?>">

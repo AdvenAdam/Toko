@@ -131,7 +131,7 @@ class Dashboard extends BaseController
             'subs'      => $this->subsModel->paginate(8),
             'countsub'  => count($this->subsModel->getSubs()),
             'toko'      => $this->tokoModel->getToko(),
-            'user'      => $this->authModel->getUser(),
+            'user'      => $this->authModel->getNotguest(),
             'guest'     => count($this->authModel->getGuest()),
 
         ];

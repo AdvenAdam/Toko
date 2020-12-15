@@ -8,11 +8,11 @@
             <h2>Wishlist</h2>
             <ul>
                 <li>
-                    <a href="index.html">Home </a>
+                    <a href="/">Home </a>
                 </li>
                 <li><span> > </span></li>
                 <li>
-                    <a href="index.html">Product </a>
+                    <a href="/Shop">Shop </a>
                 </li>
                 <li><span> > </span></li>
                 <li class="active"> Wishlist </li>
@@ -48,7 +48,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/<?= $val['kategori']; ?>/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/<?= $val['kategori']; ?>/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>

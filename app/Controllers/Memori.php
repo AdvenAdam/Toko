@@ -43,7 +43,8 @@ class Memori extends BaseController
         $data = [
             'title' => 'Tambah Data',
             'merk'  => $this->merkModel->getMerk(),
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+
         ];
         return view('memori/create', $data);
     }
@@ -114,6 +115,10 @@ class Memori extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/memori', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/memori/' . $namaGambar)
+                ->resize(500, 500, 'center', false, 'auto')
+                ->save('img/memori/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 

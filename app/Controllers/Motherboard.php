@@ -171,6 +171,7 @@ class Motherboard  extends BaseController
             // $namaSampul = $fileSampul->getName();
 
         }
+        $socket = $this->request->getVar('socket');
         $faktorbentuk = $this->request->getVar('faktor_bentuk');
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->motherboardModel->save([
@@ -180,7 +181,7 @@ class Motherboard  extends BaseController
             'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
             'faktor_bentuk' => implode(",", $faktorbentuk),
-            'socket' => $this->request->getVar('socket'),
+            'socket' => str_replace(' ', '', $socket),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
             'ukuran_ram_maks' => $this->request->getVar('ukuran_ram_maks'),
             'jml_slot_pcie' => $this->request->getVar('jml_slot_pcie'),
@@ -374,6 +375,7 @@ class Motherboard  extends BaseController
             // $namaSampul = $fileSampul->getName();
 
         }
+        $socket = $this->request->getVar('socket');
         $faktorbentuk = $this->request->getVar('faktor_bentuk');
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->motherboardModel->save([
@@ -383,7 +385,7 @@ class Motherboard  extends BaseController
             'slug' => $slug,
             'harga' => intval(preg_replace("/[^0-9]/", "", $this->request->getVar('harga'))),
             'stok' => $this->request->getVar('stok'),
-            'socket' => $this->request->getVar('socket'),
+            'socket' => str_replace(' ', '', $socket),
             'faktor_bentuk' => implode(",", $faktorbentuk),
             'jenis_ram' => $this->request->getVar('jenis_ram'),
             'ukuran_ram_maks' => $this->request->getVar('ukuran_ram_maks'),

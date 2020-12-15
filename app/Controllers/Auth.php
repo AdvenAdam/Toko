@@ -44,16 +44,20 @@ class Auth extends BaseController
             return redirect()->to('/Auth/Registrasi')->withInput();
         }
         // jika valid
+        $query = $this->authModel->getUser();
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
-        $query = $this->authModel->getUser();
         $cek = $this->authModel->login($username, $password, $query);
         if ($cek) {
             // jika data cocok
-            session()->set('log', true);
-            session()->set('username', $cek['username']);
-            session()->set('level', $cek['level']);
-            session()->set('foto', $cek['foto']);
+            $ses_data = [
+                'foto'       => $cek['foto'],
+                'username'     => $cek['username'],
+                'level'    => $cek['level'],
+                'log'     => TRUE
+            ];
+            session()->set($ses_data);
+
             //login sukses
 
             return redirect()->to('/dashboard');

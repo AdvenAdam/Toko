@@ -33,6 +33,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/Auth/(:any)', 'Auth::index');
+$routes->get('/Shop/cart', 'Shop::cart');
+$routes->get('/Shop/add', 'Shop::add');
+$routes->get('/Shop/delete/(:any)', 'Shop::delete/$1');
+$routes->get('/Shop/update/', 'Shop::update');
+$routes->get('/Shop/clear/', 'Shop::clear');
 $routes->get('/Shop/(:any)', 'Shop::index');
 $routes->get('/Wishlist/(:segment)', 'Wishlist::wish/$1');
 

@@ -139,7 +139,7 @@ class Procesor extends BaseController
             // $namaSampul = $fileSampul->getName();
 
         }
-
+        $socket = $this->request->getVar('socket');
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->procesorModel->save([
             'merk' => $this->request->getVar('merk'),
@@ -149,7 +149,7 @@ class Procesor extends BaseController
             'stok' => $this->request->getVar('stok'),
             'jml_core' => $this->request->getVar('jml_core'),
             'jml_threads' => $this->request->getVar('jml_threads'),
-            'socket' => $this->request->getVar('socket'),
+            'socket' => str_replace(' ', '', $socket),
             'frekuensi' => $this->request->getVar('frekuensi'),
             'iGPU' => $this->request->getVar('iGPU'),
             'cache' => $this->request->getVar('cache'),
@@ -303,6 +303,7 @@ class Procesor extends BaseController
             // hapus file gambar lama
             unlink('img/procesor/' . $this->request->getVar('gambarLama'));
         }
+        $socket = $this->request->getVar('socket');
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->procesorModel->save([
             'id' => $id,
@@ -313,7 +314,7 @@ class Procesor extends BaseController
             'stok' => $this->request->getVar('stok'),
             'jml_core' => $this->request->getVar('jml_core'),
             'jml_threads' => $this->request->getVar('jml_threads'),
-            'socket' => $this->request->getVar('socket'),
+            'socket' => str_replace(' ', '', $socket),
             'frekuensi' => $this->request->getVar('frekuensi'),
             'iGPU' => $this->request->getVar('iGPU'),
             'cache' => $this->request->getVar('cache'),

@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-6 equel-grid">
                     <div class="grid">
-                        <a href="/pendingin">
+                        <a href="/motherboard">
                             <div class="grid-body text-gray">
                                 <p class="text-black"><b>Motherboard</b></p>
                                 <div class="d-flex justify-content-between">

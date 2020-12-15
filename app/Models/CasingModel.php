@@ -25,8 +25,14 @@ class CasingModel extends Model
     {
         return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
+
     public function search($merk)
     {
         return $this->where('merk', $merk)->find();
+    }
+
+    public function getSelect($faktor_bentuk)
+    {
+        return $this->like('faktor_bentuk', $faktor_bentuk)->find();
     }
 }

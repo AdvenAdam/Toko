@@ -25,4 +25,8 @@ class ProcesorModel extends Model
     {
         return $this->where('diskon >', '0')->orderBY('id', 'DESC')->find();
     }
+    public function getSelect($merk)
+    {
+        return $this->where('merk', $merk)->find();
+    }
 }

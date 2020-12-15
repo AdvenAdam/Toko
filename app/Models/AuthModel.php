@@ -14,10 +14,8 @@ class AuthModel extends Model
     public function getUser($slug = false)
     {
         if ($slug == false) {
-            return $this->where('level !=', 'Guest')->orderBY('id', 'DESC')->find();
+            return $this->findAll();
         }
-
-        return $this->where(['slug' => $slug])->first();
     }
 
     public function login($username, $password, $query)
@@ -30,7 +28,6 @@ class AuthModel extends Model
         )->get()->getRowArray();
 
         foreach ($query as $result) {
-
             if (password_verify($password, $result['password'])) {
                 return $cekuser;
             } else {
@@ -45,5 +42,9 @@ class AuthModel extends Model
     public function getTeknisi()
     {
         return $this->where('level', 'Teknisi')->find();
+    }
+    public function getNotguest()
+    {
+        return $this->where('level !=', 'Guest')->find();
     }
 }

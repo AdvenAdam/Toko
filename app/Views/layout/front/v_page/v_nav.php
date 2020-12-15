@@ -17,6 +17,7 @@
                                             <ul class="sub-menu-width">
                                                 <li><a href="/Shop">Shop</a></li>
                                                 <li><a href="/Service">Service Computer</a></li>
+                                                <li><a href="/Rakit">Simulasi Rakit PC</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="/ #brand">Brand's</a> </li>
@@ -64,12 +65,13 @@
                                 <div class="same-style">
                                     <a href="/Auth/Login"><i class="icofont-user-alt-3"></i></a>
                                 </div>
+
                             <?php } ?>
                             <div class="same-style header-cart">
                                 <?php if (session()->get('level') == 'Customer_service') { ?>
                                     <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
                                 <?php } else if (session()->get('level') == 'Guest') { ?>
-                                    <a class="cart-active" href="Wishlist/<?= session()->get('username'); ?>"><i class="icofont-heart"></i></a>
+                                    <a class="cart" href="Wishlist/wish/<?= session()->get('username'); ?>"><i class="icofont-heart"></i></a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -106,47 +108,49 @@
         </div>
     </header>
     <!-- mini cart start -->
-    <div class="sidebar-cart-active">
-        <div class="sidebar-cart-all">
-            <a class="cart-close" href="#"><i class="icofont-close-line"></i></a>
-            <div class="cart-content">
-                <h3>Shopping Cart</h3>
-                <ul>
-                    <li class="single-product-cart">
-                        <div class="cart-img">
-                            <a href="#"><img src="/front/dking/assets/images/cart/cart-1.jpg" alt=""></a>
-                        </div>
-                        <div class="cart-title">
-                            <h4><a href="#">Awesome Mobile</a></h4>
-                            <span> 1 × $49.00 </span>
-                        </div>
-                        <div class="cart-delete">
-                            <a href="#">×</a>
-                        </div>
-                    </li>
-                    <li class="single-product-cart">
-                        <div class="cart-img">
-                            <a href="#"><img src="/front/dking/assets/images/cart/cart-2.jpg" alt=""></a>
-                        </div>
-                        <div class="cart-title">
-                            <h4><a href="#">Smart Watch</a></h4>
-                            <span> 1 × $49.00 </span>
-                        </div>
-                        <div class="cart-delete">
-                            <a href="#">×</a>
-                        </div>
-                    </li>
-                </ul>
-                <div class="cart-total">
-                    <h4>Subtotal: <span>$170.00</span></h4>
-                </div>
-                <div class="cart-checkout-btn">
-                    <a class="btn-hover cart-btn-style" href="/wishlist/wish/<?= session()->get('username'); ?>">view cart</a>
-                    <a class=" no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+    <?php if (session()->get('level' == 'Customer_service')) { ?>
+        <div class="sidebar-cart-active">
+            <div class="sidebar-cart-all">
+                <a class="cart-close" href="#"><i class="icofont-close-line"></i></a>
+                <div class="cart-content">
+                    <h3>Shopping Cart</h3>
+                    <ul>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="/front/dking/assets/images/cart/cart-1.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Awesome Mobile</a></h4>
+                                <span> 1 × $49.00 </span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                        <li class="single-product-cart">
+                            <div class="cart-img">
+                                <a href="#"><img src="/front/dking/assets/images/cart/cart-2.jpg" alt=""></a>
+                            </div>
+                            <div class="cart-title">
+                                <h4><a href="#">Smart Watch</a></h4>
+                                <span> 1 × $49.00 </span>
+                            </div>
+                            <div class="cart-delete">
+                                <a href="#">×</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cart-total">
+                        <h4>Subtotal: <span>$170.00</span></h4>
+                    </div>
+                    <div class="cart-checkout-btn">
+                        <a class="btn-hover cart-btn-style" href="/wishlist/wish/<?= session()->get('username'); ?>">view Wishlist</a>
+                        <a class=" no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <!-- Mobile menu start -->
     <div class="mobile-menu-active clickalbe-sidebar-wrapper-style-1">
         <div class="clickalbe-sidebar-wrap">

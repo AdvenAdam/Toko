@@ -20,6 +20,8 @@
                                         <ul class="sub-menu-width">
                                             <li><a href="/Shop">Shop</a></li>
                                             <li><a href="/Service">Service Computer</a></li>
+                                            <li><a href="/Rakit">Simulasi Rakit PC</a></li>
+
                                         </ul>
                                     </li>
                                     <li><a class="smooth" href="/ #brand">Brand's</a> </li>
@@ -80,6 +82,7 @@
             </div>
         </div>
     </div>
+    <!-- in header pas mobile  -->
     <div class="header-small-device header-small-ptb sticky-bar">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -93,7 +96,11 @@
                 <div class="col-6">
                     <div class="header-action-wrap header-action-flex header-action-mrg-1">
                         <div class="same-style header-cart">
-                            <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
+                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
+                            <?php } else if (session()->get('level') == 'Guest') { ?>
+                                <a class="cart-active" href=""><i class="icofont-heart"></i></a>
+                            <?php } ?>
                         </div>
                         <div class="same-style header-info">
                             <button class="mobile-menu-button-active">
@@ -132,8 +139,11 @@
                 <h4>Subtotal: <span>$170.00</span></h4>
             </div>
             <div class="cart-checkout-btn">
-                <a class="btn-hover cart-btn-style" href="/wishlist/wish/<?= session()->get('username'); ?>">view cart</a>
-                <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                <?php if (session()->get('level') == 'Guest') { ?>
+                    <a class="btn-hover cart-btn-style" href="/wishlist/wish/<?= session()->get('username'); ?>">view Wishlist</a>
+                <?php } else if (session()->get('level') == 'Customer_service') { ?>
+                    <a class="no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
+                <?php } ?>
             </div>
         </div>
     </div>
