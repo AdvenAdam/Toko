@@ -37,7 +37,7 @@
                                     <div class="search-style-1">
                                         <form action="" method="POST">
                                             <div class="form-search-1">
-                                                <input class="input-text" name="keyword" placeholder="Ketik Untuk Mencari (Cth: Nama, Antrian)" type="search">
+                                                <input class="input-text" name="keyword" placeholder="Ketik Untuk Mencari (Cth: Nama, Antrian, Status)" type="search">
                                                 <button>
                                                     <i class="icofont-search-1"></i>
                                                 </button>
@@ -67,11 +67,11 @@
                         </thead>
                         <tbody>
                             <?php $i = 1 + (10 * ($currentPage - 1)) ?>
-                            <?php foreach ($service as $val) : ?>
+                            <?php foreach (array_reverse($service) as $val) : ?>
                                 <tr align="middle">
                                     <td><?= $i++; ?></td>
                                     <td><a href="" data-toggle="modal" data-target="#modal_service<?= $val['antrian_pc']; ?>"><?= $val['nama']; ?></a></td>
-                                    <td><?= $val['antrian_pc']; ?></td>
+                                    <td name="antrian"><?= $val['antrian_pc']; ?></td>
                                     <td><?= $val['no_hp']; ?></td>
                                     <td><?= $val['email']; ?></td>
                                     <td><?= $val['created_at']; ?></td>
@@ -89,9 +89,13 @@
                                         </td>
                                         <?php if ($val['status'] == 'selesai') { ?>
                                             <td>
-                                                <form action="/service/<?= $val['id']; ?>" method="post" class="d-inline">
+                                                <form action="/service/ambil/<?= $val['antrian_pc']; ?>" method="post" class="d-inline">
                                                     <?= csrf_field(); ?>
-                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="id" value="<?= $val['id']; ?>">
+                                                    <input type="hidden" name="biaya" value="<?= $val['biaya']; ?>">
+                                                    <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
+                                                    <textarea hidden="hidden" name="rincian">Kerusakan :<?= $val['kerusakan']; ?>&#10;Teknisi   :<?= $val['teknisi']; ?>&#10;Service   :<?= $val['rincian_service']; ?>
+                                                    </textarea>
                                                     <button type="submit" class="button" onclick="return confirm('Apakah Anda Yakin Untuk Mengambil Barang?')">Ambil</i></button>
                                                 </form>
                                             </td>
@@ -201,7 +205,7 @@
                             <div class="form-group row showcase_row_area">
                                 <label for="antrian" class="col-sm-2 col-form-label">Antrian</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="antrian" name="antrian" value="" readonly>
+                                    <input type="text" id="antrian" name="antrian" value="<?= $kode; ?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row showcase_row_area">

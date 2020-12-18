@@ -51,7 +51,9 @@ class Rakit extends BaseController
             'vga'           => $this->vgaModel->getVga(),
             'merk'          => $this->merkModel->getMerk(),
             'uri'           =>  new \CodeIgniter\HTTP\URI(current_url()),
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'cart'             => \Config\Services::cart(),
+
         ];
 
         return view('layout/rakit/v_rakit', $data);

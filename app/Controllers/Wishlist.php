@@ -61,6 +61,8 @@ class wishlist  extends BaseController
                 'pendingin'     => $this->pendinginModel->getPendingin(),
                 'psu'           => $this->psuModel->getPsu(),
                 'vga'           => $this->vgaModel->getVga(),
+                'cart'             => \Config\Services::cart(),
+
             ];
 
         return view('layout/front/Wishlist', $data);

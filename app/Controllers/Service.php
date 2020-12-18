@@ -3,16 +3,20 @@
 namespace App\Controllers;
 
 use \App\Models\ServModel;
+use \App\Models\TransaksiModel;
 use CodeIgniter\Config\Config;
 use CodeIgniter\HTTP\Files\UploadedFile;
 
 class Service extends BaseController
 {
     protected $servModel;
+    protected $trxModel;
     public function __construct()
     {
         $this->servModel = new ServModel();
+        $this->trxModel = new TransaksiModel();
     }
+    //customer service
     public function index()
     {
         $query  = max($this->servModel->getServ());
@@ -32,29 +36,12 @@ class Service extends BaseController
                 'pager'       => $this->servModel->pager,
                 'currentPage' => $currentPage,
                 'validation'  => \Config\Services::validation(),
-                'kode'        => $kode
+                'kode'        => $kode,
+                'cart'        => \Config\Services::cart(),
+
 
             ];
         return view('/service/index', $data);
-    }
-
-    public function teknisi()
-    {
-        if (session()->get('level') != 'Teknisi') {
-            return redirect()->to('/Home');
-        }
-        $user = session()->get('username');
-        $data =
-            [
-                'title'       => 'Daftar Service',
-                'diproses'    => $this->servModel->getProses($user),
-                'diterima'    => $this->servModel->getTrx('diterima'),
-                'selesai'     => $this->servModel->getTrx('selesai'),
-                'service'     => $this->servModel->getServ(),
-                'validation'  => \Config\Services::validation(),
-
-            ];
-        return view('/service/v_teknisi', $data);
     }
 
     public function save()
@@ -97,19 +84,43 @@ class Service extends BaseController
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/service');
     }
-
+    public function cetakBukti($antrian)
+    {
+        $data = [
+            'title' => 'Bukti Transaksi Service',
+            'service' => $this->servModel->getServ($antrian)
+        ];
+        return view('service/cetak', $data);
+        return redirect()->to('/service');
+    }
+    public function ambil($antrian)
+    {
+        $id = $this->request->getVar('id');
+        $this->servModel->save([
+            'id'                => $id,
+            'status'            => 'diambil',
+        ]);
+        $this->trxModel->save([
+            'pelanggan'        => $this->request->getVar('nama'),
+            'jenis'            => 'Service PC/Laptop',
+            'nilai'            => $this->request->getVar('biaya'),
+            'customer_service' => session()->get('username'),
+            'rincian'          => $this->request->getVar('rincian')
+        ]);
+        $data = [
+            'title' => 'Invoice Service',
+            'service' => $this->servModel->getServ($antrian)
+        ];
+        return view('service/invoice', $data);
+    }
     public function delete($id)
     {
-        if (session()->get('level') != 'Teknisi') {
-            return redirect()->to('/Home');
-        }
-        //cari gambar berdasar id
-        $service = $this->servModel->find($id);
         $this->servModel->delete($id);
         session()->setFlashdata('pesan', 'Berhasil');
         return redirect()->to('/service');
     }
 
+    // action teknisi
     public function proses($id)
     {
         if (session()->get('level') != 'Teknisi') {
@@ -122,6 +133,25 @@ class Service extends BaseController
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil Diubah');
         return redirect()->to('/service/teknisi');
+    }
+
+    public function teknisi()
+    {
+        if (session()->get('level') != 'Teknisi') {
+            return redirect()->to('/Home');
+        }
+        $user = session()->get('username');
+        $data =
+            [
+                'title'       => 'Daftar Service',
+                'diproses'    => $this->servModel->getProses($user),
+                'diterima'    => $this->servModel->getTrx('diterima'),
+                'selesai'     => $this->servModel->getTrx('selesai'),
+                'service'     => $this->servModel->getServ(),
+                'validation'  => \Config\Services::validation(),
+
+            ];
+        return view('/service/v_teknisi', $data);
     }
 
     public function selesai($id)
@@ -154,13 +184,5 @@ class Service extends BaseController
 
         session()->setFlashdata('pesan', 'Berhasil Menyelesaikan Service');
         return redirect()->to('/service/teknisi');
-    }
-    public function cetakBukti($antrian)
-    {
-        $data = [
-            'title' => 'Bukti Transaksi Service',
-            'service' => $this->servModel->getServ($antrian)
-        ];
-        return view('service/cetak', $data);
     }
 }

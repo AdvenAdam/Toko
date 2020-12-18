@@ -23,6 +23,11 @@
 <?php if ($cart->contents()  == null) { ?>
     <div class="empty-cart-area pt-100 pb-160">
         <div class="container">
+            <?php if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('pesan') ?>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-12">
                     <div class="empty-cart-content text-center">
@@ -56,7 +61,7 @@
                 </div>
             <?php endif; ?>
             <div class="proceed-btn">
-                <a href="#">Proceed to Checkout</a>
+                <a href="" data-toggle="modal" data-target="#modal_trx">Proceed to Checkout</a>
             </div>
             <div class="cart-table-content">
                 <form action="/Shop/update">
@@ -82,17 +87,19 @@
                                                     <a href=""><img src="/img/<?= $val['options']['kategori']; ?>/<?= $val['options']['gambar']; ?>" class="img-fluid" alt=""></a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h4><a href="#"><?= $val['name']; ?></a></h4>
+                                                    <h4><a href=""><?= $val['name']; ?></a></h4>
                                                 </div>
                                             </div>
                                         </td>
+                                        <?php $a = $i++; ?>
                                         <td class="product-price"><span class="amount"><?= number_to_currency($val['price'], 'Rp.'); ?></span></td>
+                                        <input type="hidden" id="price<?= $a; ?>" value="<?= $val['price']; ?>">
                                         <td class="cart-quality ">
                                             <div class="pro-details-quality pl-50 pr-50">
-                                                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" name="qty<?= $i++; ?>" value="<?= $val['qty']; ?>">
+                                                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <=57" name="qty<?= $a; ?>" id="qty<?= $a; ?>" value="<?= $val['qty']; ?>">
                                             </div>
                                         </td>
-                                        <td class="product-total"><span><?= number_to_currency($val['subtotal'], 'Rp.'); ?></span></td>
+                                        <td class="product-total"><input type="text" id="sub<?= $a; ?>" name="sub<?= $a; ?>" readonly value="<?= number_to_currency($val['subtotal'], 'Rp.'); ?>"></td>
                                         <td align="center"><a href="/Shop/delete/<?= $val['rowid']; ?>"><img class="inject-me" src="/front/dking/assets/images/icon-img/close.svg" alt=""></a></td>
                                     </tr>
                                 <?php } ?>
@@ -122,7 +129,82 @@
         </div>
     </div>
 <?php } ?>
+
+<!-- Modal TRX -->
+
+<!-- Modal Create -->
+<div class="modal fade" id="modal_trx" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <h2><b> Transaksi</b> </h2>
+                </center>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-lg-10 col-md-10 col-10 col-sm-10">
+                        <form action="/Trx/save" method="post" enctype="multipart/form-data">
+                            <?= csrf_field(); ?>
+                            <div class="form-group row showcase_row_area">
+                                <label for="pelanggan" class="col-sm-2 col-form-label">Pelanggan</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control <?= ($validation->hasError('pelanggan')) ? 'is-invalid' : ''; ?>" id="pelanggan" name="pelanggan" value="<?= old('pelanggan'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('pelanggan'); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- get value Cart -->
+                            <?php
+                            $x = 1;
+                            foreach ($cart->contents() as $val) {
+                                $y = $x++
+                            ?>
+                                <input type="hidden" name="jenis" value="Transaksi Penjualan">
+                                <input type="hidden" name="customer" value="<?= session()->get('username') ?>">
+                                <input type="hidden" name="nilai<?= $y; ?>" value="<?= $val['subtotal']; ?>">
+                                <input type="hidden" name="kategori<?= $y; ?>" value="<?= $val['options']['kategori']; ?>">
+                                <input type="hidden" name="id<?= $y; ?>" value="<?= $val['id']; ?>">
+                                <input type="hidden" name="qty<?= $y; ?>" value="<?= $val['qty']; ?>">
+                                <textarea hidden="hidden" name="rincian<?= $y; ?>">Barang :<?= $val['name']; ?>&#10;Qty    :<?= $val['qty']; ?>&#10;Harga  :<?= number_to_currency($val['price'], 'Rp.'); ?>
+                                </textarea>
+                            <?php } ?>
+
+                            <div class="form-group row showcase_row_area">
+                                <div class="col-sm-9">
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="button">Checkout</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="/zz/src/assets/jquery/jquery.min.js"></script>
 
+<?php
+// untuk update qty value setiap kali even keyup
+$j = 1;
+foreach ($cart->contents() as $val) { ?>
+    <?php $b = $j++ ?>
+    <script>
+        $(document).ready(function() {
+            $('#qty<?= $a ?>').keyup(function() {
+                var qty<?= $a; ?> = parseInt($("#qty<?= $a; ?>").val());
+                $(#qty<?= $a; ?>).val(qty);
+
+            });
+            return false;
+        });
+    </script>
+<?php } ?>
 
 <?= $this->endsection(); ?>

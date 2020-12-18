@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/front/dking/assets/css/style.min.css">
     <link rel="stylesheet" href="/front/dking/assets/css/vendor/vendor.min.css">
     <title><?= $title; ?></title>
-
 </head>
 
 <body>
@@ -24,21 +23,29 @@
                                     <div class="col-9 mb-20 ml-auto mr-auto">
                                         <center>
                                             <h3><b>SpaceComp</b></h3>
-                                            <h6>Service Center</h6>
+                                            <h7>Computer & Service Center</h7>
                                         </center>
                                     </div>
                                 </div>
 
-                                <h4 class="checkout-title">Bukti Service</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h4 class="checkout-title"><?= $title; ?></h4>
+                                    </div>
+                                    <div class="col-6" align="right">
+                                        <h7><?= (date('Y-m-d')); ?></h7>
+                                    </div>
+                                </div>
+
                                 <ul>
                                     <li>Nama <span><?= $val['nama']; ?></span></li>
                                     <li>No Antrian <span><?= $val['antrian_pc']; ?></span></li>
                                     <li>Customer <span><?= session()->get('username') ?></span></li>
+                                    <li>Biaya <span><?= $val['biaya'] ?></span></li>
+                                    <li>Rincian Service <span><textarea readonly='readonly'><?= $val['rincian_service']; ?></textarea></span></li>
                                 </ul>
                                 <div class="total-order">
-                                    <ul>
-                                        <li>Masuk <span><?= format_indo($val['created_at']); ?></span></li>
-                                        <br><br>
+                                    <ul> <br><br>
                                         <span style="color: red;">*Bukti ini jangan sampai hilang</span>
                                     </ul>
                                 </div>

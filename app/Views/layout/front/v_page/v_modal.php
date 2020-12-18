@@ -27,37 +27,20 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Faktor Bentuk:</span> <?= $val['faktor_bentuk']; ?></li>
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -96,14 +79,14 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Socket </span>: <?= $val['socket']; ?></li>
@@ -111,24 +94,7 @@
                                         <li><span>Bentuk </span>: <?= $val['faktor_bentuk']; ?></li>
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -166,14 +132,14 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Socket </span>: <?= $val['socket']; ?></li>
@@ -181,24 +147,7 @@
                                         <li><span>iGPU </span>: <?= $val['iGPU']; ?></li>
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -236,14 +185,14 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Jenis </span>: <?= $val['jenis_memori']; ?></li>
@@ -251,24 +200,7 @@
 
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -306,14 +238,14 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Base Clock </span>: <?= $val['base_clock'] . 'MHz'; ?></li>
@@ -321,24 +253,7 @@
                                         <li><span>Memori </span>: <?= $val['ukuran_memori'] . " GB" . '/' . $val['tipe_memori'] . '/' . $val['lebar_memori'] . "Bit"; ?></li>
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -376,14 +291,14 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Ukuran </span>: <?= $val['ukuran_ram']; ?></li>
@@ -391,24 +306,7 @@
                                         <li><span>Frekuensi </span>: <?= $val['frekuensi'] . 'MHz'; ?></li>
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -446,38 +344,21 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Jenis </span>: <?= $val['jenis_pendingin']; ?></li>
 
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -515,14 +396,14 @@
                                         <span><?= 'Rp.' . number_format(intval($val['harga'])); ?></span>
                                     <?php } ?>
                                 </div>
-                                <?php if (session()->get('level') == 'Customer_service') { ?>
-                                    <div class="pro-details-quality">
-                                        <span>Quantity:</span>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="pro-details-quality">
+                                    <span>Status:</span>
+                                    <?php if ($val['stok'] > 0) { ?>
+                                        <span style="color: green;">Tersedia</span>
+                                    <?php } else { ?>
+                                        <span style="color: red;">TIdak Tersedia</span>
+                                    <?php } ?>
+                                </div>
                                 <div class="product-details-meta">
                                     <ul>
                                         <li><span>Sertifikat </span>: <?= $val['sertifikat']; ?></li>
@@ -531,24 +412,7 @@
 
                                     </ul>
                                 </div>
-                                <div class="pro-details-action-wrap">
-                                    <?php if (session()->get('level') == 'Customer_service') { ?>
-                                        <div class="pro-details-buy-now">
-                                            <a href="#">Buy Now</a>
-                                        </div>
-                                        <div class="pro-details-action">
-                                            <a title="Add to Cart" href="#"><i class="icon-basket"></i></a>
-                                        </div>
-                                    <?php } ?>
-                                    <div class="pro-details-action">
-                                        <form action="wishlist/save" method="post">
-                                            <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
-                                            <input type="hidden" name="slug" value="<?= $slug; ?>">
-                                            <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
-                                            <button class="button" type="submit">Add To Wishlist</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

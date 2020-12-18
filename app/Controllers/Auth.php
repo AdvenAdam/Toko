@@ -19,6 +19,7 @@ class Auth extends BaseController
             [
                 'title' => 'Form Login',
                 'validation' => \Config\Services::validation(),
+                'cart'             => \Config\Services::cart(),
                 'uri'           =>  new \CodeIgniter\HTTP\URI(current_url()),
             ];
         return view('layout/front/Auth', $data);

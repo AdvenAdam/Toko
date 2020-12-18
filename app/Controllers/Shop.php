@@ -73,28 +73,25 @@ class Shop extends BaseController
 
         return view('layout/front/Shop', $data);
     }
-    public function cek()
-    {
-        $cart = \Config\Services::cart();
-        $response = $cart->contents();
-
-        echo '<pre>';
-        print_r($response);
-        echo '</pre>';
-    }
+    // cart shop
     public function add()
     {
+        $id = $this->request->getVar('id');
+        // $stok = intval($this->request->getVar('stok')) - 1;
+        $kategori = $this->request->getVar('kategori');
         $cart = \Config\Services::cart();
         $cart->insert([
-            'id'      => $this->request->getVar('id'),
+            'id'      => $id,
             'qty'     => 1,
             'price'   => $this->request->getVar('price'),
             'name'    => $this->request->getVar('name'),
             'options' => array(
                 'gambar' => $this->request->getVar('gambar'),
-                'kategori' => $this->request->getVar('kategori')
+                'kategori' => $kategori
             )
         ]);
+
+        // end
         session()->setflashdata('pesan', 'Berhasil diambahkan ke keranjang');
         return redirect()->to('/shop/cart');
     }
@@ -123,10 +120,10 @@ class Shop extends BaseController
         $cart = \Config\Services::cart();
         $i = 1;
         foreach ($cart->contents() as $key => $value) {
-
+            $stok = intval($this->request->getVar('qty' . $i++));
             $cart->update([
                 'rowid'      => $value['rowid'],
-                'qty'     => $this->request->getVar('qty' . $i++)
+                'qty'     => $stok,
             ]);
         }
         session()->setflashdata('pesan', 'Berhasil Menambahkan');

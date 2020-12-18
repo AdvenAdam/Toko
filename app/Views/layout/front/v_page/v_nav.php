@@ -1,3 +1,4 @@
+    <!-- Custom Navbar -->
     <header class="header-area section-padding-1 transparent-bar">
         <div class="header-large-device">
             <div class="header-bottom sticky-bar">
@@ -12,32 +13,38 @@
                             <div class="main-menu menu-lh-1 main-menu-padding-1 menu-mrg-1">
                                 <nav>
                                     <ul>
-                                        <li><a href="/ #home">Home</a></li>
-                                        <li><a href="/ #shop">Shop</a>
+                                        <li><a class="smooth" href="/ #home">Home</a></li>
+                                        <li><a class="smooth" href="/ #shop">Shop</a>
                                             <ul class="sub-menu-width">
                                                 <li><a href="/Shop">Shop</a></li>
                                                 <li><a href="/Service">Service Computer</a></li>
                                                 <li><a href="/Rakit">Simulasi Rakit PC</a></li>
+
                                             </ul>
                                         </li>
-                                        <li><a href="/ #brand">Brand's</a> </li>
-                                        <li><a href="/ #dotd">Deals</a> </li>
-                                        <li><a href="/ #contact">Contact Us</a></li>
+                                        <li><a class="smooth" href="/ #brand">Brand's</a> </li>
+                                        <li><a class="smooth" href="/ #dotd">Deals</a> </li>
+                                        <li><a class="smooth" href="/ #contact">Contact Us</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="header-action-wrap header-action-flex header-action-width header-action-mrg-1">
                             <div class="search-style-1">
-                                <form>
+                                <form action="/Home/search" method="POST">
                                     <div class="form-search-1">
-                                        <input class="input-text" value="" placeholder="Type to search (Ex: Phone, Laptop)" type="search">
-                                        <button>
+                                        <input class="input-text" value="" name="keyword" placeholder="Ketik Untuk Mencari (Cth: Produk)" type="search">
+                                        <button type="submit">
                                             <i class="icofont-search-1"></i>
                                         </button>
                                     </div>
                                 </form>
                             </div>
+                            <!-- rakit -->
+                            <div class="same-style">
+                                <a href="/Rakit" title="Rakit PC"><i class="icofont-computer"></i></a>
+                            </div>
+                            <!-- lojen -->
                             <?php if (session()->get('log') == true) { ?>
                                 <div class="same-style">
                                     <div class="navbar-custom-menu">
@@ -49,9 +56,6 @@
                                                 <ul class="dropdown-menu">
                                                     <!-- Menu Footer-->
                                                     <li class="user-footer">
-                                                        <div class="align-left">
-                                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                                        </div>
                                                         <div class="align-right">
                                                             <a href="/auth/logout" class="btn btn-default btn-flat">Log out</a>
                                                         </div>
@@ -65,13 +69,13 @@
                                 <div class="same-style">
                                     <a href="/Auth/Login"><i class="icofont-user-alt-3"></i></a>
                                 </div>
-
                             <?php } ?>
+                            <!-- cart/wishlist -->
                             <div class="same-style header-cart">
                                 <?php if (session()->get('level') == 'Customer_service') { ?>
                                     <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
                                 <?php } else if (session()->get('level') == 'Guest') { ?>
-                                    <a class="cart" href="Wishlist/wish/<?= session()->get('username'); ?>"><i class="icofont-heart"></i></a>
+                                    <a href="/wishlist/wish/<?= session()->get('username'); ?>"><i class="icofont-heart"></i></a>
                                 <?php } ?>
                             </div>
                         </div>
@@ -79,6 +83,7 @@
                 </div>
             </div>
         </div>
+        <!-- in header pas mobile  -->
         <div class="header-small-device header-small-ptb sticky-bar">
             <div class="container-fluid">
                 <div class="row align-items-center">
@@ -92,7 +97,11 @@
                     <div class="col-6">
                         <div class="header-action-wrap header-action-flex header-action-mrg-1">
                             <div class="same-style header-cart">
-                                <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
+                                <?php if (session()->get('level') == 'Customer_service') { ?>
+                                    <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
+                                <?php } else if (session()->get('level') == 'Guest') { ?>
+                                    <a class="cart-active" href=""><i class="icofont-heart"></i></a>
+                                <?php } ?>
                             </div>
                             <div class="same-style header-info">
                                 <button class="mobile-menu-button-active">
@@ -108,49 +117,40 @@
         </div>
     </header>
     <!-- mini cart start -->
-    <?php if (session()->get('level' == 'Customer_service')) { ?>
-        <div class="sidebar-cart-active">
-            <div class="sidebar-cart-all">
-                <a class="cart-close" href="#"><i class="icofont-close-line"></i></a>
-                <div class="cart-content">
-                    <h3>Shopping Cart</h3>
-                    <ul>
+    <div class="sidebar-cart-active">
+        <div class="sidebar-cart-all">
+            <a class="cart-close" href="#"><i class="icofont-close-line"></i></a>
+            <div class="cart-content">
+                <h3>Shopping Cart</h3>
+                <ul>
+                    <?php foreach ($cart->contents() as $val) { ?>
                         <li class="single-product-cart">
                             <div class="cart-img">
-                                <a href="#"><img src="/front/dking/assets/images/cart/cart-1.jpg" alt=""></a>
+                                <a href=""><img src="/img/<?= $val['options']['kategori']; ?>/<?= $val['options']['gambar']; ?>" class="img-fluid" alt=""></a>
                             </div>
                             <div class="cart-title">
-                                <h4><a href="#">Awesome Mobile</a></h4>
-                                <span> 1 × $49.00 </span>
+                                <h4><a href=""><?= $val['name']; ?></a></h4>
+                                <span><?= $val['qty']; ?> × Rp. <?= number_format($val['price']); ?></span>
                             </div>
                             <div class="cart-delete">
-                                <a href="#">×</a>
+                                <a href="/Shop/delete/<?= $val['rowid']; ?>">×</a>
                             </div>
                         </li>
-                        <li class="single-product-cart">
-                            <div class="cart-img">
-                                <a href="#"><img src="/front/dking/assets/images/cart/cart-2.jpg" alt=""></a>
-                            </div>
-                            <div class="cart-title">
-                                <h4><a href="#">Smart Watch</a></h4>
-                                <span> 1 × $49.00 </span>
-                            </div>
-                            <div class="cart-delete">
-                                <a href="#">×</a>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="cart-total">
-                        <h4>Subtotal: <span>$170.00</span></h4>
-                    </div>
-                    <div class="cart-checkout-btn">
+                    <?php } ?>
+                </ul>
+                <div class="cart-total">
+                    <h4>Total: Rp. <?= number_format($cart->Total()); ?></h4>
+                </div>
+                <div class="cart-checkout-btn">
+                    <?php if (session()->get('level') == 'Guest') { ?>
                         <a class="btn-hover cart-btn-style" href="/wishlist/wish/<?= session()->get('username'); ?>">view Wishlist</a>
-                        <a class=" no-mrg btn-hover cart-btn-style" href="checkout.html">checkout</a>
-                    </div>
+                    <?php } else if (session()->get('level') == 'Customer_service') { ?>
+                        <a class="no-mrg btn-hover cart-btn-style" href="/shop/cart">checkout</a>
+                    <?php } ?>
                 </div>
             </div>
         </div>
-    <?php } ?>
+    </div>
     <!-- Mobile menu start -->
     <div class="mobile-menu-active clickalbe-sidebar-wrapper-style-1">
         <div class="clickalbe-sidebar-wrap">

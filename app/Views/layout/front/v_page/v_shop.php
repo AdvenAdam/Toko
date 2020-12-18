@@ -75,7 +75,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -151,7 +151,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -227,7 +227,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -303,7 +303,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -379,7 +379,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -455,7 +455,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -531,7 +531,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -607,7 +607,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customer_service') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -684,16 +684,13 @@
 </div>
 
 
-<!-- upcomong -->
+<!-- diskon -->
 <div class="product-area section-padding-6 pt-155 pb-155 fix" id="dotd">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="section-title-7 mb-30">
-                    <h2 class="bold">Deals Of The Day<br> Product</h2>
-                    <div class="banner-btn-4 banner-btn-4-electric2">
-                        <a href="shop.html">Browse All Categories <img class="inject-me" src="/front/dking/assets/images/icon-img/right-arrow-banner.svg" alt=""></a>
-                    </div>
+                    <h2 class="bold">Deals Of The Day</h2>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
@@ -731,7 +728,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -786,7 +783,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -841,7 +838,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -896,7 +893,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -951,7 +948,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -1006,7 +1003,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -1061,7 +1058,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">
@@ -1116,7 +1113,7 @@
                                                 <div class="product-action-cart">
                                                     <?php if (session()->get('level') == 'Customerservice') { ?>
                                                         <form action="/shop/add" method="post">
-                                                            <input type="hidden" name="id" value="<?= $val['slug']; ?>">
+                                                            <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                             <input type="hidden" name="name" value="<?= $val['nama']; ?>">
                                                             <?php if ($val['diskon'] > 0 && $val['berlaku'] > date('Y-m-d')) { ?>
                                                                 <input type="hidden" name="price" value="<?= $val['harga_new']; ?>">

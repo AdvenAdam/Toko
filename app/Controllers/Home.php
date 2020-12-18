@@ -15,6 +15,7 @@ use \App\Models\RatingModel;
 use \App\Models\SliderModel;
 use \App\Models\TokoModel;
 use \App\Models\MerkModel;
+use phpDocumentor\Reflection\Types\Null_;
 
 class Home extends BaseController
 {
@@ -65,32 +66,63 @@ class Home extends BaseController
 
 		$data = [
 			'title'         => 'SpaceCom-Dashboard',
-			'casing'        => $this->casingModel->paginate(5),
+			'casing'        => $this->casingModel->vShop(5),
 			'diskonCasing'	=> $this->casingModel->diskonCasing(),
-			'memory' 		=> $this->memoriModel->paginate(5),
+			'memory' 		=> $this->memoriModel->vShop(5),
 			'diskonMemori'	=> $this->memoriModel->diskonMemori(),
-			'motherboard'   => $this->motherboardModel->paginate(5),
+			'motherboard'   => $this->motherboardModel->vShop(5),
 			'diskonMobo'	=> $this->motherboardModel->diskonMobo(),
-			'pendingin'     => $this->pendinginModel->paginate(5),
+			'pendingin'     => $this->pendinginModel->vShop(5),
 			'diskonCooler'  => $this->pendinginModel->diskonCooler(),
-			'procesor'      => $this->procesorModel->paginate(5),
+			'procesor'      => $this->procesorModel->vShop(5),
 			'diskonProcie'  => $this->procesorModel->diskonProcie(),
-			'psu'           => $this->psuModel->paginate(5),
+			'psu'           => $this->psuModel->vShop(5),
 			'diskonPsu'     => $this->psuModel->diskonPsu(),
-			'ram'           => $this->ramModel->paginate(5),
+			'ram'           => $this->ramModel->vShop(5),
 			'diskonRam'     => $this->ramModel->diskonRam(),
-			'vga'           => $this->vgaModel->paginate(5),
-			'diskonVga'     => $this->vgaModel->diskonVga(5),
+			'vga'           => $this->vgaModel->vShop(5),
+			'diskonVga'     => $this->vgaModel->diskonVga(),
 			'rating'		=> $this->ratingModel->getRating(),
 			'slider'		=> $this->sliderModel->getSlider(),
 			'toko'			=> $this->tokoModel->getTampiltoko(),
 			'merk'			=> $this->merkModel->getMerk(),
-			'validation' => \Config\Services::validation(),
+			'validation' 	=> \Config\Services::validation(),
+			'cart' 			=> \Config\Services::cart(),
+
 		];
 
 		return view('layout/front/Home', $data);
 	}
+	public function search()
+	{
+		$keyword = $this->request->getVar('keyword');
+		if ($keyword) {
+			$data = ([
+				'keyword' => $keyword,
+				'title' =>  'SpaceCom-Pencarian',
+				'casing' =>  $this->casingModel->search($keyword),
+				'motherboard' =>  $this->motherboardModel->search($keyword),
+				'memory' =>  $this->memoriModel->search($keyword),
+				'ram' =>  $this->ramModel->search($keyword),
+				'psu' =>  $this->psuModel->search($keyword),
+				'pendingin' =>  $this->pendinginModel->search($keyword),
+				'procesor' =>  $this->procesorModel->search($keyword),
+				'vga' =>  $this->vgaModel->search($keyword),
+				'validation' => \Config\Services::validation(),
+			]);
+		} else {
+			$data = ([
+				'keyword' =>  null,
+				'title' =>  'SpaceCom-Pencarian',
+				'validation' => \Config\Services::validation(),
+			]);
+		}
+		return view('layout/front/Search', $data);
+	}
 
+	public function hasilSearch()
+	{
+	}
 	//--------------------------------------------------------------------
 
 }

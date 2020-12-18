@@ -14,9 +14,10 @@ class ServModel extends Model
         'email', 'slug', 'status', 'teknisi', 'biaya', 'rincian_service'
     ];
 
+    // cari di tampilan index service
     public function search($keywoard)
     {
-        return $this->table('tbl_service')->like('nama', $keywoard)->orLike('antrian_pc', $keywoard);
+        return $this->like('nama', $keywoard)->orLike('antrian_pc', $keywoard)->orLike('status', $keywoard);
     }
     public function getServ($antrian = false)
     {
@@ -25,10 +26,12 @@ class ServModel extends Model
         }
         return $this->where(['antrian_pc' => $antrian])->find();
     }
+    // pengelompokan di dashboard teknisi
     public function getTrx($status)
     {
         return $this->where('status', $status)->find();
     }
+    // mendapatkan diproses oleh tiap userTeknisi
     public function getProses($user)
     {
         return $this->where(['status' => 'diproses', 'teknisi' => $user])->find();

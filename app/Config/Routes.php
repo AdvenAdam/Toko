@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/Auth/(:any)', 'Auth::index');
+
+// Shop
 $routes->get('/Shop/cart', 'Shop::cart');
 $routes->get('/Shop/add', 'Shop::add');
 $routes->get('/Shop/delete/(:any)', 'Shop::delete/$1');
@@ -40,6 +42,9 @@ $routes->get('/Shop/update/', 'Shop::update');
 $routes->get('/Shop/clear/', 'Shop::clear');
 $routes->get('/Shop/(:any)', 'Shop::index');
 $routes->get('/Wishlist/(:segment)', 'Wishlist::wish/$1');
+// TRX
+// $routes->get('/Trx/Save/', 'Trx::Save');
+
 
 // Cassing
 $routes->get('/casing', 'casing::index', ['filter' => 'authfilter']);
@@ -166,12 +171,11 @@ $routes->get('/diskon/Psu', 'diskon::indexPsu', ['filter' => 'authfilter']);
 $routes->get('/diskon/Pendingin', 'diskon::indexPendingin', ['filter' => 'authfilter']);
 $routes->get('/diskon/Ram', 'diskon::indexRam', ['filter' => 'authfilter']);
 $routes->get('/diskon/Vga', 'diskon::indexVga', ['filter' => 'authfilter']);
-// filter merk
-$routes->get('/Shop/Memory/(:any)', 'Shop::filter/$1');
 //wishlist
 $routes->get('/wishlist::wish/(:segment)', 'wishlist::wish/$1', ['filter' => 'authfilter']);
 //Service
 $routes->delete('/service/(:num)', 'service::delete/$1', ['filter' => 'authfilter']);
+$routes->delete('/service/ambil/(:any)', 'service::ambil/$1', ['filter' => 'authfilter']);
 
 
 /**
