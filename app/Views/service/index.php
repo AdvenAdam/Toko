@@ -9,13 +9,13 @@
         </div>
     </div>
     <div class="breadcrumb-img-1">
-        <img src="/front/dking/assets/images/about/breadcrumb-1.png" alt="">
+        <img src="/img/aset/service.jpg" alt="">
     </div>
     <div class="breadcrumb-img-2">
-        <img src="/front/dking/assets/images/about/breadcrumb-2.png" alt="">
+        <img src="/img/aset/service.jpg" alt="">
     </div>
 </div>
-<div class="contact-us-area pt-50">
+<div class=" contact-us-area pt-50">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 ml-auto mr-auto">

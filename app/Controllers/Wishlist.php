@@ -70,7 +70,6 @@ class wishlist  extends BaseController
 
     public function save()
     {
-
         // validasi input
         if (!$this->validate([
             'slug' => [
@@ -80,28 +79,9 @@ class wishlist  extends BaseController
                     'is_unique' => '{field} sudah ada'
                 ]
             ],
-            'nama' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'gambar' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-            'kategori' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi'
-                ]
-            ],
-
 
         ])) {
-            return redirect()->to('/');
+            return redirect()->to('/wishlist/wish/' . session()->get('username'));
         }
         $this->wishModel->save([
             'nama' => $this->request->getVar('nama'),

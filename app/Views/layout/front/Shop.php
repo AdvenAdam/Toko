@@ -114,8 +114,10 @@
                                                                 </form>
                                                             <?php } ?>
                                                         </div>
-                                                        <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button><br>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,10 +151,12 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
-                                                            <?php if (session()->get('level') == 'Customer_service') { ?>
+                                                            <?php if (session()->get('level') == 'Customer_service' && $val['stok'] > 0) { ?>
                                                                 <form action="/shop/add" method="post">
                                                                     <input type="hidden" name="id" value="<?= $val['id']; ?>">
                                                                     <input type="hidden" name="name" value="<?= $val['nama']; ?>">
@@ -167,12 +171,12 @@
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
                                                                 <form action="/wishlist/save" method="post">
-                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], true) ?>
+                                                                    <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
                                                                     <input type="hidden" name="gambar" value="<?= $val['gambar']; ?>">
                                                                     <input type="hidden" name="kategori" value="casing">
-                                                                    <button type="submit" class="submit" title=" Add to Wishlist">Add To Wishlist</button>
+                                                                    <button class="button" type="submit">Add To Wishlist</button>
                                                                 </form>
                                                             <?php } ?>
                                                         </div>
@@ -242,7 +246,7 @@
                                                                     <button title="Add to Cart" type="submit" class="button">Add to cart</button>
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="//wishlist/save" method="post">
+                                                                <form action="/wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -253,7 +257,9 @@
                                                             <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -287,8 +293,10 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
                                                                 <form action="/shop/add" method="post">
@@ -378,7 +386,7 @@
                                                                     <button title="Add to Cart" type="submit" class="button">Add to cart</button>
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="//wishlist/save" method="post">
+                                                                <form action="/wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -389,7 +397,9 @@
                                                             <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -423,8 +433,10 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
                                                                 <form action="/shop/add" method="post">
@@ -514,7 +526,7 @@
                                                                     <button title="Add to Cart" type="submit" class="button">Add to cart</button>
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="//wishlist/save" method="post">
+                                                                <form action="/wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -525,7 +537,9 @@
                                                             <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -559,8 +573,10 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
                                                                 <form action="/shop/add" method="post">
@@ -650,7 +666,7 @@
                                                                     <button title="Add to Cart" type="submit" class="button">Add to cart</button>
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="//wishlist/save" method="post">
+                                                                <form action="/wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -661,7 +677,9 @@
                                                             <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -695,8 +713,10 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
                                                                 <form action="/shop/add" method="post">
@@ -786,7 +806,7 @@
                                                                     <button title="Add to Cart" type="submit" class="button">Add to cart</button>
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="//wishlist/save" method="post">
+                                                                <form action="/wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -797,7 +817,9 @@
                                                             <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -831,8 +853,10 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
                                                                 <form action="/shop/add" method="post">
@@ -922,7 +946,7 @@
                                                                     <button title="Add to Cart" type="submit" class="button">Add to cart</button>
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="//wishlist/save" method="post">
+                                                                <form action="/wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -933,7 +957,9 @@
                                                             <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -965,8 +991,10 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
                                                                 <form action="/shop/add" method="post">
@@ -1056,7 +1084,7 @@
                                                                     <button title="Add to Cart" type="submit" class="button">Add to cart</button>
                                                                 </form>
                                                             <?php } else if (session()->get('level') == 'Guest') { ?>
-                                                                <form action="//wishlist/save" method="post">
+                                                                <form action="/wishlist/save" method="post">
                                                                     <?php $slug =  url_title(session()->get('username') . $val['nama'], '-', true) ?>
                                                                     <input type="hidden" name="slug" value="<?= $slug; ?>">
                                                                     <input type="hidden" name="nama" value="<?= $val['nama']; ?>">
@@ -1067,7 +1095,9 @@
                                                             <?php } ?>
                                                         </div>
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1101,8 +1131,10 @@
                                                         <?php } ?>
                                                     </div>
                                                     <p><?= $val['rincian']; ?></p>
+                                                    <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                                        <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                                     <div class="product-list-action">
-                                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
                                                         <div class="product-action-cart">
                                                             <?php if (session()->get('level') == 'Customer_service') { ?>
                                                                 <form action="/shop/add" method="post">

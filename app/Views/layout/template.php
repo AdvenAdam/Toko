@@ -16,7 +16,7 @@
     <!-- Layout style -->
     <link rel="stylesheet" href="/zz/src/assets/css/demo_1/style.css">
     <!-- Layout style -->
-    <link rel="shortcut icon" href="/zz/src/asssets/images/favicon.ico" />
+    <link rel="shortcut icon" href="/img/aset/favicon.png" />
 
     <!-- DataTables -->
     <link rel="stylesheet" href="/zz/src/assets/datatables-bs4/css/dataTables.bootstrap4.min.css">

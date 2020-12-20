@@ -9,10 +9,10 @@
         </div>
     </div>
     <div class="breadcrumb-img-1">
-        <img src="/front/dking/assets/images/about/breadcrumb-1.png" alt="">
+        <img src="/img/aset/rakit.jpg" alt="">
     </div>
     <div class="breadcrumb-img-2">
-        <img src="/front/dking/assets/images/about/breadcrumb-2.png" alt="">
+        <img src="/img/aset/rakit.jpg" alt="">
     </div>
 </div>
 

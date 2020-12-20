@@ -9,7 +9,7 @@
                     <div class="logo-menu-wrap">
                         <div class="logo">
                             <a href="/">
-                                <img src="/front/dking/assets/images/logo/logo-9.png" alt="logo">
+                                <img src="/img/aset/logo.png" alt="logo">
                             </a>
                         </div>
                         <div class="main-menu menu-lh-1 main-menu-padding-1 menu-mrg-1">

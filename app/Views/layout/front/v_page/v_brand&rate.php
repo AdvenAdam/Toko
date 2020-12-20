@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<div class="testimonial-area bg-img fix pt-140 pb-140 mt-50" style="background-image:url(/front/dking/assets/images/bg/bg-1.png);">
+<div class="testimonial-area bg-img fix pt-140 pb-140 mt-50" style="background-image:url(/img/aset/back.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
@@ -36,7 +36,7 @@
             </div>
             <div class="col-lg-8">
                 <div class="testimonial-active pl-70">
-                    <?php foreach ($rating as $val) { ?>
+                    <?php foreach (array_reverse($rating) as $val) { ?>
                         <div class="testimonial-plr-1">
                             <div class="single-testimonial">
                                 <div class="testi-rating-quotes-icon">

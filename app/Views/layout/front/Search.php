@@ -3,18 +3,17 @@
 <?= $this->include('layout/front/v_page/v_nav'); ?>
 <?= $this->include('layout/front/v_page/v_modal'); ?>
 
-<div class="breadcrumb-area breadcrumb-mt bg-gray breadcrumb-ptb-1">
+<div class="breadcrumb-area breadcrumb-mt bg-red">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Hasil Pencarian</h2>
-            <p class="left">Menampilkan hasil dari :'<?= $keyword; ?>'</p>
+            <center>
+                <h2>Hasil Pencarian</h2>
+                <p class="left">Menampilkan hasil dari :'<?= $keyword; ?>'</p>
+            </center>
         </div>
     </div>
-    <div class="breadcrumb-img-2">
-        <img src="/front/dking/assets/images/about/breadcrumb-3.png" alt="">
-    </div>
 </div>
-<div class="container">
+<div class="container mt-50">
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
@@ -74,7 +73,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +134,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +195,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -260,7 +256,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -322,7 +317,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -384,7 +378,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -446,7 +439,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -508,7 +500,6 @@
                                         <?php } ?>
                                     </div>
                                     <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
-                                    <button title="Add to Compare"><i class="icon-compare"></i></button>
                                 </div>
                             </div>
                         </div>
