@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="empty-cart-content text-center">
-                        <img src="/front/dking/assets/images/cart/empty-cart.png" alt="logo">
+                        <img src="/img/aset/cart.jpg" class="img-fluid" alt="logo">
                         <h3>Keranjang mu masih kosong :(</h3>
                         <div class="empty-cart-btn">
                             <a href="/Shop">Return To Shop</a>

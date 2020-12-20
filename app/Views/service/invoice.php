@@ -18,7 +18,7 @@
                             <div class="payment-details mb-40">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="/front/dking/assets/images/logo/logo-9.png" alt="logo">
+                                        <img src="/img/aset/logo.png" alt="logo">
                                     </div>
                                     <div class="col-9 mb-20 ml-auto mr-auto">
                                         <center>
