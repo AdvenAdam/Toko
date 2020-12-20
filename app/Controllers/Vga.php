@@ -119,7 +119,7 @@ class Vga extends BaseController
             ]
 
         ])) {
-            return redirect()->to('/vga/create')->withInput();
+            return redirect()->to('/vga/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -135,6 +135,10 @@ class Vga extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/vga', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/motherboard/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/motherboard/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -300,6 +304,10 @@ class Vga extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/vga', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/motherboard/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/motherboard/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/vga/' . $this->request->getVar('gambarLama'));
         }
@@ -345,7 +353,7 @@ class Vga extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/vga/tambah');
+        return redirect()->to('/vga/tambah/');
     }
     public function excel()
     {

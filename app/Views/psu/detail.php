@@ -22,7 +22,7 @@
                             <div class="item-wrapper">
                                 <div class="row ">
                                     <div class="col-md-3 ">
-                                        <img src="/img/psu/<?= $psu['gambar']; ?>" alt="" class="gambar">
+                                        <img src="/img/psu/<?= $psu['gambar']; ?>" alt="" class="img-fluid">
                                     </div>
                                     <div class="col-md-9 ">
                                         <table class="table">

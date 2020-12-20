@@ -15,8 +15,12 @@ class TransaksiModel extends Model
     public function getTrx($slug = false)
     {
         if ($slug == false) {
-            return $this->findAll();
+            return $this->orderBY('id', 'DESC')->findAll();
         }
-        return $this->where(['id' => $slug])->first();
+        return $this->where(['id' => $slug])->orderBY('id', 'DESC')->find();
+    }
+    public function getJenis($jenis)
+    {
+        return $this->where('jenis', $jenis)->find();
     }
 }

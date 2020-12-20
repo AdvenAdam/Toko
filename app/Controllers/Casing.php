@@ -90,7 +90,7 @@ class Casing  extends BaseController
             ]
 
         ])) {
-            return redirect()->to('/casing/create')->withInput();
+            return redirect()->to('/casing/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -106,6 +106,10 @@ class Casing  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/casing', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/casing/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/casing/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -239,6 +243,10 @@ class Casing  extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/casing', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/casing/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/casing/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/casing/' . $this->request->getVar('gambarLama'));
         }
@@ -282,7 +290,7 @@ class Casing  extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/casing/tambah');
+        return redirect()->to('/casing/tambah/');
     }
 
     public function excel()

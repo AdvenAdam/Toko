@@ -22,66 +22,153 @@
             <!-- Warehouse level -->
             <?php if (session()->get('level') == 'Warehouse') { ?>
                 <li>
-                    <a href="#komponen" data-toggle="collapse" aria-expanded="false">
-                        <span class="link-title">CRUD Komponen</span>
-                        <i class="mdi mdi-library-plus link-icon"></i>
+                    <!-- motherboard -->
+                    <a href="#Motherboard" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">Motherboard</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
                     </a>
-                    <ul class="collapse navigation-submenu" id="komponen">
+                    <ul class="collapse navigation-submenu" id="Motherboard">
                         <li>
-                            <a href="/motherboard">Motherboard</a>
+                            <a href="/motherboard/">Data Master</a>
                         </li>
                         <li>
-                            <a href="/casing">Cassing</a>
+                            <a href="/motherboard/tambah/">Tambah Stok</a>
                         </li>
                         <li>
-                            <a href="/procesor">Processor</a>
-                        </li>
-                        <li>
-                            <a href="/ram">Ram</a>
-                        </li>
-                        <li>
-                            <a href="/vga">VGA</a>
-                        </li>
-                        <li>
-                            <a href="/memori">Memory</a>
-                        </li>
-                        <li>
-                            <a href="/psu">Power Supply</a>
-                        </li>
-                        <li>
-                            <a href="/pendingin">Cooler</a>
+                            <a href="/motherboard/create/">Input Data</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#stok" data-toggle="collapse" aria-extended="false">
-                        <span class="link-title">Re Stock Barang</span>
-                        <i class="mdi mdi-clipboard-outline link-icon"></i>
+                    <!-- Processor -->
+                    <a href="#procesor" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">Processor</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
                     </a>
-                    <ul class="collapse navigation-submenu" id="stok">
+
+                    <ul class="collapse navigation-submenu" id="procesor">
                         <li>
-                            <a href="/motherboard/tambah">Motherboard</a>
+                            <a href="/procesor/">Data Master</a>
                         </li>
                         <li>
-                            <a href="/casing/tambah">Cassing</a>
+                            <a href="/procesor/tambah/">Tambah Stok</a>
                         </li>
                         <li>
-                            <a href="/procesor/tambah">Processor</a>
+                            <a href="/procesor/create/">Input Data</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <!-- RAM -->
+                    <a href="#ram" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">RAM</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
+                    </a>
+
+                    <ul class="collapse navigation-submenu" id="ram">
+                        <li>
+                            <a href="/ram/">Data Master</a>
                         </li>
                         <li>
-                            <a href="/ram/tambah">Ram</a>
+                            <a href="/ram/tambah/">Tambah Stok</a>
                         </li>
                         <li>
-                            <a href="/vga/tambah">VGA</a>
+                            <a href="/ram/create/">Input Data</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <!-- VGA -->
+                    <a href="#vga" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">VGA</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
+                    </a>
+
+                    <ul class="collapse navigation-submenu" id="vga">
+                        <li>
+                            <a href="/vga/">Data Master</a>
                         </li>
                         <li>
-                            <a href="/memori/tambah">Memory</a>
+                            <a href="/vga/tambah/">Tambah Stok</a>
                         </li>
                         <li>
-                            <a href="/psu/tambah">Power Supply</a>
+                            <a href="/vga/create/">Input Data</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <!-- memory -->
+                    <a href="#memori" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">Memory</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
+                    </a>
+
+                    <ul class="collapse navigation-submenu" id="memori">
+                        <li>
+                            <a href="/memori/">Data Master</a>
                         </li>
                         <li>
-                            <a href="/pendingin/tambah">Cooler</a>
+                            <a href="/memori/tambah/">Tambah Stok</a>
+                        </li>
+                        <li>
+                            <a href="/memori/create/">Input Data</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <!-- psu -->
+                    <a href="#psu" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">Power Supply</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
+                    </a>
+
+                    <ul class="collapse navigation-submenu" id="psu">
+                        <li>
+                            <a href="/psu/">Data Master</a>
+                        </li>
+                        <li>
+                            <a href="/psu/tambah/">Tambah Stok</a>
+                        </li>
+                        <li>
+                            <a href="/psu/create/">Input Data</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <!-- casing -->
+                    <a href="#casing" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">Cassing</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
+                    </a>
+
+                    <ul class="collapse navigation-submenu" id="casing">
+                        <li>
+                            <a href="/casing/">Data Master</a>
+                        </li>
+                        <li>
+                            <a href="/casing/tambah/">Tambah Stok</a>
+                        </li>
+                        <li>
+                            <a href="/casing/create/">Input Data</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <!-- pendingin -->
+                    <a href="#pendingin" data-toggle="collapse" aria-expanded="false">
+                        <span class="link-title">Pendingin</span>
+                        <i class=" mdi mdi-crop-square link-icon"></i>
+                    </a>
+
+                    <ul class="collapse navigation-submenu" id="pendingin">
+                        <li>
+                            <a href="/pendingin/">Data Master</a>
+                        </li>
+                        <li>
+                            <a href="/pendingin/tambah/">Tambah Stok</a>
+                        </li>
+                        <li>
+                            <a href="/pendingin/create/">Input Data</a>
                         </li>
                     </ul>
                 </li>
@@ -130,6 +217,12 @@
                 <li>
                     <a href="/kas">
                         <span class="link-title">Kas</span>
+                        <i class="mdi mdi-calculator  link-icon"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/trx">
+                        <span class="link-title">Transaksi</span>
                         <i class="mdi mdi-calculator  link-icon"></i>
                     </a>
                 </li>

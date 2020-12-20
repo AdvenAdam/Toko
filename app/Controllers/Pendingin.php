@@ -89,7 +89,7 @@ class Pendingin  extends BaseController
             ]
 
         ])) {
-            return redirect()->to('/pendingin/create')->withInput();
+            return redirect()->to('/pendingin/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -105,6 +105,10 @@ class Pendingin  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/pendingin', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/pendingin/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/pendingin/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -235,6 +239,10 @@ class Pendingin  extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/pendingin', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/pendingin/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/pendingin/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/pendingin/' . $this->request->getVar('gambarLama'));
         }
@@ -275,7 +283,7 @@ class Pendingin  extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/pendingin/tambah');
+        return redirect()->to('/pendingin/tambah/');
     }
     public function excel()
     {

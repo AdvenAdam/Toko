@@ -90,6 +90,10 @@ class Toko  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/toko', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/toko/' . $namaGambar)
+                ->resize(900, 600)
+                ->save('img/toko/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -190,6 +194,10 @@ class Toko  extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/toko', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/toko/' . $namaGambar)
+                ->resize(900, 600)
+                ->save('img/toko/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/toko/' . $this->request->getVar('gambarLama'));
         }

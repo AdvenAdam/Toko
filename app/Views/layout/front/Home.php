@@ -26,7 +26,7 @@
                                     </li>
                                     <li><a class="smooth" href="/ #brand">Brand's</a> </li>
                                     <li><a class="smooth" href="/ #dotd">Deals</a> </li>
-                                    <li><a class="smooth" href="/ #contact">Contact Us</a></li>
+                                    <li><a class="smooth" href="/ #contact">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -122,6 +122,7 @@
 <div class="sidebar-cart-active">
     <div class="sidebar-cart-all">
         <a class="cart-close" href="#"><i class="icofont-close-line"></i></a>
+        <?php $cart = \Config\Services::cart(); ?>
         <div class="cart-content">
             <h3>Shopping Cart</h3>
             <ul>
@@ -144,9 +145,7 @@
                 <h4>Total: Rp. <?= number_format($cart->Total()); ?></h4>
             </div>
             <div class="cart-checkout-btn">
-                <?php if (session()->get('level') == 'Guest') { ?>
-                    <a class="btn-hover cart-btn-style" href="/wishlist/wish/<?= session()->get('username'); ?>">view Wishlist</a>
-                <?php } else if (session()->get('level') == 'Customer_service') { ?>
+                <?php if (session()->get('level') == 'Customer_service') { ?>
                     <a class="no-mrg btn-hover cart-btn-style" href="/shop/cart">checkout</a>
                 <?php } ?>
             </div>
@@ -159,19 +158,26 @@
         <a class="sidebar-close"><i class="icofont-close-line"></i></a>
         <div class="mobile-menu-content-area sidebar-content-100-percent">
             <div class="mobile-search">
-                <form class="search-form" action="#">
-                    <input type="text" placeholder="Search here…">
-                    <button class="button-search"><i class="icofont-search-1"></i></button>
+                <form class="search-form" action="/Home/search" method="POST">
+                    <input type="text" name="keyword" placeholder="Ketik Untuk Mencari (Cth: Produk)…">
+                    <button class="button-search" type="submit"><i class="icofont-search-1"></i></button>
                 </form>
             </div>
             <div class="clickable-mainmenu-wrap clickable-mainmenu-style1">
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a> </li>
-                        <li><a href="#">shop</a> </li>
-                        <li><a href="#">Pages</a> </li>
-                        <li><a href="shop.html">Collections</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a class="smooth" href="/ #home">Home</a></li>
+                        <li><a class=" has-sub-menu" href="#">Shop</a>
+                            <ul class="sub-menu-2">
+                                <li><a href="/Shop">Shop</a></li>
+                                <li><a href="/Service">Service Computer</a></li>
+                                <li><a href="/Rakit">Simulasi Rakit PC</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a class="smooth" href="/ #brand">Brand's</a> </li>
+                        <li><a class="smooth" href="/ #dotd">Deals</a> </li>
+                        <li><a class="smooth" href="/ #contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>

@@ -80,6 +80,10 @@ class Merk  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/merk', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/merk/' . $namaGambar)
+                ->resize(60, 60)
+                ->save('img/merk/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -165,6 +169,10 @@ class Merk  extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/merk', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/merk/' . $namaGambar)
+                ->resize(60, 60)
+                ->save('img/merk/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/merk/' . $this->request->getVar('gambarLama'));
         }

@@ -102,4 +102,18 @@ class Rating extends BaseController
 
         $writer->save('php://output');
     }
+
+    public function testimoni()
+    {
+        $data =
+            [
+                'title' => 'Daftar Rating&Review',
+                'rating' => $this->ratingModel->getRating(),
+                'validation' => \Config\Services::validation(),
+
+            ];
+
+
+        return view('layout/front/Testimoni', $data);
+    }
 }

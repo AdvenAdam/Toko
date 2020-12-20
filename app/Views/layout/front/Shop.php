@@ -2,7 +2,7 @@
 <?= $this->section('content'); ?>
 <?= $this->include('layout/front/v_page/v_nav'); ?>
 <?= $this->include('layout/front/v_page/v_modal.php'); ?>
-<div class="shop-area pt-160 pb-160">
+<div class="shop-area pt-200 pb-160">
     <div class="container">
         <div class="shop-categorie-tab mb-20 nav">
             <a href="#casing" data-toggle="tab" class="<?= ($uri->getSegment(2) == 'Casing') ? 'active' : ''; ?>">Casing </a>
@@ -63,7 +63,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/casing/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/casing/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -130,7 +130,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>">
-                                                        <img src="/img/casing/<?= $val['gambar']; ?>" alt="">
+                                                        <img src="/img/casing/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     </a>
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
@@ -201,7 +201,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/motherboard/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/motherboard/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -268,7 +268,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>">
-                                                        <img src="/img/motherboard/<?= $val['gambar']; ?>" alt="">
+                                                        <img src="/img/motherboard/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     </a>
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
@@ -337,7 +337,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/procesor/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/procesor/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -404,7 +404,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>">
-                                                        <img src="/img/procesor/<?= $val['gambar']; ?>" alt="">
+                                                        <img src="/img/procesor/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     </a>
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
@@ -473,7 +473,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/memori/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/memori/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -540,7 +540,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>">
-                                                        <img src="/img/memori/<?= $val['gambar']; ?>" alt="">
+                                                        <img src="/img/memori/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     </a>
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
@@ -609,7 +609,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/vga/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/vga/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -676,7 +676,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>">
-                                                        <img src="/img/vga/<?= $val['gambar']; ?>" alt="">
+                                                        <img src="/img/vga/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     </a>
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
@@ -745,7 +745,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/ram/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/ram/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -812,7 +812,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>">
-                                                        <img src="/img/ram/<?= $val['gambar']; ?>" alt="">
+                                                        <img src="/img/ram/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     </a>
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
@@ -881,7 +881,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/pendingin/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/pendingin/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -947,7 +947,7 @@
                                         <div class="row">
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
-                                                    <img src="/img/pendingin/<?= $val['gambar']; ?>" alt="">
+                                                    <img src="/img/pendingin/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                     </div>
@@ -1015,7 +1015,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                                             <div class="product-wrap mb-50">
                                                 <div class="product-img product-img-zoom mb-25">
-                                                    <img src="/img/psu/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                                    <img src="/img/psu/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><?= $val['nama']; ?></a></h4>
@@ -1082,7 +1082,7 @@
                                             <div class="col-lg-4 col-md-4 col-sm-4">
                                                 <div class="product-list-img">
                                                     <a href="#" data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>">
-                                                        <img src="/img/psu/<?= $val['gambar']; ?>" alt="">
+                                                        <img src="/img/psu/<?= $val['gambar']; ?>" alt="" class="img-fluid">
                                                     </a>
                                                     <div class="shop-list-quickview">
                                                         <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>

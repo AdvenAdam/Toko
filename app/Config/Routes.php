@@ -100,8 +100,8 @@ $routes->get('/psu/(:any)', 'psu::detail/$1', ['filter' => 'authfilter']);
 $routes->get('/vga', 'vga::index', ['filter' => 'authfilter']);
 $routes->get('/vga/create', 'vga::create', ['filter' => 'authfilter']);
 $routes->get('/vga/tambah', 'vga::tambah', ['filter' => 'authfilter']);
-$routes->get('/psu/excel', 'psu::excel', ['filter' => 'authfilter']);
-$routes->get('/psu/cetak', 'psu::cetak', ['filter' => 'authfilter']);
+$routes->get('/vga/excel', 'psu::excel', ['filter' => 'authfilter']);
+$routes->get('/vga/cetak', 'psu::cetak', ['filter' => 'authfilter']);
 $routes->get('/vga/edit/(:segment)', 'vga::edit/$1', ['filter' => 'authfilter']);
 $routes->get('/vga/addstok/(:segment)', 'vga::addstok/$1', ['filter' => 'authfilter']);
 $routes->delete('/vga/(:num)', 'vga::delete/$1', ['filter' => 'authfilter']);
@@ -175,7 +175,10 @@ $routes->get('/diskon/Vga', 'diskon::indexVga', ['filter' => 'authfilter']);
 $routes->get('/wishlist::wish/(:segment)', 'wishlist::wish/$1', ['filter' => 'authfilter']);
 //Service
 $routes->delete('/service/(:num)', 'service::delete/$1', ['filter' => 'authfilter']);
-$routes->delete('/service/ambil/(:any)', 'service::ambil/$1', ['filter' => 'authfilter']);
+$routes->get('/service/ambil/(:any)', 'service::ambil/$1', ['filter' => 'authfilter']);
+//trx
+$routes->delete('/trx/(:num)', 'trx::delete/$1', ['filter' => 'authfilter']);
+$routes->get('/trx', 'trx::index', ['filter' => 'authfilter']);
 
 
 /**

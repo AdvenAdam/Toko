@@ -22,7 +22,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/casing/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/casing/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -84,7 +84,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/motherboard/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/motherboard/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -146,7 +146,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/procesor/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/procesor/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -208,7 +208,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/ram/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/ram/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -270,7 +270,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/memori/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/memori/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -332,7 +332,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/pendingin/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/pendingin/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -394,7 +394,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/psu/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/psu/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -456,7 +456,7 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-wrap mb-50">
                             <div class="product-img product-img-zoom mb-25">
-                                <img src="/img/vga/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                <img src="/img/vga/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                             </div>
                             <div class="product-content">
                                 <h4><?= $val['nama']; ?></a></h4>
@@ -519,9 +519,5 @@
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <?= $this->endsection(); ?>

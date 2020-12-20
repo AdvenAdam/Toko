@@ -151,7 +151,7 @@ class Motherboard  extends BaseController
 
         ])) {
             session()->setFlashdata('pesan', 'erroro');
-            return redirect()->to('/motherboard/create')->withInput();
+            return redirect()->to('/motherboard/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -167,6 +167,10 @@ class Motherboard  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/motherboard', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/motherboard/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/motherboard/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -371,9 +375,14 @@ class Motherboard  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/motherboard', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/motherboard/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/motherboard/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
-
+            // hapus file gambar lama
+            unlink('img/motherboard/' . $this->request->getVar('gambarLama'));
         }
         $socket = $this->request->getVar('socket');
         $faktorbentuk = $this->request->getVar('faktor_bentuk');
@@ -424,7 +433,7 @@ class Motherboard  extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/motherboard/tambah');
+        return redirect()->to('/motherboard/tambah/');
     }
     public function excel()
     {

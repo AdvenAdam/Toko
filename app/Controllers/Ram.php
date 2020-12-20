@@ -101,7 +101,7 @@ class Ram extends BaseController
             ]
 
         ])) {
-            return redirect()->to('/ram/create')->withInput();
+            return redirect()->to('/ram/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -117,6 +117,10 @@ class Ram extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/ram', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/ram/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/ram/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -261,6 +265,10 @@ class Ram extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/ram', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/ram/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/ram/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/ram/' . $this->request->getVar('gambarLama'));
         }
@@ -303,7 +311,7 @@ class Ram extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/ram/tambah');
+        return redirect()->to('/ram/tambah/');
     }
     public function excel()
     {

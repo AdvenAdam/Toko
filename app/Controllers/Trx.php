@@ -12,6 +12,8 @@ use \App\Models\ProcesorModel;
 use \App\Models\PsuModel;
 use \App\Models\VgaModel;
 use Config\Validation;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\xlsx;
 
 class Trx extends BaseController
 {
@@ -42,6 +44,63 @@ class Trx extends BaseController
     }
 
 
+    public function index()
+    {
+        $data =
+            [
+                'title' => 'Daftar Transaksi',
+                'transaksi'  => $this->trxModel->getTrx(),
+                'masuk' => 0,
+
+            ];
+
+        return view('transaksi/index', $data);
+    }
+    public function delete($id)
+    {
+        $this->trxModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil dihapus');
+        return redirect()->to('/trx');
+    }
+
+    public function excel()
+    {
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Jenis');
+        $sheet->setCellValue('C1', 'Pelanggan');
+        $sheet->setCellValue('D1', 'Customer Service');
+        $sheet->setCellValue('E1', 'Nilai');
+        $sheet->setCellValue('F1', 'Rincian');
+        $sheet->setCellValue('G1', 'Created At');
+        $sheet->setCellValue('H1', 'Updated At');
+
+        $procesor = $this->procesorModel->getProcesor();
+        $no = 1;
+        $x = 2;
+        foreach ($procesor as $val) :
+            $sheet->setCellValue('A' . $x, $no++);
+            $sheet->setCellValue('B' . $x, $val['jenis']);
+            $sheet->setCellValue('C' . $x, $val['pelanggan']);
+            $sheet->setCellValue('D' . $x, $val['customer_service']);
+            $sheet->setCellValue('E' . $x, $val['nilai']);
+            $sheet->setCellValue('F' . $x, $val['rincian']);
+            $sheet->setCellValue('G' . $x, $val['created_at']);
+            $sheet->setCellValue('H' . $x, $val['updated_at']);
+            $x++;
+        endforeach;
+        $writer = new xlsx($spreadsheet);
+        $filename = 'laporan-data-transaksi';
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
+    }
+
+    // save data dari transaksi di front
     public function Save()
     {
         $cart = \Config\Services::cart();

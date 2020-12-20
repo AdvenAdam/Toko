@@ -69,6 +69,10 @@ class Slider  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/slider', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/slider/' . $namaGambar)
+                ->resize(735, 433)
+                ->save('img/slider/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -150,6 +154,10 @@ class Slider  extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/slider', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/slider/' . $namaGambar)
+                ->resize(735, 433)
+                ->save('img/slider/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/slider/' . $this->request->getVar('gambarLama'));
         }

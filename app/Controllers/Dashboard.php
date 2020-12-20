@@ -17,6 +17,8 @@ use \App\Models\TokoModel;
 use \App\Models\AuthModel;
 use \App\Models\MerkModel;
 use \App\Models\ServModel;
+use \App\Models\TransaksiModel;
+
 
 
 class Dashboard extends BaseController
@@ -36,6 +38,8 @@ class Dashboard extends BaseController
     protected $authModel;
     protected $merkModel;
     protected $servModel;
+    protected $trxModel;
+
 
     public function __construct()
     {
@@ -54,6 +58,7 @@ class Dashboard extends BaseController
         $this->authModel = new AuthModel();
         $this->merkModel = new merkModel();
         $this->servModel = new ServModel();
+        $this->trxModel = new TransaksiModel();
     }
     public function index()
     {
@@ -68,11 +73,7 @@ class Dashboard extends BaseController
         }
         if (session()->get('level') == 'Admin') {
             return redirect()->to('/dashboard/Admin');
-        }
-        if (session()->get('level') == 'Customer_service') {
-            return redirect()->to('/Home');
-        }
-        if (session()->get('level') == 'Guest') {
+        } else {
             return redirect()->to('/Home');
         }
     }
@@ -109,6 +110,9 @@ class Dashboard extends BaseController
             $data = [
                 'title' => 'Halaman Dashboard Accountant',
                 'kas' => ($this->kasModel->getKas()),
+                'transaksi' => ($this->trxModel->getTrx()),
+                'trxpenjualan' => count($this->trxModel->getJenis('Transaksi Penjualan')),
+                'trxservice' => count($this->trxModel->getJenis('Service PC/Laptop')),
 
             ];
             return view('pages/Accountan', $data);

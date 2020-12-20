@@ -27,10 +27,10 @@
                             </div>
                             <div class="grid-body text-gray mt-1">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <img src="/img/casing/<?= $value['gambar']; ?>" width="200px" height="150px">
+                                    <img src="/img/casing/<?= $value['gambar']; ?>" class="img-fluid"">
                                 </div>
                                 <?= "Stok :" . $value['stok']; ?><br>
-                                <div class="slidecontainer">
+                                <div class=" slidecontainer">
                                     <input type="range" min="1" max="50" value="25" class="slider" name="stok" id="myRange<?= $x++; ?>">
                                     <p>Nilai: <span id="val<?= $i++; ?>"></span></p>
                                 </div>

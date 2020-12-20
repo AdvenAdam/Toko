@@ -99,7 +99,7 @@ class Memori extends BaseController
             ]
 
         ])) {
-            return redirect()->to('/memori/create')->withInput();
+            return redirect()->to('/memori/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -112,15 +112,13 @@ class Memori extends BaseController
             $namaGambar = $fileGambar->getRandomName();
 
             //pindah file ke img
-            // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/memori', $namaGambar);
             $image = \Config\Services::image()
                 ->withFile('img/memori/' . $namaGambar)
-                ->resize(500, 500, 'center', false, 'auto')
+                ->resize(500, 500)
                 ->save('img/memori/' . $namaGambar);
             // ambil nama file
-            // $namaSampul = $fileSampul->getName();
 
         }
 
@@ -256,6 +254,10 @@ class Memori extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/memori', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/memori/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/memori/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/memori/' . $this->request->getVar('gambarLama'));
         }
@@ -297,7 +299,7 @@ class Memori extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/memori/tambah');
+        return redirect()->to('/memori/tambah/');
     }
     public function excel()
     {

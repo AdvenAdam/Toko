@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaP" name="hargaP">
+                                <input type="text" id="hargaP" name="hargaP" readonly value="0">
                             </div>
                         </div>
                         <label for="nama" class="col-sm-2 col-form-label">Motherboard</label>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaM" name="hargaM">
+                                <input type="text" id="hargaM" name="hargaM" readonly value="0">
                             </div>
                         </div>
                         <label for="nama" class="col-sm-2 col-form-label">RAM</label>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaR" name="hargaR" readonly>
+                                <input type="text" id="hargaR" name="hargaR" value="0" readonly>
                             </div>
                         </div>
                         <label for="nama" class="col-sm-2 col-form-label">VGA</label>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaV" name="hargaV" readonly>
+                                <input type="text" id="hargaV" name="hargaV" value="0" readonly>
                             </div>
                         </div>
                         <label for="nama" class="col-sm-2 col-form-label">Memori Penyimpanan</label>
@@ -142,7 +142,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaMemori" nama="hargaMemori" readonly>
+                                <input type="text" id="hargaMemori" nama="hargaMemori" value="0" readonly>
                             </div>
                         </div>
                         <label for="nama" class="col-sm-2 col-form-label">Pendingin</label>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaCooler" name="hargaCooler" readonly>
+                                <input type="text" id="hargaCooler" value="0" name="hargaCooler" readonly>
                             </div>
                         </div>
                         <label for="nama" class="col-sm-2 col-form-label">Casing</label>
@@ -187,7 +187,7 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaCasing" name="hargaCasing" readonly>
+                                <input type="text" id="hargaCasing" value="0" name="hargaCasing" readonly>
                             </div>
                         </div>
                         <label for="nama" class="col-sm-2 col-form-label">Power Supply</label>
@@ -208,7 +208,19 @@
                         </div>
                         <div class="col-lg-3 col-md-3">
                             <div class="single-car-form mb-50">
-                                <input type="text" id="hargaPsu" name="hargaPsu" readonly>
+                                <input type="text" id="hargaPsu" name="hargaPsu" value="0" readonly>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7">
+                        </div>
+                        <div class="col-lg-2 col-md-2">
+                            <div class="single-car-form mb-50">
+                                <input type="hidden" value="1">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="single-car-form mb-50">
+                                <input type="text" id="total" name="Total" placeholder="total" readonly>
                             </div>
                         </div>
                     </div>
@@ -343,6 +355,22 @@
             var qty = document.getElementById('qtyProcesor').value;
             var hasil = parseInt(hargaP) * parseInt(qty);
             document.getElementById('hargaP').value = hasil;
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
 
         });
         $('#motherboard').change(function() {
@@ -350,51 +378,227 @@
             var qty = document.getElementById('qtyMotherboard').value;
             var hasil = parseInt(hargaM) * parseInt(qty);
             document.getElementById('hargaM').value = hasil;
-        });
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
 
+        });
         $('#ram').change(function() {
             var hargaR = $("#ram").find(':selected').data('harga');
             document.getElementById('hargaR').value = hargaR;
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
             $('.inc,.dec').click(function() {
                 var qty = document.getElementById('qtyRam').value;
                 var hasil = parseInt(hargaR) * parseInt(qty);
                 document.getElementById('hargaR').value = hasil;
+                // menjumlah semua ke total 
+                var subtotalP = parseInt($("#hargaP").val());
+                var subtotalM = parseInt($("#hargaM").val());
+                var subtotalR = parseInt($("#hargaR").val());
+                var subtotalV = parseInt($("#hargaV").val());
+                var subtotalCooler = parseInt($("#hargaCooler").val());
+                var subtotalMemori = parseInt($("#hargaMemori").val());
+                var subtotalCasing = parseInt($("#hargaCasing").val());
+                var subtotalPsu = parseInt($("#hargaPsu").val());
+                var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+                // conversi ke rupiah
+                var total = jumlah.toLocaleString('id-ID', {
+                    currency: 'IDR',
+                    style: 'currency'
+                });
+                document.getElementById('total').value = total;
             });
         });
         $('#vga').change(function() {
             var hargaV = $("#vga").find(':selected').data('harga');
             document.getElementById('hargaV').value = hargaV;
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
             $('.inc,.dec').click(function() {
                 var qty = document.getElementById('qtyVga').value;
                 var hasil = parseInt(hargaV) * parseInt(qty);
                 document.getElementById('hargaV').value = hasil;
+                // menjumlah semua ke total 
+                var subtotalP = parseInt($("#hargaP").val());
+                var subtotalM = parseInt($("#hargaM").val());
+                var subtotalR = parseInt($("#hargaR").val());
+                var subtotalV = parseInt($("#hargaV").val());
+                var subtotalCooler = parseInt($("#hargaCooler").val());
+                var subtotalMemori = parseInt($("#hargaMemori").val());
+                var subtotalCasing = parseInt($("#hargaCasing").val());
+                var subtotalPsu = parseInt($("#hargaPsu").val());
+                var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+                // conversi ke rupiah
+                var total = jumlah.toLocaleString('id-ID', {
+                    currency: 'IDR',
+                    style: 'currency'
+                });
+                document.getElementById('total').value = total;
             });
         });
         $('#memori').change(function() {
             var hargaMemori = $("#memori").find(':selected').data('harga');
             document.getElementById('hargaMemori').value = hargaMemori;
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
             $('.inc,.dec').click(function() {
                 var qty = document.getElementById('qtyMemori').value;
                 var hasil = parseInt(hargaMemori) * parseInt(qty);
                 document.getElementById('hargaMemori').value = hasil;
+                // menjumlah semua ke total 
+                var subtotalP = parseInt($("#hargaP").val());
+                var subtotalM = parseInt($("#hargaM").val());
+                var subtotalR = parseInt($("#hargaR").val());
+                var subtotalV = parseInt($("#hargaV").val());
+                var subtotalCooler = parseInt($("#hargaCooler").val());
+                var subtotalMemori = parseInt($("#hargaMemori").val());
+                var subtotalCasing = parseInt($("#hargaCasing").val());
+                var subtotalPsu = parseInt($("#hargaPsu").val());
+                var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+                // conversi ke rupiah
+                var total = jumlah.toLocaleString('id-ID', {
+                    currency: 'IDR',
+                    style: 'currency'
+                });
+                document.getElementById('total').value = total;
             });
         });
         $('#pendingin').change(function() {
             var hargaCooler = $("#pendingin").find(':selected').data('harga');
             document.getElementById('hargaCooler').value = hargaCooler;
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
             $('.inc,.dec').click(function() {
                 var qty = document.getElementById('qtyPendingin').value;
                 var hasil = parseInt(hargaCooler) * parseInt(qty);
                 document.getElementById('hargaCooler').value = hasil;
+                // menjumlah semua ke total 
+                var subtotalP = parseInt($("#hargaP").val());
+                var subtotalM = parseInt($("#hargaM").val());
+                var subtotalR = parseInt($("#hargaR").val());
+                var subtotalV = parseInt($("#hargaV").val());
+                var subtotalCooler = parseInt($("#hargaCooler").val());
+                var subtotalMemori = parseInt($("#hargaMemori").val());
+                var subtotalCasing = parseInt($("#hargaCasing").val());
+                var subtotalPsu = parseInt($("#hargaPsu").val());
+                var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+                // conversi ke rupiah
+                var total = jumlah.toLocaleString('id-ID', {
+                    currency: 'IDR',
+                    style: 'currency'
+                });
+                document.getElementById('total').value = total;
             });
         });
         $('#casing').change(function() {
             var hargaCasing = $("#casing").find(':selected').data('harga');
             document.getElementById('hargaCasing').value = hargaCasing;
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
         });
         $('#psu').change(function() {
             var hargaPsu = $("#psu").find(':selected').data('harga');
             document.getElementById('hargaPsu').value = hargaPsu;
+            // menjumlah semua ke total 
+            var subtotalP = parseInt($("#hargaP").val());
+            var subtotalM = parseInt($("#hargaM").val());
+            var subtotalR = parseInt($("#hargaR").val());
+            var subtotalV = parseInt($("#hargaV").val());
+            var subtotalCooler = parseInt($("#hargaCooler").val());
+            var subtotalMemori = parseInt($("#hargaMemori").val());
+            var subtotalCasing = parseInt($("#hargaCasing").val());
+            var subtotalPsu = parseInt($("#hargaPsu").val());
+            var jumlah = parseInt(subtotalP + subtotalM + subtotalR + subtotalV + subtotalCooler + subtotalMemori + subtotalCasing + subtotalPsu);
+            // conversi ke rupiah
+            var total = jumlah.toLocaleString('id-ID', {
+                currency: 'IDR',
+                style: 'currency'
+            });
+            document.getElementById('total').value = total;
         });
 
 

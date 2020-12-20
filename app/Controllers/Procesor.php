@@ -119,7 +119,7 @@ class Procesor extends BaseController
             ]
 
         ])) {
-            return redirect()->to('/procesor/create')->withInput();
+            return redirect()->to('/procesor/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -135,6 +135,10 @@ class Procesor extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/procesor', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/procesor/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/procesor/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -300,6 +304,10 @@ class Procesor extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/procesor', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/procesor/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/procesor/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/procesor/' . $this->request->getVar('gambarLama'));
         }
@@ -346,7 +354,7 @@ class Procesor extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/procesor/tambah');
+        return redirect()->to('/procesor/tambah/');
     }
     public function excel()
     {

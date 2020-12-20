@@ -102,7 +102,7 @@ class Psu  extends BaseController
             ]
 
         ])) {
-            return redirect()->to('/psu/create')->withInput();
+            return redirect()->to('/psu/create/')->withInput();
         }
         // ambil gambar
         $fileGambar = $this->request->getFile('gambar');
@@ -118,6 +118,10 @@ class Psu  extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/psu', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/psu/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/psu/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -263,6 +267,10 @@ class Psu  extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/psu', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/psu/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/psu/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/psu/' . $this->request->getVar('gambarLama'));
         }
@@ -305,7 +313,7 @@ class Psu  extends BaseController
                 'stok' => $stokBaru,
             ]
         );
-        return redirect()->to('/psu/tambah');
+        return redirect()->to('/psu/tambah/');
     }
     public function excel()
     {

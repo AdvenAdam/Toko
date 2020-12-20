@@ -12,7 +12,7 @@
                                     <h3 class="my-3"><?= $title; ?></h3>
                                 </div>
                                 <div class="col-sm-6" align="right">
-                                    <a href="/merk" class="btn btn-rounded social-icon-btn btn-primary">
+                                    <a href="/slider" class="btn btn-rounded social-icon-btn btn-primary">
                                         <i class=" mdi mdi-arrow-left "></i>
                                     </a>
                                 </div>
@@ -22,34 +22,42 @@
                             <div class="item-wrapper">
                                 <div class="row mb-3">
                                     <div class="col-md-8 mx-auto">
-                                        <form action="/merk/save" method="post" enctype="multipart/form-data">
+                                        <form action="/slider/save" method="post" enctype="multipart/form-data">
                                             <?= csrf_field(); ?>
                                             <div class="grid-header">
-                                                <h7 class="my-10"><?= "Informasi Dasar merk"; ?></h7>
+                                                <h7 class="my-10"><?= "Informasi Dasar slider"; ?></h7>
                                             </div>
                                             <div class="form-group row showcase_row_area">
-                                                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                                                <label for="baris_satu" class="col-sm-2 col-form-label">Kalimat Baris Pertama</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" value="<?= old('nama'); ?>">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('baris_satu')) ? 'is-invalid' : ''; ?>" require id="baris_satu" name="baris_satu" value="<?= (old('baris_satu')); ?>">
                                                     <div class="invalid-feedback">
-                                                        <?= $validation->getError('nama'); ?>
+                                                        <?= $validation->getError('baris_satu'); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row showcase_row_area">
+                                                <label for="baris_dua" class="col-sm-2 col-form-label">Kalimat Baris Kedua </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('baris_dua')) ? 'is-invalid' : ''; ?>" require id="baris_dua" name="baris_dua" value="<?= (old('baris_dua')); ?>">
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('baris_dua'); ?>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group row showcase_row_area">
                                                 <label for="link" class="col-sm-2 col-form-label">Link</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control <?= ($validation->hasError('link')) ? 'is-invalid' : ''; ?>" id="link" name="link" value="<?= old('link'); ?>">
+                                                    <input type="text" class="form-control <?= ($validation->hasError('link')) ? 'is-invalid' : ''; ?>" require id="link" name="link" value="<?= (old('link')); ?>">
                                                     <div class="invalid-feedback">
                                                         <?= $validation->getError('link'); ?>
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group row showcase_row_area">
                                                 <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
                                                 <div class="col-sm-2">
-                                                    <img src="/img/merk/default.jpg" class="img-thumbnail img-preview">
+                                                    <img src="/img/slider/default.jpg" class="img-thumbnail img-preview">
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <div class="custom-file">

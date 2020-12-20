@@ -45,7 +45,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/casing/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/casing/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -108,7 +108,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/Casing">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/motherboard/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/motherboard/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -184,7 +184,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/Motherboard">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -197,7 +197,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/procesor/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/procesor/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -260,7 +260,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/Processor">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -273,7 +273,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/memori/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/memori/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -336,7 +336,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/Memory">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -349,7 +349,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/vga/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/vga/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -412,7 +412,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/VGA">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -425,7 +425,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/ram/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/ram/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -488,7 +488,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/RAM">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -501,7 +501,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/pendingin/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/pendingin/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -564,7 +564,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/Cooler">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -577,7 +577,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="product-wrap mb-35">
                                         <div class="product-img product-img-zoom mb-25">
-                                            <img src="/img/psu/<?= $val['gambar']; ?>" class="gambar" alt="">
+                                            <img src="/img/psu/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -640,7 +640,7 @@
                                 <div class="product-wrap mb-35">
                                     <div class="product-img product-img-zoom mb-25">
                                         <a href="/Shop/PSU">
-                                            <img src="/img/aset/more.png" class="gambar" alt="">
+                                            <img src="/img/aset/more.png" class="img-fluid" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -655,7 +655,7 @@
 </div>
 
 <!-- Bagian Officoal Stores -->
-<div class="product-area section-padding-6 pt-35 pb-50 fix">
+<div class="product-area section-padding-6 pt-35 pb-0 fix">
     <div class="container">
         <div class="col-lg-4 col-md-4">
             <div class="section-title-7 mb-30">
@@ -670,7 +670,7 @@
                             <div class="product-wrap">
                                 <div class="product-img product-img-zoom">
                                     <a href="<?= $val['link']; ?>">
-                                        <img src="/img/toko/<?= $val['gambar']; ?>" class="banner" title="<?= $val['nama']; ?>">
+                                        <img src="/img/toko/<?= $val['gambar']; ?>" class="img-fluid" title="<?= $val['nama']; ?>">
                                     </a>
                                 </div>
                             </div>
@@ -685,7 +685,7 @@
 
 
 <!-- diskon -->
-<div class="product-area section-padding-6 pt-155 pb-155 fix" id="dotd">
+<div class="product-area section-padding-6 pt-50 pb-155 fix" id="dotd">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -703,7 +703,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/casing/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/casing/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>
@@ -758,7 +758,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/memori/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/memori/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>
@@ -813,7 +813,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/motherboard/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/motherboard/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>
@@ -868,7 +868,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/pendingin/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/pendingin/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>
@@ -923,7 +923,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/procesor/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/procesor/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>
@@ -978,7 +978,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/psu/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/psu/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>
@@ -1033,7 +1033,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/ram/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/ram/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>
@@ -1088,7 +1088,7 @@
                                     <div class="product-wrap">
                                         <div class="product-img product-img-zoom mb-25">
                                             <a href="">
-                                                <img src="img/vga/<?= $val['gambar']; ?>" class="diskon" alt="">
+                                                <img src="img/vga/<?= $val['gambar']; ?>" class="img-fluid" alt="">
                                             </a>
                                             <div class="timer-3 timer-style-1 product-timer timer-style-1-center mega-fashion-timer">
                                                 <div data-countdown="<?= $val['berlaku']; ?>"></div>

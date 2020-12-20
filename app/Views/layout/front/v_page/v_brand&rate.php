@@ -30,7 +30,7 @@
                     <h2>We Love Our Clients <br>They Love Us</h2>
                     <p class="st-2-paragraph">Competently grow wireless platforms through reliable leadership. Intrinsicly supply.</p>
                     <div class="btn-style-2 btn-hover">
-                        <a class="animated btn-ptb-1 btn-ptb-2-white-bg" href="product-details.html">All Testimonials</a>
+                        <a class="animated btn-ptb-1 btn-ptb-2-white-bg" href="/rating/testimoni">All Testimonials</a>
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
                             </div>
                             <div class="grid-body text-gray mt-1">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <img src="/img/vga/<?= $value['gambar']; ?>" width="200px" height="150px">
+                                    <img src="/img/vga/<?= $value['gambar']; ?>" class="img-fluid">
                                 </div>
                                 <?= "Stok :" . $value['stok']; ?><br>
                                 <div class="slidecontainer">
