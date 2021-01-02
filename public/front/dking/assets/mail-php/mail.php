@@ -19,7 +19,7 @@
 
         // Set the recipient email address.
         // FIXME: Update this to your desired email address.
-        $recipient = "mailcheck@whizthemes.com";
+        $recipient = "adjvenadam@gmail.com";
 
         // Set the email name.
         $subject = "$name";
@@ -49,5 +49,3 @@
         http_response_code(403);
         echo "There was a problem with your submission, please try again.";
     }
-
-?>
