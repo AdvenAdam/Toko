@@ -59,7 +59,9 @@
                                     <div class="product-action-wrap">
                                         <div class="product-action-cart">
                                         </div>
-                                        <button title="Add to Compare"><i class="icon-compare"></i></button>
+                                        <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
+                                            <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
+                                            <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
                                     </div>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@
                 <div class="col-lg-2 col-md-3 col-6 col-sm-4">
                     <div class="single-brand-logo-4 mb-70">
                         <a href="<?= $val['link']; ?>" target="_blank">
-                            <img src="/img/merk/<?= $val['gambar']; ?>" alt="" class="brand"></a>
+                            <img src="/img/merk/<?= $val['gambar']; ?>" alt="" class="img-fluid"></a>
                     </div>
                 </div>
             <?php } ?>

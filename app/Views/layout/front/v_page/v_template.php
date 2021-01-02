@@ -36,11 +36,11 @@
 
     <script src="/front/dking/assets/js/vendor/vendor.min.js"></script>
     <script src="/front/dking/assets/js/plugins/plugins.min.js"></script>
-    <script src="/zz/src/assets/jquery/jquery.inputmask.bundle.min.js"></script>
     <!-- Main JS -->
     <script src="/front/dking/assets/js/main.js"></script>
 
     <!-- fade out alert -->
+    <script src="/zz/src/assets/jquery/jquery.inputmask.bundle.min.js"></script>
     <script>
         window.setTimeout(function() {
             $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -91,7 +91,6 @@
                         window.location.hash = hash;
 
                     });
-
                 } // End if
 
             });
