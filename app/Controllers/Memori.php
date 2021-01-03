@@ -259,7 +259,9 @@ class Memori extends BaseController
                 ->resize(500, 500)
                 ->save('img/memori/' . $namaGambar);
             // hapus file gambar lama
-            unlink('img/memori/' . $this->request->getVar('gambarLama'));
+            if ($namaGambar != 'default.jpg') {
+                unlink('img/memori/' . $this->request->getVar('gambarLama'));
+            }
         }
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->memoriModel->save([

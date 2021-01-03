@@ -382,7 +382,9 @@ class Motherboard  extends BaseController
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
             // hapus file gambar lama
-            unlink('img/motherboard/' . $this->request->getVar('gambarLama'));
+            if ($namaGambar != 'default.jpg') {
+                unlink('img/motherboard/' . $this->request->getVar('gambarLama'));
+            }
         }
         $socket = $this->request->getVar('socket');
         $faktorbentuk = $this->request->getVar('faktor_bentuk');

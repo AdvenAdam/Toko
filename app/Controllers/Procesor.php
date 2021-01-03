@@ -309,7 +309,9 @@ class Procesor extends BaseController
                 ->resize(500, 500)
                 ->save('img/procesor/' . $namaGambar);
             // hapus file gambar lama
-            unlink('img/procesor/' . $this->request->getVar('gambarLama'));
+            if ($namaGambar != 'default.jpg') {
+                unlink('img/procesor/' . $this->request->getVar('gambarLama'));
+            }
         }
         $socket = $this->request->getVar('socket');
         $slug = url_title($this->request->getVar('nama'), '-', true);

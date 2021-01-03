@@ -244,7 +244,9 @@ class Pendingin  extends BaseController
                 ->resize(500, 500)
                 ->save('img/pendingin/' . $namaGambar);
             // hapus file gambar lama
-            unlink('img/pendingin/' . $this->request->getVar('gambarLama'));
+            if ($namaGambar != 'default.jpg') {
+                unlink('img/pendingin/' . $this->request->getVar('gambarLama'));
+            }
         }
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->pendinginModel->save([

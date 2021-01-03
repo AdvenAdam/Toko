@@ -36,7 +36,7 @@ class Merk  extends BaseController
             'title' => 'Tambah Data',
             'validation' => \Config\Services::validation()
         ];
-        return view('slider/create', $data);
+        return view('merk/create', $data);
     }
     public function save()
     {

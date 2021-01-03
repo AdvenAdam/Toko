@@ -23,11 +23,11 @@
             <?php if (session()->get('level') == 'Warehouse') { ?>
                 <li>
                     <!-- motherboard -->
-                    <a href="#Motherboard" data-toggle="collapse" aria-expanded="false">
+                    <a href="#motherboard" data-toggle="collapse" aria-expanded="false">
                         <span class="link-title">Motherboard</span>
                         <i class=" mdi mdi-crop-square link-icon"></i>
                     </a>
-                    <ul class="collapse navigation-submenu" id="Motherboard">
+                    <ul class="collapse navigation-submenu" id="motherboard">
                         <li>
                             <a href="/motherboard/">Data Master</a>
                         </li>

@@ -272,7 +272,9 @@ class Psu  extends BaseController
                 ->resize(500, 500)
                 ->save('img/psu/' . $namaGambar);
             // hapus file gambar lama
-            unlink('img/psu/' . $this->request->getVar('gambarLama'));
+            if ($namaGambar != 'default.jpg') {
+                unlink('img/psu/' . $this->request->getVar('gambarLama'));
+            }
         }
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->psuModel->save([

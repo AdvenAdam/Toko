@@ -40,6 +40,7 @@ class Vga extends BaseController
         //session();
         $data = [
             'title' => 'Tambah Data',
+            'merk'  => $this->merkModel->getMerk(),
             'validation' => \Config\Services::validation()
         ];
         return view('vga/create', $data);
@@ -136,9 +137,9 @@ class Vga extends BaseController
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/vga', $namaGambar);
             $image = \Config\Services::image()
-                ->withFile('img/motherboard/' . $namaGambar)
+                ->withFile('img/vga/' . $namaGambar)
                 ->resize(500, 500)
-                ->save('img/motherboard/' . $namaGambar);
+                ->save('img/vga/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -305,11 +306,13 @@ class Vga extends BaseController
             // pindah gambar
             $fileGambar->move('img/vga', $namaGambar);
             $image = \Config\Services::image()
-                ->withFile('img/motherboard/' . $namaGambar)
+                ->withFile('img/vga/' . $namaGambar)
                 ->resize(500, 500)
-                ->save('img/motherboard/' . $namaGambar);
+                ->save('img/vga/' . $namaGambar);
             // hapus file gambar lama
-            unlink('img/vga/' . $this->request->getVar('gambarLama'));
+            if ($namaGambar != 'default.jpg') {
+                unlink('img/vga/' . $this->request->getVar('gambarLama'));
+            }
         }
         $slug = url_title($this->request->getVar('nama'), '-', true);
         $this->vgaModel->save([
