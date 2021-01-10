@@ -100,7 +100,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +179,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -256,7 +258,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -334,7 +337,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -412,7 +416,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -490,7 +495,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -568,7 +574,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -646,7 +653,8 @@
                                                 <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                                 <p><a href=""> <img src="/img/aset/bl.png" alt=""></a>
                                                     <a href=""> <img src="/img/aset/shopee.png" alt=""></a>
-                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a></p>
+                                                    <a href=""> <img src="/img/aset/toped.png" alt=""></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -757,7 +765,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -811,7 +818,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -865,7 +871,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -919,7 +924,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -973,7 +977,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -1027,7 +1030,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -1081,7 +1083,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -1135,7 +1136,6 @@
                                                         </form>
                                                     <?php } ?>
                                                 </div>
-                                                <button data-toggle="modal" data-target="#exampleModal<?= $val['slug']; ?>"><i class="icon-zoom"></i></button>
                                             </div>
                                         </div>
                                     </div>
