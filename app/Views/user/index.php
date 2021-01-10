@@ -32,19 +32,21 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($user as $val) : ?>
-                                        <tr align="middle">
-                                            <td><?= $i++; ?></td>
-                                            <td><?= $val['username']; ?></td>
-                                            <td><?= $val['no_pegawai']; ?></td>
-                                            <td><?= $val['level']; ?></td>
-                                            <td>
-                                                <form action="/user/<?= $val['id']; ?>" method="post" class="d-inline">
-                                                    <?= csrf_field(); ?>
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-dark btn-sm" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
+                                        <?php if ($val['level'] != 'Guest') { ?>
+                                            <tr align="middle">
+                                                <td><?= $i++; ?></td>
+                                                <td><?= $val['username']; ?></td>
+                                                <td><?= $val['no_pegawai']; ?></td>
+                                                <td><?= $val['level']; ?></td>
+                                                <td>
+                                                    <form action="/user/<?= $val['id']; ?>" method="post" class="d-inline">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-dark btn-sm" onclick="return confirm('Apakah Anda Yakin ?')"><i class="mdi mdi-delete"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>

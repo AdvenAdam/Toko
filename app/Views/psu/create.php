@@ -128,7 +128,7 @@
                                             <div class="form-group row showcase_row_area">
                                                 <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
                                                 <div class="col-sm-2">
-                                                    <img src="/img/pendingin/default.jpg" class="img-thumbnail img-preview">
+                                                    <img src="/img/psu/default.jpg" class="img-thumbnail img-preview">
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <div class="custom-file">

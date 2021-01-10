@@ -161,7 +161,6 @@ class Memori extends BaseController
 
         // cek gambar bila gambar default aga rfile default.jpg tdk terhapus
         if ($memori['gambar'] != 'default.jpg') {
-
             // hapus gambar
             unlink('img/memori/' . $memori['gambar']);
         }

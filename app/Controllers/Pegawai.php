@@ -119,6 +119,10 @@ class Pegawai extends BaseController
             // $fileSampul->move('img');
             // memindahkan file dengan nama file yang dirandomkan
             $fileGambar->move('img/pegawai', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/pegawai/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/pegawai/' . $namaGambar);
             // ambil nama file
             // $namaSampul = $fileSampul->getName();
 
@@ -260,6 +264,10 @@ class Pegawai extends BaseController
             $namaGambar = $fileGambar->getRandomName();
             // pindah gambar
             $fileGambar->move('img/pegawai', $namaGambar);
+            $image = \Config\Services::image()
+                ->withFile('img/pegawai/' . $namaGambar)
+                ->resize(500, 500)
+                ->save('img/pegawai/' . $namaGambar);
             // hapus file gambar lama
             unlink('img/pegawai/' . $this->request->getVar('fotoLama'));
         }

@@ -11,7 +11,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 col-sm-7">
                             <div class="slider-single-img-2 slider-animated-1">
-                                <a href="<?= $val['link']; ?>"><img class="animated" src="/img/slider/<?= $val['gambar']; ?>" class="img-fluid" alt=""></a>
+                                <a href="http://<?= $val['link']; ?>"><img class="animated" src="/img/slider/<?= $val['gambar']; ?>" class="img-fluid" alt=""></a>
                             </div>
                         </div>
                     </div>

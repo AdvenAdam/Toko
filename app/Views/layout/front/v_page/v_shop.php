@@ -685,7 +685,7 @@
                         <div class="product-wrap-plr-1">
                             <div class="product-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="<?= $val['link']; ?>">
+                                    <a href="http://<?= $val['link']; ?>">
                                         <img src="/img/toko/<?= $val['gambar']; ?>" class="img-fluid" title="<?= $val['nama']; ?>">
                                     </a>
                                 </div>
